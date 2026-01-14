@@ -58,7 +58,7 @@ export const DATA = {
       },
       X: {
         name: "X",
-        url: "https://x.com/codesubhadip95",
+        url: "https://x.com/Subhadip53874",
         icon: Icons.x,
         navbar: true,
       },
@@ -67,28 +67,28 @@ export const DATA = {
 
   work: [
     {
+      company: "NIXGN",
+      href: "https://nixgn.com/",
+      badges: [],
+      location: "Kolkata, India",
+      title: "Co-Founder || Design Engineer || Frontend Dev",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767823664/Favicon_bemcjz.png",
+      start: "Jan 2026",
+      end: "Present",
+      description:
+        "Designing and developing user interfaces for web applications to improve user experience.",
+    },
+    {
       company: "GDG on Campus NSEC",
       href: "https://gdg.community.dev/gdg-on-campus-netaji-subhash-engineering-college-kolkata-india/",
       badges: [],
       location: "Kolkata, India",
       title: "Design Core Team Member",
-      logoUrl: "",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768429837/GDG_Logo_yrydh5.png",
       start: "Sep 2025",
       end: "Present",
       description:
         "Contributing to the design and event management of the Google Developer Groups chapter at NSEC.",
-    },
-    {
-      company: "Kolkata Metro App",
-      href: "#",
-      badges: [],
-      location: "Kolkata, India",
-      title: "UI/UX Designer",
-      logoUrl: "",
-      start: "Jun 2025",
-      end: "July 2025",
-      description:
-        "Redesigned the Kolkata Metro App user interface using Material 3 UI principles in Figma to improve user experience.",
     }
   ],
   education: [
@@ -96,25 +96,22 @@ export const DATA = {
       school: "Netaji Subhash Engineering College",
       href: "https://www.nsec.ac.in/",
       degree: "Bachelor of Technology in Computer Science and Engineering",
-      logoUrl: "",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768430096/Screenshot_2026-01-15_040402_xo0qxf.png",
       start: "2023",
       end: "2027",
     },
   ],
   projects: [
     {
-      title: "Zerith",
-      href: "https://github.com/Subhadipjana95",
-      dates: "Sep 2025 - Oct 2025",
+      title: "NIXGn - Next-Gen Intelligence Execution Group",
+      href: "https://github.com/nixgnofficial",
+      dates: "2026",
       active: true,
       description:
-        "A Stock Trading Web App built with Next.js 15, TypeScript, and ShadCN/ui. Features real-time market data via Finnhub APIs and AI market summaries.",
+        "Premium Software Agency & Product Studio Crafting aesthetic, high-performance web applications with cutting-edge technologies",
       technologies: [
-        "Next.js 15",
         "TypeScript",
-        "ShadCN UI",
-        "Finnhub API",
-        "AI Integration"
+        "Next.js"
       ],
       links: [
         {
@@ -123,7 +120,58 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767823774/b780dc6e-d7f3-46f8-9f2b-08ae1226f6c3.png",
+      video: "",
+    },
+    {
+      title: "Next.Ref_Alumni-Connect",
+      href: "https://github.com/Subhadipjana95",
+      dates: "2024",
+      active: true,
+      description:
+        "College-Verified Alumni Referral Platform built with TypeScript.",
+      technologies: [
+        "TypeScript",
+        "Next.js"
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Subhadipjana95/Next.Ref_Alumni-Connect",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Live",
+          href: "https://next-reff-alumni-connect.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        }
+      ],
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1766874786/Screenshot_2025-12-28_040242_g4dvlu.png",
+      video: "",
+    },
+    {
+      title: "Kisan-Mitra",
+      href: "https://github.com/Subhadipjana95",
+      dates: "2024",
+      active: true,
+      description:
+        "Forked project focused on farmer assistance tools.",
+      technologies: [
+        "JavaScript"
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Subhadipjana95/Kisan-Mitra",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Live",
+          href: "https://kisan-mitra-beta.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        }
+      ],
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767549976/Screenshot_2026-01-04_233547_pqsq7i.png",
       video: "",
     },
     {
@@ -145,59 +193,34 @@ export const DATA = {
           href: "https://github.com/Subhadipjana95/EnviroMat",
           icon: <Icons.github className="size-3" />,
         },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Next.Ref_Alumni-Connect",
-      href: "https://github.com/Subhadipjana95",
-      dates: "2024",
-      active: true,
-      description:
-        "College-Verified Alumni Referral Platform built with TypeScript.",
-      technologies: [
-        "TypeScript",
-        "Next.js"
-      ],
-      links: [
         {
-          type: "Source",
-          href: "https://github.com/Subhadipjana95",
-          icon: <Icons.github className="size-3" />,
-        },
+          type: "Live",
+          href: "https://enviro-mat.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        }
       ],
-      image: "",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767550276/Screenshot_2026-01-04_234059_gakrru.png",
       video: "",
     },
-    {
-      title: "Kisan-Mitra",
-      href: "https://github.com/Subhadipjana95",
-      dates: "2024",
-      active: true,
-      description:
-        "Forked project focused on farmer assistance tools.",
-      technologies: [
-        "JavaScript"
-      ],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/Subhadipjana95",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
+
   ],
   hackathons: [
     {
-      title: "Innovocon 2k24",
-      dates: "2024",
-      location: "Kolkata, India",
+      title: "CosmoHacks1",
+      dates: "2025",
+      location: "Techno City, Garia, Kolkata, India",
       description:
-        "Winner of 'Think 3D' track. Developed innovative solutions using 3D technologies.",
+        "2nd Runner-Up & Aptos Track Winner. Developed a modern web application that bridges the gap between students, universities, and alumni networks.",
+      image: "",
+      mlh: "",
+      links: [],
+    },
+    {
+      title: "HackSpire 2k25",
+      dates: "2025",
+      location: "FIEM, Sonarpur, Kolkata, India",
+      description:
+        "UI/UX Track Winner. Developed a comprehensive agricultural marketplace platform that connects farmers and dealers for crop trading.",
       image: "",
       mlh: "",
       links: [],
@@ -205,9 +228,39 @@ export const DATA = {
     {
       title: "Smart Make-a-thon",
       dates: "2024",
-      location: "India",
+      location: "IEM, Saltlake, Kolkata, India",
       description:
-        "2nd Runner-Up. Developed a sustainable project focusing on environmental solutions.",
+        "2nd Runner-Up. Developed a sustainable credit-based waste management solution.",
+      image: "",
+      mlh: "",
+      links: [],
+    },
+    {
+      title: "Hello World Hacks",
+      dates: "2025",
+      location: "RCCIIT, Beleghata, Kolkata, India",
+      description:
+        "Developed a sustainable project focusing on environmental solutions.",
+      image: "",
+      mlh: "",
+      links: [],
+    },
+    {
+      title: "HexaFalls",
+      dates: "2025",
+      location: "Agarpara, Kolkata, India",
+      description:
+        "Developed a mobile app for local bus booking in West Bengal.",
+      image: "",
+      mlh: "",
+      links: [],
+    },
+    {
+      title: "Innovocon 2k24",
+      dates: "2024",
+      location: "Kalyani, West Bengal, India",
+      description:
+        "Winner of 'Think 3D' track. Developed innovative solutions using 3D technologies.",
       image: "",
       mlh: "",
       links: [],
