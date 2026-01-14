@@ -1,47 +1,75 @@
-<div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
+# Portfolio - Subhadip Jana
 
-# Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdillionverma%2Fportfolio)
+A modern, developer-centric portfolio website built with Next.js, displaying my projects, skills, and experience.
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+## 🚀 Check it out
+[Live Demo](https://github.com/Subhadipjana95/Dev-Style_Portfolio) *(Update this link if you have a Vercel deployment)*
 
-# Features
+## 🛠️ Tech Stack
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+- **Framework:** [Next.js 14](https://nextjs.org/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **UI Components:** [Radix UI](https://www.radix-ui.com/) & Shadcn-like primitives
+- **Markdown Processing:** [Unified](https://unifiedjs.com/) (Remark/Rehype)
 
-# Getting Started Locally
+## ✨ Features
 
-1. Clone this repository to your local machine:
+- **Dynamic Content:** Easily updateable resume data via `src/data/resume.tsx`.
+- **Responsive Design:** Fully responsive layout for mobile, tablet, and desktop.
+- **Dark/Light Mode:** Built-in theme switching support.
+- **Project Showcase:** Detailed view of projects with links to source and demos.
+- **Work Experience:** Timeline view of professional experience.
+- **Education & Skills:** neatly organized sections for credentials.
 
+## 🏃‍♂️ Getting Started
+
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/dillionverma/portfolio
+   git clone https://github.com/Subhadipjana95/Dev-Style_Portfolio.git
+   cd Dev-Style_Portfolio
    ```
 
-2. Move to the cloned directory
-
+2. **Install dependencies:**
    ```bash
-   cd portfolio
-   ```
-
-3. Install dependencies:
-
-   ```bash
+   npm install
+   # or
    pnpm install
    ```
 
-4. Start the local Server:
-
+3. **Run the development server:**
    ```bash
+   npm run dev
+   # or
    pnpm dev
    ```
 
-5. Open the [Config file](./src/data/resume.tsx) and make changes
+4. **Open your browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the app running.
 
-# License
+## 📝 Customization
 
-Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).
+The entire portfolio is data-driven. You can update your information without touching the UI components.
+
+- **Resume Data:** Edit `src/data/resume.tsx` to update your:
+    - Name, Role, Location
+    - Social Links
+    - Work Experience
+    - Education
+    - Projects
+    - Skills
+
+## 📦 Build for Production
+
+To create a production build:
+
+```bash
+npm run build
+npm start
+```
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
