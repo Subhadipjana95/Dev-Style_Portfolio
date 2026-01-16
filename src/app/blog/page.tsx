@@ -3,7 +3,7 @@ import { getBlogPosts } from "@/data/blog";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Blog by Subhadip Jana (a063)",
+  title: "Blogs by Subhadip Jana(a063)",
   description: "My thoughts on Designing and Software Development, life, and more.",
 };
 
@@ -15,7 +15,7 @@ export default async function BlogPage() {
   return (
     <section>
       <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="font-medium text-2xl mb-8 tracking-tighter">Blog by a063</h1>
+        <h1 className="font-medium text-2xl mb-8 tracking-tighter">Blogs by Subhadip(a063)</h1>
       </BlurFade>
       {posts
         .sort((a, b) => {

@@ -11,7 +11,6 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/kolkata",
   descriptionValue: "UI/UX Designer, Design Engineer, Frontend Web Dev. I love to design and build products with stunning aesthetic.",
   description: (
-    <>
       <div className="">
         <Highlight>
           <SparklesText className="text-inherit  text-sm sm:text-lg font-semibold" sparklesCount={3}>UI/UX Designer</SparklesText>
@@ -23,13 +22,10 @@ export const DATA = {
           <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Frontend Dev</SparklesText>
         </Highlight>. I love to design and build products with stunning aesthetics.
       </div>
-      {/* <div className="block md:hidden">
-        UI/UX Designer | Design Engineer | Frontend Dev. I love to design and build stunning things with aesthetic.
-      </div> */}
-    </>
   ),
-  summary:
-    "I am a B.Tech Computer Science & Engineering Student at Netaji Subhash Engineering College (2023-2027). Passionate about Frontend Development, UI/UX Design, and building scalable web applications. Currently, I am a Design Core Team Member at [GDG on Campus NSEC](https://gdg.community.dev/gdg-on-campus-netaji-subhash-engineering-college-kolkata-india/). I have successfully built and deployed multiple projects including [Zerith](https://github.com/Subhadipjana95) and [EnviroMat](https://github.com/Subhadipjana95/EnviroMat).",
+  // summary:
+  //   "I am a B.Tech Computer Science & Engineering Student at Netaji Subhash Engineering College (2023-2027). Passionate about Frontend Development, UI/UX Design, and building scalable web applications. Currently, I am a Design Core Team Member at [GDG on Campus NSEC](https://gdg.community.dev/gdg-on-campus-netaji-subhash-engineering-college-kolkata-india/). I have successfully built and deployed multiple projects including [Zerith](https://github.com/Subhadipjana95) and [EnviroMat](https://github.com/Subhadipjana95/EnviroMat).",
+  
   avatarUrl: "https://github.com/Subhadipjana95.png",
   skills: [
     "Next.js",
@@ -41,12 +37,13 @@ export const DATA = {
     "GSAP",
     "Three.js",
     "GLSL",
+    "Graphic Design",
+    "Figma",
+    "Canva",
     "C",
     "Python",
-    "Node.js",
-    "Express.js",
+    "Firebase",
     "MongoDB",
-    "Figma",
     "Git",
   ],
   navbar: [
