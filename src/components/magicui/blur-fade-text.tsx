@@ -5,7 +5,7 @@ import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useMemo } from "react";
 
 interface BlurFadeTextProps {
-  text: string;
+  text: string | React.ReactNode;
   className?: string;
   variant?: {
     hidden: { y: number };
@@ -31,7 +31,12 @@ const BlurFadeText = ({
     visible: { y: -yOffset, opacity: 1, filter: "blur(0px)" },
   };
   const combinedVariants = variant || defaultVariants;
-  const characters = useMemo(() => Array.from(text), [text]);
+  const characters = useMemo(() => {
+    if (typeof text === 'string') {
+      return Array.from(text);
+    }
+    return [];
+  }, [text]);
 
   if (animateByCharacter) {
     return (

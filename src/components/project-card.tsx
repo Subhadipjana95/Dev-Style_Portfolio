@@ -19,6 +19,7 @@ interface Props {
   tags: readonly string[];
   link?: string;
   image?: string;
+  imageDark?: string;
   video?: string;
   links?: readonly {
     icon: React.ReactNode;
@@ -36,6 +37,7 @@ export function ProjectCard({
   tags,
   link,
   image,
+  imageDark,
   video,
   links,
   className,
@@ -43,7 +45,7 @@ export function ProjectCard({
   return (
     <Card
       className={
-        "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
+        "flex flex-col overflow-hidden border hover:border-primary/30 hover:shadow-lg transition-all duration-300 ease-out h-full"
       }
     >
       <Link
@@ -66,7 +68,19 @@ export function ProjectCard({
             alt={title}
             width={500}
             height={300}
-            className="h-40 w-full overflow-hidden object-cover object-top"
+            className={cn(
+              "h-40 w-full overflow-hidden object-cover object-top",
+              imageDark && "block dark:hidden"
+            )}
+          />
+        )}
+        {imageDark && (
+          <Image
+            src={imageDark}
+            alt={title}
+            width={500}
+            height={300}
+            className="h-40 w-full overflow-hidden object-cover object-top hidden dark:block"
           />
         )}
       </Link>

@@ -13,6 +13,7 @@ interface Props {
     title: string;
     href: string;
   }[];
+  win?: string | readonly string[];
 }
 
 export function HackathonCard({
@@ -22,6 +23,7 @@ export function HackathonCard({
   location,
   image,
   links,
+  win,
 }: Props) {
   return (
     <li className="relative ml-10 py-4">
@@ -35,7 +37,24 @@ export function HackathonCard({
         {dates && (
           <time className="text-xs text-muted-foreground">{dates}</time>
         )}
-        <h2 className="font-semibold leading-none">{title}</h2>
+        <h2 className="font-semibold leading-none">
+          {title}
+          {win && (
+            <span className="inline-flex gap-1 ml-2 align-middle">
+              {Array.isArray(win) ? (
+                win.map((item, index) => (
+                  <Badge variant="secondary" key={index} className="text-xs">
+                    {item}
+                  </Badge>
+                ))
+              ) : (
+                <Badge variant="secondary" className="text-xs">
+                  {win}
+                </Badge>
+              )}
+            </span>
+          )}
+        </h2>
         {location && (
           <p className="text-sm text-muted-foreground">{location}</p>
         )}

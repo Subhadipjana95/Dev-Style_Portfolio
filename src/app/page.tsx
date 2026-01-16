@@ -1,13 +1,17 @@
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { LineShadowText } from "@/components/magicui/line-shadow-text";
+import { SparklesText } from "@/components/magicui/sparkles-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Highlight } from "@/components/ui/hero-highlight";
+import GithubContributions from "@/components/github-contributions";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-
+import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -15,15 +19,27 @@ export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
+        <div className="mx-auto w-full max-w-3xl space-y-8">
           <div className="gap-2 flex justify-between">
-            <div className="flex-col flex flex-1 space-y-1.5">
-              <BlurFadeText
-                delay={BLUR_FADE_DELAY}
-                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
-                yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
-              />
+            <div className="flex-col flex flex-1 space-y-4">
+              <div className="flex-col flex flex-1">
+                <BlurFadeText
+                  delay={BLUR_FADE_DELAY}
+                  className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
+                  yOffset={8}
+                  text={
+                    <>
+                      Hi, I&apos;m <LineShadowText className="text-gradient-light dark:text-gradient-dark tracking-tight" shadowColor="#6ece4b">{DATA.name.split(" ")[0]}</LineShadowText> <span className="hidden sm:inline-block">👋</span>
+                    </>
+                  }
+                />
+                <BlurFadeText delay={BLUR_FADE_DELAY} text={
+                  <div className="w-fit rounded-sm bg-gradient-to-r from-[#8FC47B] to-[#b56b36] text-background px-3 py-1 text-sm">
+                    also known as <span className="font-semibold">a063</span>
+                  </div>
+                } />
+
+              </div>
               <BlurFadeText
                 className="max-w-[600px] md:text-xl"
                 delay={BLUR_FADE_DELAY}
@@ -31,30 +47,25 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
+              <div className="flex justify-center items-center p-1 border-[0.5px] border-[#585958] rounded-full">
+                <Avatar className="size-16 md:size-28 border">
+                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                  <AvatarFallback>{DATA.initials}</AvatarFallback>
+                </Avatar>
+              </div>
             </BlurFade>
           </div>
         </div>
       </section>
-      <section id="about">
+      <section id="contributions">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
             <h2 className="text-xl font-bold">Contributions</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="flex justify-center items-center border rounded-md p-2">
-              <Link href="https://github.com/Subhadipjana95">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                {/* <div className="w-full flex justify-center items-center border rounded-xs"> */}
-                <img
-                  src="https://ghchart.rshah.org/Subhadipjana95"
-                  alt="Subhadipjana95's Github chart"
-                  className="w-full dark:invert dark:hue-rotate-180"
-                />
-                {/* </div> */}
+              <Link href="https://github.com/Subhadipjana95" className="w-full">
+                <GithubContributions />
               </Link>
             </div>
           </BlurFade>
@@ -116,7 +127,7 @@ export default function Page() {
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
               <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
+                <Badge variant="secondary" key={skill}>{skill}</Badge>
               </BlurFade>
             ))}
           </div>
@@ -126,12 +137,12 @@ export default function Page() {
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                   My Projects
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Check out my latest work
+                  Check out my <Highlight><SparklesText className="text-inherit text-shadow-secondary-foreground text-shadow-sm" sparklesCount={12}>latest work</SparklesText></Highlight>
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   I&apos;ve worked on a variety of projects, from simple
@@ -155,6 +166,7 @@ export default function Page() {
                   dates={project.dates}
                   tags={project.technologies}
                   image={project.image}
+                  imageDark={project.imageDark}
                   video={project.video}
                   links={project.links}
                 />
@@ -167,12 +179,12 @@ export default function Page() {
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                   Hackathons
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  I like building things
+                  I like <Highlight><SparklesText className="text-inherit" sparklesCount={12}>building stuffs</SparklesText></Highlight>
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   I have attended{" "}
@@ -199,6 +211,7 @@ export default function Page() {
                     dates={project.dates}
                     image={project.image}
                     links={project.links}
+                    win={(project as any).win}
                   />
                 </BlurFade>
               ))}
@@ -231,6 +244,6 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
-    </main>
+    </main >
   );
 }

@@ -1,5 +1,7 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
+import { Highlight } from "@/components/ui/hero-highlight";
+import { SparklesText } from "@/components/magicui/sparkles-text";
 
 export const DATA = {
   name: "Subhadip Jana",
@@ -7,8 +9,25 @@ export const DATA = {
   url: "https://github.com/Subhadipjana95",
   location: "Kolkata, India",
   locationLink: "https://www.google.com/maps/place/kolkata",
-  description:
-    "Frontend Web Developer | Design Engineer. I love building things and solving real-world problems with code.",
+  descriptionValue: "UI/UX Designer, Design Engineer, Frontend Web Dev. I love to design and build products with stunning aesthetic.",
+  description: (
+    <>
+      <div className="">
+        <Highlight>
+          <SparklesText className="text-inherit  text-sm sm:text-lg font-semibold" sparklesCount={3}>UI/UX Designer</SparklesText>
+        </Highlight>,{" "}
+        <Highlight>
+          <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Design Engineer</SparklesText>
+        </Highlight>,{" "}
+        <Highlight>
+          <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Frontend Dev</SparklesText>
+        </Highlight>. I love to design and build products with stunning aesthetic.
+      </div>
+      {/* <div className="block md:hidden">
+        UI/UX Designer | Design Engineer | Frontend Dev. I love to design and build stunning things with aesthetic.
+      </div> */}
+    </>
+  ),
   summary:
     "I am a B.Tech Computer Science & Engineering Student at Netaji Subhash Engineering College (2023-2027). Passionate about Frontend Development, UI/UX Design, and building scalable web applications. Currently, I am a Design Core Team Member at [GDG on Campus NSEC](https://gdg.community.dev/gdg-on-campus-netaji-subhash-engineering-college-kolkata-india/). I have successfully built and deployed multiple projects including [Zerith](https://github.com/Subhadipjana95) and [EnviroMat](https://github.com/Subhadipjana95/EnviroMat).",
   avatarUrl: "https://github.com/Subhadipjana95.png",
@@ -111,7 +130,10 @@ export const DATA = {
         "Premium Software Agency & Product Studio Crafting aesthetic, high-performance web applications with cutting-edge technologies",
       technologies: [
         "TypeScript",
-        "Next.js"
+        "Next.js",
+        "Tailwind CSS",
+        "Framer Motion",
+        "GSAP"
       ],
       links: [
         {
@@ -120,7 +142,8 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767823774/b780dc6e-d7f3-46f8-9f2b-08ae1226f6c3.png",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768510512/Screenshot_2026-01-16_021227_crgere.png",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767823774/b780dc6e-d7f3-46f8-9f2b-08ae1226f6c3.png",
       video: "",
     },
     {
@@ -132,7 +155,10 @@ export const DATA = {
         "College-Verified Alumni Referral Platform built with TypeScript.",
       technologies: [
         "TypeScript",
-        "Next.js"
+        "Next.js",
+        "Tailwind CSS",
+        "Framer Motion",
+        "GSAP"
       ],
       links: [
         {
@@ -147,6 +173,7 @@ export const DATA = {
         }
       ],
       image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1766874786/Screenshot_2025-12-28_040242_g4dvlu.png",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1766874786/Screenshot_2025-12-28_040242_g4dvlu.png",
       video: "",
     },
     {
@@ -157,7 +184,10 @@ export const DATA = {
       description:
         "Forked project focused on farmer assistance tools.",
       technologies: [
-        "JavaScript"
+        "JavaScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "GSAP"
       ],
       links: [
         {
@@ -172,6 +202,7 @@ export const DATA = {
         }
       ],
       image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767549976/Screenshot_2026-01-04_233547_pqsq7i.png",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767549976/Screenshot_2026-01-04_233547_pqsq7i.png",
       video: "",
     },
     {
@@ -185,7 +216,8 @@ export const DATA = {
         "React.js",
         "GSAP",
         "JavaScript",
-        "CSS"
+        "Tailwind CSS",
+        "Framer Motion"
       ],
       links: [
         {
@@ -200,6 +232,7 @@ export const DATA = {
         }
       ],
       image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767550276/Screenshot_2026-01-04_234059_gakrru.png",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767550638/Screenshot_2026-01-04_234556_cc0har.png",
       video: "",
     },
 
@@ -210,8 +243,19 @@ export const DATA = {
       dates: "2025",
       location: "Techno City, Garia, Kolkata, India",
       description:
-        "2nd Runner-Up & Aptos Track Winner. Developed a modern web application that bridges the gap between students, universities, and alumni networks.",
-      image: "",
+        "Developed a modern web application that bridges the gap between students, universities and alumni networks.",
+      image: "https://www.cosmohack1.xyz/images/sourcifylogo.webp",
+      win: ["2nd Runner-Up", "Aptos Track Winner"],
+      mlh: "",
+      links: [],
+    },
+    {
+      title: "CalcuttaHacks",
+      dates: "2025",
+      location: "Techno University, Saltlake, Kolkata, India",
+      description:
+        "Developed NextRef: A website that bridges the gap between students, universities and alumni networks.",
+      image: "https://calcutta-lesshacksgreater.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F9c2b708879194b4cab9fe5fc9ebe169b%2Fassets%2Ffavicon%2F732.jpeg&w=1440&q=75",
       mlh: "",
       links: [],
     },
@@ -220,18 +264,20 @@ export const DATA = {
       dates: "2025",
       location: "FIEM, Sonarpur, Kolkata, India",
       description:
-        "UI/UX Track Winner. Developed a comprehensive agricultural marketplace platform that connects farmers and dealers for crop trading.",
-      image: "",
+        "Developed a comprehensive agricultural marketplace platform that connects farmers and dealers for crop trading.",
+      image: "https://hackspire25.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F7beb3e46a5f84f80a4c743aec516f5d1%2Fassets%2Ffavicon%2F660.jpeg&w=1440&q=75",
+      win: "UI/UX Track Winner",
       mlh: "",
       links: [],
     },
     {
       title: "Smart Make-a-thon",
-      dates: "2024",
+      dates: "2025",
       location: "IEM, Saltlake, Kolkata, India",
       description:
-        "2nd Runner-Up. Developed a sustainable credit-based waste management solution.",
-      image: "",
+        "Developed a sustainable credit-based waste management solution.",
+      image: "https://smf-smart-makeathon.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2Fe4b801dae041434e9656a41101a48550%2Fassets%2Ffavicon%2F873.jpeg&w=1440&q=75",
+      win: "2nd Runner-Up",
       mlh: "",
       links: [],
     },
@@ -241,7 +287,7 @@ export const DATA = {
       location: "RCCIIT, Beleghata, Kolkata, India",
       description:
         "Developed a sustainable project focusing on environmental solutions.",
-      image: "",
+      image: "https://hello-world-hacks.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F6fcb2182ab544753929d6c8de6a30749%2Fassets%2Ffavicon%2F961.png&w=1440&q=75",
       mlh: "",
       links: [],
     },
@@ -251,7 +297,7 @@ export const DATA = {
       location: "Agarpara, Kolkata, India",
       description:
         "Developed a mobile app for local bus booking in West Bengal.",
-      image: "",
+      image: "https://hexafalls.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F70a0045868c24e408ea8fc441010ab79%2Fassets%2Ffavicon%2F180.png&w=1440&q=75",
       mlh: "",
       links: [],
     },
@@ -260,8 +306,9 @@ export const DATA = {
       dates: "2024",
       location: "Kalyani, West Bengal, India",
       description:
-        "Winner of 'Think 3D' track. Developed innovative solutions using 3D technologies.",
-      image: "",
+        "Winner of 'Think 3D'. Developed innovative solutions using 3D technologies.",
+      image: "https://innovocon2025.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2Fb46bac90f4064d00ad4db00949c2a78e%2Fassets%2Ffavicon%2F222.png&w=1440&q=75",
+      win: "Winner",
       mlh: "",
       links: [],
     },
