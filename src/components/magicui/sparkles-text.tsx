@@ -2,6 +2,7 @@
 
 import { CSSProperties, ReactElement, useEffect, useState } from "react"
 import { motion } from "motion/react"
+import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
 
@@ -86,18 +87,29 @@ interface SparklesTextProps {
 
 export const SparklesText: React.FC<SparklesTextProps> = ({
   children,
-  colors = { first: "#71A459", second: "#9AC382" },
+  colors,
   className,
   sparklesCount = 10,
   ...props
 }) => {
   const [sparkles, setSparkles] = useState<Sparkle[]>([])
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const defaultColors = { first: "#71A459", second: "#9AC382" };
+  const lightColors = { first: "#AB7042", second: "#6ece4b" };
+
+  const activeColors = colors || ((mounted && resolvedTheme === 'light') ? lightColors : defaultColors);
 
   useEffect(() => {
     const generateStar = (): Sparkle => {
       const starX = `${Math.random() * 100}%`
       const starY = `${Math.random() * 100}%`
-      const color = Math.random() > 0.5 ? colors.first : colors.second
+      const color = Math.random() > 0.5 ? activeColors.first : activeColors.second
       const delay = Math.random() * 2
       const scale = Math.random() * 1 + 0.3
       const lifespan = Math.random() * 10 + 5
@@ -126,7 +138,7 @@ export const SparklesText: React.FC<SparklesTextProps> = ({
     const interval = setInterval(updateStars, 100)
 
     return () => clearInterval(interval)
-  }, [colors.first, colors.second, sparklesCount])
+  }, [activeColors.first, activeColors.second, sparklesCount])
 
   return (
     <span
@@ -134,8 +146,8 @@ export const SparklesText: React.FC<SparklesTextProps> = ({
       {...props}
       style={
         {
-          "--sparkles-first-color": `${colors.first}`,
-          "--sparkles-second-color": `${colors.second}`,
+          "--sparkles-first-color": `${activeColors.first}`,
+          "--sparkles-second-color": `${activeColors.second}`,
         } as CSSProperties
       }
     >

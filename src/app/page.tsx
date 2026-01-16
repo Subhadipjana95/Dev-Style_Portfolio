@@ -34,7 +34,7 @@ export default function Page() {
                   }
                 />
                 <BlurFadeText delay={BLUR_FADE_DELAY} text={
-                  <div className="w-fit rounded-sm bg-gradient-to-r from-[#8FC47B] to-[#b56b36] text-background px-3 py-1 text-sm">
+                  <div className="w-fit rounded-sm bg-gradient-to-r from-[#8FC47B] to-[#b56b36] text-background  px-[6px] sm:px-3 py-[2px] sm:py-1 text-sm">
                     also known as <span className="font-semibold">a063</span>
                   </div>
                 } />
@@ -63,8 +63,8 @@ export default function Page() {
             <h2 className="text-xl font-bold">Contributions</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <div className="flex justify-center items-center border rounded-md p-2">
-              <Link href="https://github.com/Subhadipjana95" className="w-full">
+            <div className="flex justify-center items-center border rounded-md p-[6px] sm:p-2">
+              <Link href="https://github.com/Subhadipjana95" className="w-full rounded-sm overflow-hidden">
                 <GithubContributions />
               </Link>
             </div>

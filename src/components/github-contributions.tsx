@@ -1,6 +1,7 @@
 "use client";
 
 import { GitHubCalendar } from 'react-github-calendar';
+import { useTheme } from 'next-themes';
 import { useState, useEffect, useRef } from 'react';
 
 const selectLastOneYear = (contributions: Array<{ date: string; count: number; level: 0 | 1 | 2 | 3 | 4 }>) => {
@@ -19,10 +20,13 @@ export default function GithubContributions() {
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
     // Scroll to right on mount
     // Scroll to right on load and resize
     useEffect(() => {
+        setMounted(true);
         const container = containerRef.current;
         if (!container) return;
 
@@ -106,7 +110,7 @@ export default function GithubContributions() {
                     showMonthLabels={false}
                     showTotalCount={false}
                     showWeekdayLabels={false}
-                    colorScheme="dark"
+                    colorScheme={(mounted && resolvedTheme === 'light') ? 'light' : 'dark'}
                 />
             </div>
         </div>
