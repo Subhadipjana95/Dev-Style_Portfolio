@@ -21,7 +21,7 @@ export const DATA = {
         </Highlight>,{" "}
         <Highlight>
           <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Frontend Dev</SparklesText>
-        </Highlight>. I love to design and build products with stunning aesthetic.
+        </Highlight>. I love to design and build products with stunning aesthetics.
       </div>
       {/* <div className="block md:hidden">
         UI/UX Designer | Design Engineer | Frontend Dev. I love to design and build stunning things with aesthetic.
