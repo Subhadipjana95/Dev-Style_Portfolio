@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import { ClientGuard } from "@/components/guards/ClientGuard";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -166,6 +167,8 @@ export default function RootLayout({
           <div className="absolute -right-16 top-0 h-full w-[1px] border-r border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
           <div className="absolute left-1/2 top-16 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
         </div>
+        <ClientGuard />
+
         <ThemeProvider attribute="class" defaultTheme="dark">
           <TooltipProvider delayDuration={0}>
             {children}
