@@ -37,14 +37,15 @@ export const DATA = {
     "GSAP",
     "Three.js",
     "GLSL",
-    "Graphic Design",
     "Figma",
     "Canva",
-    "C",
-    "Python",
+    "Graphic Design",
     "Firebase",
     "MongoDB",
     "Git",
+    "C",
+    "Java",
+    "Python",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -87,8 +88,8 @@ export const DATA = {
       href: "https://nixgn.com/",
       badges: [],
       location: "Kolkata, India",
-      title: "Co-Founder || Design Engineer || Frontend Dev",
-      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767823664/Favicon_bemcjz.png",
+      title: "Co-Founder || Design Engineer",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768668239/Nixgn_Logo_Dark_s8nbtu.svg",
       start: "Jan 2026",
       end: "Present",
       description:
@@ -100,7 +101,7 @@ export const DATA = {
       badges: [],
       location: "Kolkata, India",
       title: "Design Core Team Member",
-      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768429837/GDG_Logo_yrydh5.png",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768681855/GDG_Logo_jgzns9.webp",
       start: "Sep 2025",
       end: "Present",
       description:
@@ -112,7 +113,7 @@ export const DATA = {
       school: "Netaji Subhash Engineering College",
       href: "https://www.nsec.ac.in/",
       degree: "Bachelor of Technology in Computer Science and Engineering",
-      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768430096/Screenshot_2026-01-15_040402_xo0qxf.png",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768681855/Screenshot_2026-01-15_040402_r9wd4a.webp",
       start: "2023",
       end: "2027",
     },
@@ -138,9 +139,14 @@ export const DATA = {
           href: "https://github.com/Subhadipjana95",
           icon: <Icons.github className="size-3" />,
         },
+        {
+          type: "Live",
+          href: "https://nixgn.com/",
+          icon: <Icons.globe className="size-3" />,
+        }
       ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768510512/Screenshot_2026-01-16_021227_crgere.png",
-      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767823774/b780dc6e-d7f3-46f8-9f2b-08ae1226f6c3.png",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768660890/w8_cx0svq.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768660876/w9_e0zxys.webp",
       video: "",
     },
     {
@@ -169,8 +175,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         }
       ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1766874786/Screenshot_2025-12-28_040242_g4dvlu.png",
-      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1766874786/Screenshot_2025-12-28_040242_g4dvlu.png",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w4_uzxlxp.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w4_uzxlxp.webp",
       video: "",
     },
     {
@@ -198,8 +204,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         }
       ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767549976/Screenshot_2026-01-04_233547_pqsq7i.png",
-      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767549976/Screenshot_2026-01-04_233547_pqsq7i.png",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645966/w1_mzqc0p.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645966/w1_mzqc0p.webp",
       video: "",
     },
     {
@@ -228,8 +234,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         }
       ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767550276/Screenshot_2026-01-04_234059_gakrru.png",
-      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1767550638/Screenshot_2026-01-04_234556_cc0har.png",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w6_rqdjc7.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w7_o78qvl.webp",
       video: "",
     },
 
@@ -241,7 +247,7 @@ export const DATA = {
       location: "Techno City, Garia, Kolkata, India",
       description:
         "Developed a modern web application that bridges the gap between students, universities and alumni networks.",
-      image: "https://www.cosmohack1.xyz/images/sourcifylogo.webp",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768681964/Screenshot_2026-01-17_002100_vq6jhg.webp",
       win: ["2nd Runner-Up", "Aptos Track Winner"],
       mlh: "",
       links: [],

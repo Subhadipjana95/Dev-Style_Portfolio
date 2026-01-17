@@ -11,7 +11,7 @@ import { Highlight } from "@/components/ui/hero-highlight";
 import GithubContributions from "@/components/github-contributions";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-import Markdown from "react-markdown";
+import { LocateOffIcon, MapPin } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -21,7 +21,7 @@ export default function Page() {
       <section id="hero">
         <div className="mx-auto w-full max-w-3xl space-y-8">
           <div className="gap-2 flex justify-between">
-            <div className="flex-col flex flex-1 space-y-4">
+            <div className="flex-col flex flex-1 space-y-6">
               <div className="flex-col flex flex-1">
                 <BlurFadeText
                   delay={BLUR_FADE_DELAY}
@@ -29,13 +29,16 @@ export default function Page() {
                   yOffset={8}
                   text={
                     <>
-                      Hi, I&apos;m <LineShadowText className="text-gradient-light dark:text-gradient-dark tracking-tight" shadowColor="#6ece4b">{DATA.name.split(" ")[0]}</LineShadowText> <span className="hidden sm:inline-block">👋</span>
+                      Hi, I&apos;m <LineShadowText className="text-gradient-light dark:text-gradient-dark tracking-tight" shadowColor="#6ece4b">{DATA.name.split(" ")[0]}</LineShadowText> <span className="hidden">Jana</span> <span className="hidden sm:inline-block">👋</span>
                     </>
                   }
                 />
                 <BlurFadeText delay={BLUR_FADE_DELAY} text={
-                  <div className="w-fit rounded-sm bg-gradient-to-r from-[#8FC47B] to-[#b56b36] text-background  px-[6px] sm:px-3 py-[2px] sm:py-1 text-sm">
-                    also known as <span className="font-semibold">a063</span>
+                  <div className="flex gap-2">
+                    <div className="w-fit rounded-sm bg-gradient-to-r from-[#8FC47B] to-[#b56b36] text-background  px-[6px] sm:px-3 py-[2px] sm:py-1 text-sm">
+                      also known as <span className="font-semibold">a063</span>
+                    </div>
+                    <Badge variant="secondary" className="gap-1 bg-primary/30 hidden sm:block hover:bg-primary/30 pt-1.5"><MapPin className="size-3 inline-block mb-[2px]" /> Kolkata, West Bengal, India</Badge>
                   </div>
                 } />
 
@@ -133,7 +136,8 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="projects">
+      <section id="projects" className="relative">
+        <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -175,7 +179,8 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="hackathons">
+      <section id="hackathons" className="relative">
+        <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -188,9 +193,7 @@ export default function Page() {
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   I have attended{" "}
-                  {DATA.hackathons.length}+ hackathons. People from around the
-                  country would come together and build incredible things in 2-3
-                  days. It was eye-opening to see the endless possibilities
+                  {DATA.hackathons.length}+ hackathons. It was eye-opening to see the endless possibilities
                   brought to life by a group of motivated and passionate
                   individuals.
                 </p>
@@ -219,7 +222,8 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
-      <section id="contact">
+      <section id="contact" className="relative">
+        <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">

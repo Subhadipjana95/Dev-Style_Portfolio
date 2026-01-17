@@ -49,7 +49,7 @@ const fontSans = FontSans({
 // };
 
 export const metadata: Metadata = {
-  title: "Subhadip Jana – UI/UX Designer | a063",
+  title: "Subhadip Jana – Designer & Developer | a063",
   description:
     "Subhadip Jana (a063) is a UI/UX Designer, Frontend Developer from India specialising in React, Next.js, Motion and modern web experiences.",
   keywords: [
@@ -62,13 +62,56 @@ export const metadata: Metadata = {
     "Subhadip Jana India",
     "Subhadip Kolkata",
     "Subhadip West Bengal",
+    "Subhadip Jana West Bengal",
+    "Subhadip Jana Kolkata",
+    "a063 Kolkata",
+    "a063 West Bengal",
+    "a063 India",
+    "Subhadeep Jana",
+    "Subhadeep",
+    "Subhadeep Portfolio",
+    "Suvodip Jana",
+    "Suvodip",
+    "Suvodip a063",
+    "Suvodip Portfolio",
+    "Suvodip Kolkata",
+    "Suvodip West Bengal",
+    "Suvodip India",
+    "UI/UX Designer Portfolio",
+    "UI/UX Designer",
+    "UI/UX Design",
+    "UI/UX",
+    "Frontend Developer Portfolio",
+    "Frontend Developer",
+    "Frontend Dev",
+    "Web Developer",
+    "Web Design",
+    "Portfolio Design",
   ],
   authors: [{ name: "Subhadip Jana" }],
   creator: "Subhadip Jana",
   openGraph: {
     title: "Subhadip Jana – a063",
+    description:
+      "UI/UX Designer & Frontend Developer from Kolkata, West Bengal, India.",
     url: "https://a063.xyz",
     siteName: "Subhadip Jana Portfolio",
+    images: [
+      {
+        url: "https://a063.xyz/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Subhadip Jana – a063",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Subhadip Jana – a063",
+    description:
+      "UI/UX Designer & Frontend Developer from Kolkata, India.",
+    images: ["https://a063.xyz/og-image.png"],
   },
 };
 
@@ -80,7 +123,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
         <Script
           id="person-schema"
@@ -103,6 +146,7 @@ export default function RootLayout({
               sameAs: [
                 "https://github.com/Subhadipjana95",
                 "https://www.linkedin.com/in/subhadipjana095",
+                "https://www.linkedin.com/in/subhadip-jana-931927287",
                 "https://www.instagram.com/soulsofsavi",
                 "https://x.com/Subhadip53874"
               ],
@@ -113,10 +157,15 @@ export default function RootLayout({
 
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-3xl mx-auto py-12 sm:py-24 px-6",
+          "min-h-screen bg-background font-sans antialiased max-w-3xl mx-auto py-12 sm:py-24 px-6 relative",
           fontSans.variable
         )}
       >
+        <div className="lines hidden lg:block">
+          <div className="absolute -left-16 top-0 h-full w-[1px] border-l border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
+          <div className="absolute -right-16 top-0 h-full w-[1px] border-r border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
+          <div className="absolute left-1/2 top-16 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
+        </div>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <TooltipProvider delayDuration={0}>
             {children}
