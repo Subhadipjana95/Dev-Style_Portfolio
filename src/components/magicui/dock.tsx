@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import React, { PropsWithChildren, useRef } from "react";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
   className?: string;
@@ -12,11 +13,12 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
   children: React.ReactNode;
 }
 
-const DEFAULT_MAGNIFICATION = 60;
+const DEFAULT_MAGNIFICATION = 50;
+const MOBILE_MAGNIFICATION = 35;
 const DEFAULT_DISTANCE = 140;
 
 const dockVariants = cva(
-  "mx-auto w-max h-full p-2 flex items-end rounded-full border"
+  "mx-auto w-max h-full p-0 flex items-end rounded-xl border"
 );
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
@@ -30,14 +32,15 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     },
     ref
   ) => {
-    const mousex = useMotionValue(Infinity);
+    // const mousex = useMotionValue(Infinity); 
+    const isMobile = useMediaQuery("(max-width: 768px)");
 
     const renderChildren = () => {
       return React.Children.map(children, (child: any) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, {
-            mousex,
-            magnification,
+            // mousex,
+            magnification: isMobile ? MOBILE_MAGNIFICATION : magnification,
             distance,
           } as DockIconProps);
         }
@@ -48,8 +51,6 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     return (
       <motion.div
         ref={ref}
-        onMouseMove={(e) => mousex.set(e.pageX)}
-        onMouseLeave={() => mousex.set(Infinity)}
         {...props}
         className={cn(dockVariants({ className }))}
       >
@@ -82,29 +83,12 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const distanceCalc = useTransform(mousex, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-    return val - bounds.x - bounds.width / 2;
-  });
-
-  let widthSync = useTransform(
-    distanceCalc,
-    [-distance, 0, distance],
-    [40, magnification, 40]
-  );
-
-  let width = useSpring(widthSync, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-
   return (
     <motion.div
       ref={ref}
-      style={{ width }}
+      style={{ width: magnification }}
       className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-full",
+        "flex aspect-square cursor-pointer items-center justify-center rounded-md",
         className
       )}
       {...props}

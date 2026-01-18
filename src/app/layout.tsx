@@ -163,9 +163,9 @@ export default function RootLayout({
         )}
       >
         <div className="lines hidden lg:block">
-          <div className="absolute -left-16 top-0 h-full w-[1px] border-l border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
-          <div className="absolute -right-16 top-0 h-full w-[1px] border-r border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
-          <div className="absolute left-1/2 top-16 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/15 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
+          <div className="absolute -left-16 top-0 h-full w-[1px] border-l border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
+          <div className="absolute -right-16 top-0 h-full w-[1px] border-r border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
+          <div className="absolute left-1/2 top-16 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
         </div>
         <ClientGuard />
 

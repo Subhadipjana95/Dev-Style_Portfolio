@@ -1,7 +1,13 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+// import { HomeIcon, NotebookIcon } from "lucide-react";
 import { Highlight } from "@/components/ui/hero-highlight";
 import { SparklesText } from "@/components/magicui/sparkles-text";
+import {HomeIcon} from "@/components/animated-icons/home";
+import {BookTextIcon} from "@/components/animated-icons/book-text";
+import { MailCheckIcon } from "@/components/animated-icons/mail-check";
+import { TwitterIcon } from "@/components/animated-icons/twitter";
+import LinkedinIcon from "@/components/animated-icons/linkedin";
+import { GithubIcon } from "@/components/animated-icons/github";
 
 export const DATA = {
   name: "Subhadip Jana",
@@ -48,8 +54,14 @@ export const DATA = {
     "Python",
   ],
   navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/", 
+      icon: (<HomeIcon size={20} />),
+      label: "Home" 
+    },
+    { href: "/blog", 
+      icon: (<BookTextIcon size={20} />),
+      label: "Blog" 
+    },
   ],
   contact: {
     email: "codesubhadip95@gmail.com",
@@ -58,25 +70,25 @@ export const DATA = {
       GitHub: {
         name: "GitHub",
         url: "https://github.com/Subhadipjana95",
-        icon: Icons.github,
+        icon: <GithubIcon size={20} />,
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/subhadipjana095",
-        icon: Icons.linkedin,
+        icon: <LinkedinIcon size={20} />,
         navbar: true,
       },
       email: {
         name: "Send Email",
         url: "mailto:codesubhadip95@gmail.com",
-        icon: Icons.email,
+        icon: <MailCheckIcon size={20} />,
         navbar: true,
       },
       X: {
         name: "X",
         url: "https://x.com/Subhadip53874",
-        icon: Icons.x,
+        icon: <TwitterIcon size={20} />,
         navbar: true,
       },
     },
