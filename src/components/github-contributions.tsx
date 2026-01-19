@@ -1,6 +1,7 @@
 "use client";
 
 import { GitHubCalendar } from 'react-github-calendar';
+import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { useState, useEffect, useRef } from 'react';
 
@@ -111,6 +112,22 @@ export default function GithubContributions() {
                     showTotalCount={false}
                     showWeekdayLabels={false}
                     colorScheme={(mounted && resolvedTheme === 'light') ? 'light' : 'dark'}
+                    renderBlock={(block, activity) => {
+                        const today = new Date();
+                        const current = new Date(activity.date);
+                        const diffTime = Math.abs(today.getTime() - current.getTime());
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        const delay = diffDays * 0.004;
+
+                        return (
+                            <motion.rect
+                                {...(block.props as any)}
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay, duration: 0.4 }}
+                            />
+                        );
+                    }}
                 />
             </div>
         </div>

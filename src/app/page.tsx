@@ -11,7 +11,9 @@ import { Highlight } from "@/components/ui/hero-highlight";
 import GithubContributions from "@/components/github-contributions";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-import { LocateOffIcon, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
+
+import { WavingHand } from "@/components/waving-hand";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -29,7 +31,7 @@ export default function Page() {
                   yOffset={8}
                   text={
                     <>
-                      Hi, I&apos;m <LineShadowText className="text-gradient-light dark:text-gradient-dark tracking-tight" shadowColor="#6ece4b">{DATA.name.split(" ")[0]}</LineShadowText> <span className="hidden">Jana</span> <span className="hidden sm:inline-block">👋</span>
+                      Hi, I&apos;m <LineShadowText className="text-gradient-light dark:text-gradient-dark tracking-tight" shadowColor="#6ece4b">{DATA.name.split(" ")[0]}</LineShadowText> <span className="hidden">Jana</span> <WavingHand />
                     </>
                   }
                 />
@@ -38,7 +40,7 @@ export default function Page() {
                     <div className="w-fit rounded-sm bg-gradient-to-r from-[#8FC47B] to-[#b56b36] text-background  px-[6px] sm:px-3 py-[2px] sm:py-1 text-sm">
                       also known as <span className="font-semibold">a063</span>
                     </div>
-                    <Badge variant="secondary" className="gap-1 bg-primary/30 hidden sm:block hover:bg-primary/30 pt-1.5"><MapPin className="size-3 inline-block mb-[2px]" /> Kolkata, West Bengal, India</Badge>
+                    <Badge variant="secondary" className="gap-1 bg-gradient-to-r from-[#c8773e] dark:from-[#b76d38] to-transparent bg-no-repeat hidden sm:flex pt-1.5"><MapPin className="size-3 inline-block mb-[2px]" /> Kolkata, West Bengal, India</Badge>
                   </div>
                 } />
 
@@ -223,7 +225,15 @@ export default function Page() {
         </div>
       </section>
       <section id="contact" className="relative">
-        <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
+        <div className="lines hidden lg:block">
+          <div className="absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute -left-[88px] top-0 -translate-x-1/2 -translate-y-1/2 size-2 text-muted-foreground2">
+            <path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute -right-[88px] top-0 translate-x-1/2 -translate-y-1/2 size-2 text-muted-foreground2">
+            <path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path>
+          </svg>
+        </div>
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
