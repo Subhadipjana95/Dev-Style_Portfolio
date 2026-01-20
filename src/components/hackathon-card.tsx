@@ -27,11 +27,13 @@ export function HackathonCard({
 }: Props) {
   return (
     <li className="relative ml-10 py-4">
-      <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
-        <Avatar className="border size-12 m-auto bg-background">
-          <AvatarImage src={image} alt={title} className="object-contain" />
-          <AvatarFallback>{title[0]}</AvatarFallback>
-        </Avatar>
+      <div className="absolute -left-16 top-2 flex items-center justify-center rounded-full">
+        <div className="border-[0.5px] border-muted-foreground2 p-[2px] rounded-full bg-gradient-to-br from-transparent to-primary/30">
+          <Avatar className="border border-muted-foreground2 size-11 m-auto bg-foreground dark:bg-background">
+            <AvatarImage src={image} alt={title} className="object-contain" />
+            <AvatarFallback>{title[0]}</AvatarFallback>
+          </Avatar>
+        </div>
       </div>
       <div className="flex flex-1 flex-col justify-start gap-1">
         {dates && (

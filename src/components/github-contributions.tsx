@@ -113,6 +113,20 @@ export default function GithubContributions() {
                     showWeekdayLabels={false}
                     colorScheme={(mounted && resolvedTheme === 'light') ? 'light' : 'dark'}
                     renderBlock={(block, activity) => {
+                        const hasContributions = activity.count > 0;
+
+                        // Grey squares - static, no animation
+                        if (!hasContributions) {
+                            return (
+                                <motion.rect
+                                    {...(block.props as any)}
+                                    initial={{ opacity: 1, scale: 1 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                />
+                            );
+                        }
+
+                        // Green squares - dual layer: grey background + animated green
                         const today = new Date();
                         const current = new Date(activity.date);
                         const diffTime = Math.abs(today.getTime() - current.getTime());
@@ -120,12 +134,25 @@ export default function GithubContributions() {
                         const delay = diffDays * 0.004;
 
                         return (
-                            <motion.rect
-                                {...(block.props as any)}
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay, duration: 0.4 }}
-                            />
+                            <g>
+                                {/* Static grey background */}
+                                <rect
+                                    {...(block.props as any)}
+                                    fill={(mounted && resolvedTheme === 'light') ? '#EBECEF' : '#171B21'}
+                                    opacity={1}
+                                />
+                                {/* Animated green square on top */}
+                                <motion.rect
+                                    {...(block.props as any)}
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{
+                                        delay,
+                                        duration: 0.5,
+                                        ease: [0.34, 1.56, 0.64, 1]
+                                    }}
+                                />
+                            </g>
                         );
                     }}
                 />

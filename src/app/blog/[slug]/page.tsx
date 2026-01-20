@@ -127,6 +127,7 @@ export default async function Blog({
         dangerouslySetInnerHTML={{ __html: post.source || "" }}
       ></article>
       <BlogSyntaxHighlighter />
+      <div className="h-16 w-full bg-transparent block sm:hidden" />
     </section>
   );
 }
