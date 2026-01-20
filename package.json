@@ -19,7 +19,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
-    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
     "lucide-react": "^0.395.0",
     "motion": "^12.27.0",
     "next": "^14.2.35",
@@ -30,15 +30,8 @@
     "react-github-calendar": "^5.0.4",
     "react-markdown": "^9.1.0",
     "react-tooltip": "^5.30.0",
-    "rehype-pretty-code": "^0.13.2",
-    "rehype-stringify": "^10.0.1",
-    "remark-gfm": "^4.0.1",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.2",
-    "shiki": "^1.29.2",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7",
-    "unified": "^11.0.5"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",

@@ -1,4 +1,4 @@
-import { getBlogPosts, getPost } from "@/data/blog";
+import { getBlogPosts, getPost, type BlogPost } from "@/data/blog";
 import { DATA } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -12,10 +12,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { BlogSyntaxHighlighter } from "@/components/blog-syntax-highlighter";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
-  return posts.map((post) => ({ slug: post.slug }));
+  return posts.map((post: BlogPost) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
@@ -26,6 +27,10 @@ export async function generateMetadata({
   };
 }): Promise<Metadata | undefined> {
   let post = await getPost(params.slug);
+
+  if (!post) {
+    return;
+  }
 
   let {
     title,
@@ -119,8 +124,9 @@ export default async function Blog({
       </div>
       <article
         className="prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: post.source }}
+        dangerouslySetInnerHTML={{ __html: post.source || "" }}
       ></article>
+      <BlogSyntaxHighlighter />
     </section>
   );
 }

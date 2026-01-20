@@ -12,22 +12,28 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { BlogPost } from "@/data/blog";
 
 const BLUR_FADE_DELAY = 0.04;
 
-interface BlogPost {
-    slug: string;
-    metadata: {
-        title: string;
-        publishedAt: string;
-        summary: string;
-        image?: string;
-        category?: string;
-    };
-}
+
+
 
 interface BlogListProps {
     posts: BlogPost[];
+}
+
+function formatDate(date: string) {
+    const d = new Date(date);
+    const day = d.getDate();
+    const month = d.toLocaleString('en-US', { month: 'short' });
+    const year = d.getFullYear();
+
+    const suffix = ["th", "st", "nd", "rd"];
+    const v = day % 100;
+    const ord = suffix[(v - 20) % 10] || suffix[v] || suffix[0];
+
+    return `${day}${ord} ${month} ${year}`;
 }
 
 export function BlogList({ posts }: BlogListProps) {
@@ -120,7 +126,7 @@ export function BlogList({ posts }: BlogListProps) {
                                         {post.metadata.title}
                                     </p>
                                     <span className="text-xs text-muted-foreground shrink-0 whitespace-nowrap">
-                                        {post.metadata.publishedAt}
+                                        {formatDate(post.metadata.publishedAt)}
                                     </span>
                                 </div>
                                 {post.metadata.category && (
