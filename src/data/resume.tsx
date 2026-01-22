@@ -215,7 +215,7 @@ export const DATA = {
         },
         {
           type: "Live",
-          href: "https://kisan-mitra-beta.vercel.app/",
+          href: "https://kisan-mitra-app.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         }
       ],
