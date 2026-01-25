@@ -7,6 +7,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import { Highlight } from "@/components/ui/hero-highlight";
 import GithubContributions from "@/components/github-contributions";
 import { DATA } from "@/data/resume";
@@ -224,6 +225,43 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
+      <section id="personalChoices" className="relative">
+        <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
+        <div className="space-y-12 w-full py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 15}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-4">
+              <div className="space-y-4">
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  My Favs
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  What I <Highlight><SparklesText className="text-inherit text-shadow-secondary-foreground text-shadow-sm" sparklesCount={12}>love?</SparklesText></Highlight>
+                </h2>
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  These are some of my favorite things to be showcased.
+                </p>
+              </div>
+            </div>
+          </BlurFade>
+          <div className="flex min-h-0 flex-col gap-y-3">
+            <BlurFade delay={BLUR_FADE_DELAY * 16}>
+              <Card className="border border-dashed border-[#6A2C12] dark:border-[#F0A57F] shadow-sm max-w-3xl mx-auto rounded-xl overflow-hidden">
+                <iframe
+                  data-testid="embed-iframe"
+                  className="w-full block"
+                  src="https://open.spotify.com/embed/playlist/37i9dQZF1E8L0q8vMkWeFR?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameBorder="0"
+                  allowFullScreen={false}
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                />
+              </Card>
+            </BlurFade>
+          </div>
+        </div>
+      </section>
       <section id="contact" className="relative">
         <div className="lines hidden lg:block">
           <div className="absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
@@ -235,7 +273,7 @@ export default function Page() {
           </svg>
         </div>
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 16}>
+          <BlurFade delay={BLUR_FADE_DELAY * 17}>
             <div className="space-y-3">
               <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                 Contact
