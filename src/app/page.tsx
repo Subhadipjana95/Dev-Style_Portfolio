@@ -1,3 +1,5 @@
+"use client";
+
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
@@ -14,11 +16,12 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { WavingHand } from "@/components/waving-hand";
-import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import { ThemedFlickeringGrid } from "@/components/themed-flickering-grid";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -141,12 +144,21 @@ export default function Page() {
       </section>
       <section id="projects" className="relative">
         <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
-        <div className="space-y-12 w-full py-12">
+        <div className="space-y-12 w-full py-6 sm:py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  My Projects
+                <div className="relative inline-block mb-3 sm:mb-2">
+                  <div
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[1px] w-screen border-t border-dashed border-muted-foreground/25 -z-10 lg:hidden"
+                    style={{
+                      maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                      WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                    }}
+                  />
+                  <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                    My Projects
+                  </div>
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   Check out my <Highlight><SparklesText className="text-inherit text-shadow-secondary-foreground text-shadow-sm" sparklesCount={12}>latest work</SparklesText></Highlight>
@@ -184,12 +196,21 @@ export default function Page() {
       </section>
       <section id="hackathons" className="relative">
         <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
-        <div className="space-y-12 w-full py-12">
+        <div className="space-y-12 w-full py-6 sm:py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  Hackathons
+                <div className="relative inline-block mb-3 sm:mb-2">
+                  <div
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[1px] w-screen border-t border-dashed border-muted-foreground/25 -z-10 lg:hidden"
+                    style={{
+                      maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                      WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                    }}
+                  />
+                  <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                    Hackathons
+                  </div>
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   I like <Highlight><SparklesText className="text-inherit" sparklesCount={12}>building stuffs</SparklesText></Highlight>
@@ -227,30 +248,41 @@ export default function Page() {
       </section>
       <section id="personalChoices" className="relative">
         <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
-        <div className="space-y-12 w-full py-12">
+        <div className="space-y-12 w-full py-6 sm:py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 15}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-4">
-              <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  My Favs
+              <div className="space-y-6">
+                <div className="relative inline-block mb-3 sm:mb-2">
+                  <div
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-px w-screen border-t border-dashed border-muted-foreground/25 -z-10 lg:hidden"
+                    style={{
+                      maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                      WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                    }}
+                  />
+                  <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                    My Favs
+                  </div>
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  What I <Highlight><SparklesText className="text-inherit text-shadow-secondary-foreground text-shadow-sm" sparklesCount={12}>love?</SparklesText></Highlight>
-                </h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  These are some of my favorite things to be showcased.
-                </p>
+                <div className="space-y-4">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    What I <Highlight><SparklesText className="text-inherit text-shadow-secondary-foreground text-shadow-sm" sparklesCount={12}>love?</SparklesText></Highlight>
+                  </h2>
+                  <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    These are some of my favorite things to be showcased.
+                  </p>
+                </div>
               </div>
             </div>
           </BlurFade>
           <div className="flex min-h-0 flex-col gap-y-3">
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
-              <Card className="border border-dashed border-[#6A2C12] dark:border-[#F0A57F] shadow-sm max-w-3xl mx-auto rounded-xl overflow-hidden">
+              <Card className="border border-dashed border-[#6A2C12] dark:border-[#F0A57F] shadow-sm w-full mx-auto rounded-xl overflow-hidden">
                 <iframe
                   data-testid="embed-iframe"
                   className="w-full block"
                   src="https://open.spotify.com/embed/album/61nvyXELOalbsxDgSDeKPR?utm_source=generator"
-                  width="100%"
+                  width=""
                   height="352"
                   frameBorder="0"
                   allowFullScreen={false}
@@ -272,35 +304,26 @@ export default function Page() {
             <path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path>
           </svg>
         </div>
-        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
+        <div className="grid items-center justify-center gap-4 text-center w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 17}>
 
-            <div className="space-y-3 border border-muted-foreground/25 py-8 md:py-12 px-12 md:px-24 rounded-xl relative">
+            <div className="space-y-3 border border-muted-foreground/25 py-8 md:py-12 px-6 md:px-8 rounded-xl relative w-full">
               <div
-                className="absolute inset-0 w-full h-full z-0 overflow-hidden rounded-xl"
+                className="absolute inset-0 w-full h-28 z-0 overflow-hidden rounded-xl"
                 style={{
-                  maskImage: 'linear-gradient(to bottom, black 10%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 10%, transparent 100%)',
+                  maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.4) 40%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.4) 40%, transparent 100%)',
                 }}
               >
-                <FlickeringGrid
-                  className="absolute top-0 left-1/2 -translate-x-1/2"
-                  squareSize={2}
-                  gridGap={2}
-                  color="#ACE7AE"
-                  maxOpacity={0.5}
-                  flickerChance={0.3}
-                  height={300}
-                  width={1920}
-                />
+                <ThemedFlickeringGrid />
               </div>
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                 Contact
               </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl">
                 Get in Touch
               </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/tight">
+              <p className="mx-auto max-w-[600px] text-muted-foreground leading-tight md:text-xl/tight lg:text-base/tight xl:text-xl/tight">
                 Want to chat? Just shoot me a dm{" "}
                 <Link
                   href={DATA.contact.social.LinkedIn.url}
