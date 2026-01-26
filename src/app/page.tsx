@@ -13,8 +13,8 @@ import GithubContributions from "@/components/github-contributions";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-
 import { WavingHand } from "@/components/waving-hand";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -249,7 +249,7 @@ export default function Page() {
                 <iframe
                   data-testid="embed-iframe"
                   className="w-full block"
-                  src="https://open.spotify.com/embed/playlist/37i9dQZF1E8L0q8vMkWeFR?utm_source=generator"
+                  src="https://open.spotify.com/embed/album/61nvyXELOalbsxDgSDeKPR?utm_source=generator"
                   width="100%"
                   height="352"
                   frameBorder="0"
@@ -274,14 +274,33 @@ export default function Page() {
         </div>
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 17}>
-            <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+
+            <div className="space-y-3 border border-muted-foreground/25 py-8 md:py-12 px-12 md:px-24 rounded-xl relative">
+              <div
+                className="absolute inset-0 w-full h-full z-0 overflow-hidden rounded-xl"
+                style={{
+                  maskImage: 'linear-gradient(to bottom, black 10%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 10%, transparent 100%)',
+                }}
+              >
+                <FlickeringGrid
+                  className="absolute top-0 left-1/2 -translate-x-1/2"
+                  squareSize={2}
+                  gridGap={2}
+                  color="#ACE7AE"
+                  maxOpacity={0.5}
+                  flickerChance={0.3}
+                  height={300}
+                  width={1920}
+                />
+              </div>
+              <div className="absolute -top-7 left-1/2 -translate-x-1/2 inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                 Contact
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                 Get in Touch
               </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/tight">
                 Want to chat? Just shoot me a dm{" "}
                 <Link
                   href={DATA.contact.social.LinkedIn.url}

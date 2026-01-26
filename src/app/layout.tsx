@@ -7,6 +7,7 @@ import Script from "next/script";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { ClientGuard } from "@/components/guards/ClientGuard";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -162,6 +163,26 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[80px] w-screen overflow-hidden z-0 block sm:hidden">
+          <div
+            className="absolute inset-0 w-full h-full"
+            style={{
+              maskImage: 'linear-gradient(to bottom, black 10%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 10%, transparent 100%)',
+            }}
+          >
+            <FlickeringGrid
+              className="absolute top-0 left-1/2 -translate-x-1/2"
+              squareSize={2}
+              gridGap={2}
+              color="#ACE7AE"
+              maxOpacity={0.5}
+              flickerChance={0.3}
+              height={300}
+              width={1920}
+            />
+          </div>
+        </div>
         {/* Dashed Grid Lines */}
         <div className="lines hidden lg:block">
           <div className="absolute -left-16 top-0 h-full w-[1px] border-l border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
