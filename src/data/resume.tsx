@@ -2,12 +2,17 @@ import { Icons } from "@/components/icons";
 // import { HomeIcon, NotebookIcon } from "lucide-react";
 import { Highlight } from "@/components/ui/hero-highlight";
 import { SparklesText } from "@/components/magicui/sparkles-text";
-import {HomeIcon} from "@/components/animated-icons/home";
-import {BookTextIcon} from "@/components/animated-icons/book-text";
+import { HomeIcon } from "@/components/animated-icons/home";
+import { BookTextIcon } from "@/components/animated-icons/book-text";
 import { MailCheckIcon } from "@/components/animated-icons/mail-check";
 import { TwitterIcon } from "@/components/animated-icons/twitter";
 import LinkedinIcon from "@/components/animated-icons/linkedin";
 import { GithubIcon } from "@/components/animated-icons/github";
+
+type Skill = {
+  name: string;
+  icon?: React.ReactElement;
+};
 
 export const DATA = {
   name: "Subhadip Jana",
@@ -17,57 +22,59 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/kolkata",
   descriptionValue: "UI/UX Designer, Design Engineer, Frontend Web Dev. I love to design and build products with stunning aesthetic.",
   description: (
-      <div className="">
-        <Highlight>
-          <SparklesText className="text-inherit  text-sm sm:text-lg font-semibold" sparklesCount={3}>UI/UX Designer</SparklesText>
-        </Highlight>,{" "}
-        <Highlight>
-          <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Design Engineer</SparklesText>
-        </Highlight>,{" "}
-        <Highlight>
-          <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Frontend Dev</SparklesText>
-        </Highlight>. I love to design and build products with stunning aesthetics.
-      </div>
+    <div className="">
+      <Highlight>
+        <SparklesText className="text-inherit  text-sm sm:text-lg font-semibold" sparklesCount={3}>UI/UX Designer</SparklesText>
+      </Highlight>,{" "}
+      <Highlight>
+        <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Design Engineer</SparklesText>
+      </Highlight>,{" "}
+      <Highlight>
+        <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Frontend Dev</SparklesText>
+      </Highlight>. I love to design and build products with stunning aesthetics.
+    </div>
   ),
   // summary:
   //   "I am a B.Tech Computer Science & Engineering Student at Netaji Subhash Engineering College (2023-2027). Passionate about Frontend Development, UI/UX Design, and building scalable web applications. Currently, I am a Design Core Team Member at [GDG on Campus NSEC](https://gdg.community.dev/gdg-on-campus-netaji-subhash-engineering-college-kolkata-india/). I have successfully built and deployed multiple projects including [Zerith](https://github.com/Subhadipjana95) and [EnviroMat](https://github.com/Subhadipjana95/EnviroMat).",
-  
+
   avatarUrl: "https://github.com/Subhadipjana95.png",
   skills: [
-    "Next.js",
-    "React.js",
-    "TypeScript",
-    "JavaScript",
-    "Tailwind CSS",
-    "Framer Motion",
-    "GSAP",
-    "Three.js",
-    "WebGL",
-    "HTML",
-    "CSS",
-    "Figma",
-    "Canva",
-    "Graphic Design",
-    "Firebase",
-    "MongoDB",
-    "Vite",
-    "Git",
-    "GitHub",
-    "Vercel",
-    "Netlify",
-    "SEO",
-    "C",
-    "Java",
-    "Python",
-  ],
+    { name: "Next.js", icon: <Icons.nextjs className="size-3" /> },
+    { name: "React.js", icon: <Icons.react className="size-3" /> },
+    { name: "TypeScript", icon: <Icons.typescript className="size-3" /> },
+    { name: "JavaScript", icon: <Icons.javascript className="size-3" /> },
+    { name: "Tailwind CSS", icon: <Icons.tailwind className="size-3" /> },
+    { name: "Framer Motion", icon: <Icons.framermotion className="size-3" /> },
+    { name: "GSAP", icon: <Icons.gsap className="size-3" /> },
+    { name: "Three.js", icon: <Icons.threejs className="size-3" /> },
+    { name: "WebGL", icon: <Icons.webgl className="size-3" /> },
+    { name: "HTML", icon: <Icons.html5 className="size-3" /> },
+    { name: "CSS", icon: <Icons.css3 className="size-3" /> },
+    { name: "Figma", icon: <Icons.figma className="size-3" /> },
+    { name: "Canva", icon: <Icons.canva className="size-3" /> },
+    { name: "Adobe Illustrator", icon: <Icons.AdobeIllustrator className="size-3" /> },
+    { name: "Firebase", icon: <Icons.firebase className="size-3" /> },
+    { name: "MongoDB", icon: <Icons.mongodb className="size-3" /> },
+    { name: "Vite", icon: <Icons.vite className="size-3" /> },
+    { name: "Git", icon: <Icons.git className="size-3" /> },
+    { name: "GitHub", icon: <Icons.github className="size-3" /> },
+    { name: "Vercel", icon: <Icons.vercel className="size-3" /> },
+    { name: "Netlify", icon: <Icons.netlify className="size-3" /> },
+    { name: "SEO", icon: <Icons.seo className="size-3" /> },
+    { name: "C", icon: <Icons.cLang className="size-3" /> },
+    { name: "Java", icon: <Icons.javaLang className="size-3" /> },
+    { name: "Python", icon: <Icons.python className="size-3" /> },
+  ] satisfies Skill[],
   navbar: [
-    { href: "/", 
+    {
+      href: "/",
       icon: (<HomeIcon size={20} />),
-      label: "Home" 
+      label: "Home"
     },
-    { href: "/blog", 
+    {
+      href: "/blog",
       icon: (<BookTextIcon size={20} />),
-      label: "Blog" 
+      label: "Blog"
     },
   ],
   contact: {

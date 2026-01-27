@@ -135,8 +135,11 @@ export default function Page() {
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge variant="secondary" key={skill}>{skill}</Badge>
+              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+                <Badge variant="secondary" className="flex items-center gap-1.5">
+                  {skill.icon && <span className="inline-flex">{skill.icon}</span>}
+                  {skill.name}
+                </Badge>
               </BlurFade>
             ))}
           </div>
@@ -277,7 +280,7 @@ export default function Page() {
           </BlurFade>
           <div className="flex min-h-0 flex-col gap-y-3">
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
-              <Card className="border border-dashed border-[#6A2C12] dark:border-[#F0A57F] shadow-sm w-full mx-auto rounded-xl overflow-hidden">
+              <Card className="border border-dashed border-[#6A2C12] dark:border-[#F0A57F] shadow-sm max-w-2xl mx-auto rounded-xl overflow-hidden">
                 <iframe
                   data-testid="embed-iframe"
                   className="w-full block"
