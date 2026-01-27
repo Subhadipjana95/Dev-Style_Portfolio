@@ -14,46 +14,11 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 
-// export const metadata: Metadata = {
-//   metadataBase: new URL(DATA.url),
-//   title: {
-//     default: DATA.name,
-//     template: `%s | ${DATA.name}`,
-//   },
-//   description: DATA.descriptionValue,
-//   openGraph: {
-//     title: `${DATA.name}`,
-//     description: DATA.descriptionValue,
-//     url: DATA.url,
-//     siteName: `${DATA.name}`,
-//     locale: "en_US",
-//     type: "website",
-//   },
-//   robots: {
-//     index: true,
-//     follow: true,
-//     googleBot: {
-//       index: true,
-//       follow: true,
-//       "max-video-preview": -1,
-//       "max-image-preview": "large",
-//       "max-snippet": -1,
-//     },
-//   },
-//   twitter: {
-//     title: `${DATA.name}`,
-//     card: "summary_large_image",
-//   },
-//   verification: {
-//     google: "",
-//     yandex: "",
-//   },
-// };
-
 export const metadata: Metadata = {
+  metadataBase: new URL("https://a063.xyz"),
   title: "Subhadip Jana – Designer & Developer | a063",
   description:
-    "Subhadip Jana (a063) is a UI/UX Designer, Frontend Developer from India specialising in React, Next.js, Motion and modern web experiences.",
+    "Subhadip Jana (a063) is a UI/UX Designer, Frontend Developer from India specialising in React, Next.js, Tailwind, Motion and modern web experiences.",
   keywords: [
     "Subhadip Jana",
     "Subhadip",
@@ -89,9 +54,23 @@ export const metadata: Metadata = {
     "Web Developer",
     "Web Design",
     "Portfolio Design",
+    "Best UI/UX Designer",
+    "Best Frontend Developer",
+    "Best Developer Portfolio",
+    "Best Designer Portfolio",
+    "Best Frontend Portfolio",
+    "Best UI/UX Portfolio",
   ],
   authors: [{ name: "Subhadip Jana" }],
   creator: "Subhadip Jana",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
     title: "Subhadip Jana – a063",
     description:
