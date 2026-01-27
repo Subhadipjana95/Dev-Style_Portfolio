@@ -142,7 +142,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-20 w-screen overflow-hidden z-0 block sm:hidden pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-20 w-screen overflow-hidden z-0 block lg:hidden pointer-events-none">
           <div
             className="absolute inset-0 w-full h-full"
             style={{
