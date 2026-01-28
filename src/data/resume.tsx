@@ -53,6 +53,7 @@ export const DATA = {
     { name: "Figma", icon: <Icons.figma className="size-3" /> },
     { name: "Canva", icon: <Icons.canva className="size-3" /> },
     { name: "Adobe Illustrator", icon: <Icons.AdobeIllustrator className="size-3" /> },
+    {name: "Graphic Design"},
     { name: "Firebase", icon: <Icons.firebase className="size-3" /> },
     { name: "MongoDB", icon: <Icons.mongodb className="size-3" /> },
     { name: "Vite", icon: <Icons.vite className="size-3" /> },
