@@ -108,11 +108,10 @@ export const DATA = {
       },
     },
   },
-
   work: [
     {
       company: "NIXGN",
-      href: "https://nixgn.com/",
+      href: "https://nixgn.vercel.app",
       badges: [],
       location: "Kolkata, India",
       title: "Co-Founder || Design Engineer",
@@ -148,7 +147,7 @@ export const DATA = {
   projects: [
     {
       title: "NIXGn - Next-Gen Intelligence Execution Group",
-      href: "https://github.com/nixgnofficial",
+      href: "https://nixgn.vercel.app",
       dates: "2026",
       active: true,
       description:
@@ -162,13 +161,8 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Source",
-          href: "https://github.com/Subhadipjana95",
-          icon: <Icons.github className="size-3" />,
-        },
-        {
           type: "Live",
-          href: "https://nixgn.com/",
+          href: "https://nixgn.vercel.app",
           icon: <Icons.globe className="size-3" />,
         }
       ],
