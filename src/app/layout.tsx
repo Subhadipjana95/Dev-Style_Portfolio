@@ -134,6 +134,21 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-W9GKL56QWY"
+        />
+        <Script id="gtag-init">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-W9GKL56QWY');
+          `}
+        </Script>
       </head>
 
       <body
