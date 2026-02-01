@@ -147,7 +147,7 @@ export const DATA = {
   projects: [
     {
       title: "NIXGn - Next-Gen Intelligence Execution Group",
-      href: "https://nixgn.vercel.app",
+      href: "https://nixgn.com",
       dates: "2026",
       active: true,
       description:
@@ -162,7 +162,7 @@ export const DATA = {
       links: [
         {
           type: "Live",
-          href: "https://nixgn.vercel.app",
+          href: "https://nixgn.com",
           icon: <Icons.globe className="size-3" />,
         }
       ],
