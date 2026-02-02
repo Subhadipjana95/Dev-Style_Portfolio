@@ -8,6 +8,7 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { ClientGuard } from "@/components/guards/ClientGuard";
 import { ThemedFlickeringGrid, ThemedFlickeringGridBright } from "@/components/themed-flickering-grid";
+import { InstallPWA } from "@/components/install-pwa";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -106,6 +107,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#08090A" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="a063" />
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+
         <Script
           id="person-schema"
           type="application/ld+json"
@@ -149,6 +158,23 @@ export default function RootLayout({
             gtag('config', 'G-W9GKL56QWY');
           `}
         </Script>
+
+        {/* Service Worker Registration */}
+        <Script id="sw-register" strategy="afterInteractive">
+          {`
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                  .then((registration) => {
+                    console.log('Service Worker registered successfully:', registration.scope);
+                  })
+                  .catch((error) => {
+                    console.log('Service Worker registration failed:', error);
+                  });
+              });
+            }
+          `}
+        </Script>
       </head>
 
       <body
@@ -186,6 +212,7 @@ export default function RootLayout({
           <TooltipProvider delayDuration={0}>
             {children}
             <Navbar />
+            <InstallPWA />
           </TooltipProvider>
         </ThemeProvider>
       </body>
