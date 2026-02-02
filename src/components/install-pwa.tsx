@@ -34,9 +34,10 @@ export function InstallPWA() {
 
         window.addEventListener('beforeinstallprompt', handler);
 
-        // Check if already installed
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            setIsInstallable(false);
+        // Detect iOS
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+        if (isIOS) {
+            setIsInstallable(true);
         }
 
         return () => window.removeEventListener('beforeinstallprompt', handler);
@@ -86,6 +87,13 @@ export function InstallPWA() {
     }, [isInstallable, hasShownBefore]);
 
     const handleInstall = async () => {
+        // Handle iOS
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+        if (isIOS) {
+            alert("To install on iOS:\n1. Tap the Share button below\n2. Scroll down and tap 'Add to Home Screen'");
+            return;
+        }
+
         if (!deferredPrompt) return;
 
         deferredPrompt.prompt();
