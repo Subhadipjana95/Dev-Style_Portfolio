@@ -7,7 +7,7 @@ import Script from "next/script";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { ClientGuard } from "@/components/guards/ClientGuard";
-import { ThemedFlickeringGrid, ThemedFlickeringGridBright } from "@/components/themed-flickering-grid";
+import { ThemedFlickeringGridBright } from "@/components/themed-flickering-grid";
 import { InstallPWA } from "@/components/install-pwa";
 
 const fontSans = FontSans({
