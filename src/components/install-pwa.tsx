@@ -114,93 +114,64 @@ export function InstallPWA() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm"
+                        className="fixed inset-0 z-[100] bg-background/40 backdrop-blur-sm"
                         onClick={handleClose}
                     />
 
-                    {/* Install Card */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 30,
-                            duration: 0.4
-                        }}
-                        className="fixed left-1/2 top-1/2 z-[101] w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2"
-                    >
-                        <Card className="relative border-border bg-card p-6 shadow-2xl ro">
-                            {/* Close Button */}
-                            <button
-                                onClick={handleClose}
-                                className="absolute right-4 top-4 rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                                aria-label="Close"
-                            >
-                                <X className="h-4 w-4" />
-                            </button>
+                    {/* Install Card Container */}
+                    <div className="fixed inset-0 z-[101] flex items-center justify-center p-8 pointer-events-none">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 30,
+                                duration: 0.4
+                            }}
+                            className="w-full max-w-md pointer-events-auto rounded-lg border border-dashed border-border"
+                        >
+                            <Card className="relative border-border bg-card p-4 sm:p-6 shadow-2xl rounded-lg">
 
-                            {/* Icon */}
-                            <div className="mb-4 flex justify-center">
-                                <motion.div
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                                    className="rounded-full bg-primary/10 p-4"
-                                >
-                                    <Smartphone className="h-8 w-8 text-primary" />
-                                </motion.div>
-                            </div>
+                                {/* Icon */}
+                                <div className="mb-4 flex justify-center">
+                                    <div className="rounded-full bg-primary/10 p-4">
+                                        <Smartphone className="h-8 w-8 text-primary" />
+                                    </div>
+                                </div>
 
-                            {/* Content */}
-                            <div className="text-center">
-                                <motion.h3
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3 }}
-                                    className="mb-2 text-xl font-semibold text-foreground"
-                                >
-                                    Install a063
-                                </motion.h3>
+                                {/* Content */}
+                                <div className="text-center">
+                                    <h3 className="mb-2 text-xl font-semibold text-foreground">
+                                        Install a063
+                                    </h3>
 
-                                <motion.p
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4 }}
-                                    className="mb-6 text-sm text-muted-foreground"
-                                >
-                                    Get instant & reliable access from your home screen.
-                                </motion.p>
+                                    <p className="mb-6 text-sm text-muted-foreground">
+                                        Get instant & reliable access from your home screen.
+                                    </p>
 
-                                {/* Buttons */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.5 }}
-                                    className="flex flex-col gap-3 sm:flex-row"
-                                >
-                                    <Button
-                                        onClick={handleInstall}
-                                        className="flex-1 gap-2"
-                                        size="lg"
-                                    >
-                                        <Download className="h-4 w-4" />
-                                        Install Now
-                                    </Button>
-
-                                    <Button
-                                        onClick={handleClose}
-                                        variant="outline"
-                                        className="flex-1"
-                                        size="lg"
-                                    >
-                                        Maybe Later
-                                    </Button>
-                                </motion.div>
-                            </div>
-                        </Card>
-                    </motion.div>
+                                    {/* Buttons */}
+                                    <div className="flex flex-row gap-3">
+                                        <Button
+                                            onClick={handleClose}
+                                            variant="outline"
+                                            className="flex-1 h-9 text-sm px-3"
+                                        >
+                                            Later
+                                        </Button>
+                                        <Button
+                                            onClick={handleInstall}
+                                            className="flex-1 gap-2 h-9 text-sm px-3 bg-gradient-to-r from-[#8FC47B] to-[#b56b36] text-black"
+                                        >
+                                            <Download className="h-4 w-4" />
+                                            Install
+                                        </Button>
+                                    </div>
+                                </div>
+                            </Card>
+                        </motion.div>
+                    </div>
                 </>
             )}
         </AnimatePresence>
