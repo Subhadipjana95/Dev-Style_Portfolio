@@ -13,7 +13,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { BlogSyntaxHighlighter } from "@/components/blog-syntax-highlighter";
+import Markdown from "react-markdown";
+import { CodeBlock } from "@/components/ui/code-block";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -125,11 +126,35 @@ export default async function Blog({
           </p>
         </Suspense>
       </div>
-      <article
-        className="prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: post.source || "" }}
-      ></article>
-      <BlogSyntaxHighlighter />
+      <article className="prose dark:prose-invert max-w-none">
+        <Markdown
+          components={{
+            pre: ({ children }: any) => <>{children}</>,
+            code({ node, inline, className, children, ...props }: any) {
+              const match = /language-(\w+)/.exec(className || "");
+              const isInline = inline || !match;
+
+              if (isInline) {
+                return (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                );
+              }
+
+              return (
+                <CodeBlock
+                  code={String(children).replace(/\n$/, "")}
+                  language={match ? match[1] : "text"}
+                  className="not-prose"
+                />
+              );
+            },
+          }}
+        >
+          {post.source || ""}
+        </Markdown>
+      </article>
       <div className="h-16 w-full bg-transparent block sm:hidden" />
     </section>
   );

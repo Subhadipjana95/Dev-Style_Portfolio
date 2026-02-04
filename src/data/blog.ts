@@ -25,7 +25,7 @@ export async function getBlogPosts() {
     const isBuild = typeof window === 'undefined';
     
     if (isBuild) {
-      // Direct Hashnode API call during build
+      // Direct Hashnode API call during build with caching
       const response = await fetch(HASHNODE_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -52,6 +52,8 @@ export async function getBlogPosts() {
           `,
           variables: { host: HOST },
         }),
+        // Add caching for ISR - revalidate every 60 seconds
+        next: { revalidate: 60 }
       });
 
       const result = await response.json();
@@ -69,7 +71,10 @@ export async function getBlogPosts() {
     } else {
       // Browser: use API route
       const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-      const response = await fetch(`${baseUrl}/api/blog`, { cache: 'no-store' });
+      const response = await fetch(`${baseUrl}/api/blog`, { 
+        cache: 'force-cache',
+        next: { revalidate: 60 }
+      });
       if (!response.ok) throw new Error(`API returned ${response.status}`);
       const data = await response.json();
       return data.posts;
@@ -104,7 +109,7 @@ export async function getPost(slug: string) {
                   url
                 }
                 content {
-                  html
+                  markdown
                 }
                 tags {
                   id
@@ -116,6 +121,8 @@ export async function getPost(slug: string) {
         `,
         variables: { host: HOST, slug },
       }),
+      // Cache individual posts for 60 seconds
+      next: { revalidate: 60 }
     });
 
     const result = await response.json();
@@ -137,7 +144,7 @@ export async function getPost(slug: string) {
         image: post.coverImage?.url ?? undefined,
         category: post.tags?.[0]?.name ?? "General",
       } as Metadata,
-      source: post.content.html,
+      source: post.content.markdown,
     };
   } catch (error) {
     console.error('Error fetching post:', error);

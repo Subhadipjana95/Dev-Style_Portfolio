@@ -1,8 +1,10 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+// Use ISR (Incremental Static Regeneration) instead of force-dynamic
+// Revalidate every 60 seconds - fresh content with better performance
+export const revalidate = 60;
+
 import { BlogList } from "@/components/blog-list";
 import { Highlight } from "@/components/ui/hero-highlight";
 import { SparklesText } from "@/components/magicui/sparkles-text";
