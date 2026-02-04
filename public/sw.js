@@ -1,5 +1,5 @@
-const CACHE_NAME = 'a063-portfolio-v1';
-const RUNTIME_CACHE = 'a063-runtime-v1';
+const CACHE_NAME = 'a063-portfolio-v2';
+const RUNTIME_CACHE = 'a063-runtime-v2';
 
 // Assets to cache on install
 const PRECACHE_ASSETS = [
