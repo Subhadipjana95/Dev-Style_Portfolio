@@ -19,6 +19,7 @@ import { WavingHand } from "@/components/waving-hand";
 import { ThemedFlickeringGrid } from "@/components/themed-flickering-grid";
 
 const BLUR_FADE_DELAY = 0.04;
+import { CollaborationForm } from '@/components/collaboration-form';
 
 export default function Page() {
 
@@ -326,7 +327,7 @@ export default function Page() {
               <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl">
                 Get in Touch
               </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground leading-tight md:text-xl/tight lg:text-base/tight xl:text-xl/tight">
+              <div className="mx-auto max-w-[600px] text-muted-foreground leading-tight md:text-xl/tight lg:text-base/tight xl:text-xl/tight" suppressHydrationWarning>
                 Want to chat? Just shoot me a dm{" "}
                 <Link
                   href={DATA.contact.social.LinkedIn.url}
@@ -334,9 +335,14 @@ export default function Page() {
                 >
                   with a direct question on LinkedIn
                 </Link>{" "}
-                and I&apos;ll respond whenever I can. I will ignore all
-                soliciting.
-              </p>
+                || Want to collaborate? Tell me your Requirments on{" "}
+                <CollaborationForm>
+                  <span className="cursor-pointer hover:opacity-80 transition-opacity">
+                    <SparklesText className="text-inherit text-shadow-secondary-foreground text-shadow-sm relative inline-block rounded-sm bg-gradient-to-r from-background/50 to-primary/20 px-1 dark:from-background/50 dark:to-primary/20 border border-dashed border-[#6e6d6d]" sparklesCount={4}>this form</SparklesText>
+                  </span>
+                </CollaborationForm>
+                . I&apos;ll get back to you ASAP.
+              </div>
             </div>
           </BlurFade>
         </div>
@@ -344,4 +350,3 @@ export default function Page() {
     </main >
   );
 }
-// Force rebuild

@@ -179,42 +179,44 @@ export default function RootLayout({
 
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-3xl mx-auto py-12 sm:py-24 px-6 relative",
+          "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-20 w-screen overflow-hidden z-0 block lg:hidden pointer-events-none">
-          <div
-            className="absolute inset-0 w-full h-full"
-            style={{
-              maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.4) 40%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.4) 40%, transparent 100%)',
-            }}
-          >
-            <ThemedFlickeringGridBright />
+        <div className="max-w-3xl mx-auto py-12 sm:py-24 px-6 relative">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 h-20 w-screen overflow-hidden z-0 block lg:hidden pointer-events-none">
+            <div
+              className="absolute inset-0 w-full h-full"
+              style={{
+                maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.4) 40%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.4) 40%, transparent 100%)',
+              }}
+            >
+              <ThemedFlickeringGridBright />
+            </div>
           </div>
-        </div>
-        {/* Dashed Grid Lines */}
-        <div className="lines hidden lg:block">
-          <div className="absolute -left-16 top-0 h-full w-[1px] border-l border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
-          <div className="absolute -right-16 top-0 h-full w-[1px] border-r border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
-          <div className="absolute left-1/2 top-16 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute -left-16 top-16 -translate-x-1/2 -translate-y-1/2 size-2 text-muted-foreground2">
-            <path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute -right-16 top-16 translate-x-1/2 -translate-y-1/2 size-2 text-muted-foreground2">
-            <path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path>
-          </svg>
-        </div>
-        <ClientGuard />
+          {/* Dashed Grid Lines */}
+          <div className="lines hidden lg:block">
+            <div className="absolute -left-16 top-0 h-full w-[1px] border-l border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
+            <div className="absolute -right-16 top-0 h-full w-[1px] border-r border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)]" />
+            <div className="absolute left-1/2 top-16 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute -left-16 top-16 -translate-x-1/2 -translate-y-1/2 size-2 text-muted-foreground2">
+              <path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute -right-16 top-16 translate-x-1/2 -translate-y-1/2 size-2 text-muted-foreground2">
+              <path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path>
+            </svg>
+          </div>
+          <ClientGuard />
 
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-            <InstallPWA />
-          </TooltipProvider>
-        </ThemeProvider>
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <TooltipProvider delayDuration={0}>
+              {children}
+              <Navbar />
+              <InstallPWA />
+            </TooltipProvider>
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   );
