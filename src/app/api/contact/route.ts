@@ -5,6 +5,24 @@ export const runtime = "edge"
 
 export async function POST(req: Request) {
   try {
+    // Validate environment variables
+    const BREVO_API_KEY = process.env.BREVO_API_KEY
+    const BREVO_SENDER_EMAIL = process.env.BREVO_SENDER_EMAIL
+
+    if (!BREVO_API_KEY || !BREVO_SENDER_EMAIL) {
+      console.error("Missing environment variables:", {
+        hasApiKey: !!BREVO_API_KEY,
+        hasSenderEmail: !!BREVO_SENDER_EMAIL
+      })
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: "Server configuration error. Please contact me directly on LinkedIn." 
+        },
+        { status: 500 }
+      )
+    }
+
     const body = await req.json()
     const { name, email, service, budget, description } = body
 
@@ -32,16 +50,16 @@ export async function POST(req: Request) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "api-key": process.env.BREVO_API_KEY!,
+          "api-key": BREVO_API_KEY,
         },
         body: JSON.stringify({
           sender: {
-            email: process.env.BREVO_SENDER_EMAIL,
+            email: BREVO_SENDER_EMAIL,
             name: "Portfolio Contact Form",
           },
           to: [
             {
-              email: process.env.BREVO_SENDER_EMAIL,
+              email: BREVO_SENDER_EMAIL,
               name: "Subhadip Jana",
             },
           ],
@@ -117,11 +135,11 @@ export async function POST(req: Request) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "api-key": process.env.BREVO_API_KEY!,
+          "api-key": BREVO_API_KEY,
         },
         body: JSON.stringify({
           sender: {
-            email: process.env.BREVO_SENDER_EMAIL,
+            email: BREVO_SENDER_EMAIL,
             name: "Subhadip Jana (a063)",
           },
           to: [

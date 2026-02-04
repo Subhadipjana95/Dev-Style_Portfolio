@@ -21,11 +21,13 @@ import {
 } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { useToast } from "@/hooks/use-toast"
 
 export function CollaborationForm({ children }: { children: React.ReactNode }) {
     const [open, setOpen] = React.useState(false)
     const [mounted, setMounted] = React.useState(false)
     const [loading, setLoading] = React.useState(false)
+    const { toast } = useToast()
 
     // Form state
     const [formData, setFormData] = React.useState({
@@ -77,11 +79,18 @@ export function CollaborationForm({ children }: { children: React.ReactNode }) {
                 description: "",
             })
 
-            // Show success message
-            alert("🚀 Request sent successfully! I'll get back to you soon.")
+            // Show success toast
+            toast({
+                title: "🚀 Request sent successfully!",
+                description: "I'll get back to you soon.",
+            })
         } catch (error) {
             console.error("Form submission error:", error)
-            alert("❌ Something went wrong. Please try again or contact me directly on LinkedIn.")
+            toast({
+                variant: "destructive",
+                title: "❌ Something went wrong",
+                description: "Please try again or contact me directly on LinkedIn.",
+            })
         } finally {
             setLoading(false)
         }
@@ -204,7 +213,6 @@ export function CollaborationForm({ children }: { children: React.ReactNode }) {
                                                     <SelectContent className="z-[102]">
                                                         <SelectItem value="web-design">Web Design</SelectItem>
                                                         <SelectItem value="web-dev">Web Development</SelectItem>
-                                                        <SelectItem value="mobile-app">Mobile App</SelectItem>
                                                         <SelectItem value="ui-ux">UI/UX Design</SelectItem>
                                                         <SelectItem value="other">Other</SelectItem>
                                                     </SelectContent>
