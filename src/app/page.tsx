@@ -57,7 +57,7 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <div className="flex justify-center items-center p-1 border-[0.5px] border-[#585958] rounded-full">
+              <div className="flex justify-center items-center p-1 bg-gradient-to-tl from-transparent to-primary/30 border-[0.5px] border-[#585958] rounded-full">
                 <Avatar className="size-16 xs:size-10 sm:size-12 md:size-28 border">
                   <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                   <AvatarFallback>{DATA.initials}</AvatarFallback>
