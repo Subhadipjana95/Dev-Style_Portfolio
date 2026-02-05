@@ -130,8 +130,8 @@ export function CollaborationForm({ children }: { children: React.ReactNode }) {
                             transition={{
                                 type: "spring",
                                 stiffness: 300,
-                                damping: 30,
-                                duration: 0.4
+                                damping: 20,
+                                duration: 0.3
                             }}
                             className="w-full max-w-md pointer-events-auto my-auto"
                         >
@@ -147,10 +147,10 @@ export function CollaborationForm({ children }: { children: React.ReactNode }) {
                                 </button>
 
                                 {/* Header */}
-                                <div className="mb-3">
+                                <div className="mx-auto mb-3">
                                     <h2 className="text-lg font-semibold text-foreground">Start a Project</h2>
                                     <p className="text-sm text-muted-foreground mt-0.5">
-                                        Tell me about your project and I&apos;ll get back to you shortly.
+                                        Tell me about your project.
                                     </p>
                                 </div>
 

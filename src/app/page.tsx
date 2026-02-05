@@ -328,25 +328,28 @@ export default function Page() {
                 Get in Touch
               </h2>
               <div className="mx-auto max-w-[600px] text-muted-foreground leading-tight md:text-xl/tight lg:text-base/tight xl:text-xl/tight" suppressHydrationWarning>
-                Want to chat? Just shoot me a dm{" "}
-                <Link
-                  href={DATA.contact.social.LinkedIn.url}
-                  className="text-blue-500 hover:underline"
-                >
-                  with a direct question on LinkedIn
-                </Link>{" "}
-                || Want to collaborate? Tell me your Requirments on{" "}
+                Want to collaborate? Tell me your Requirments on{" "}
                 <CollaborationForm>
                   <span className="cursor-pointer hover:opacity-80 transition-opacity">
-                    <SparklesText className="text-inherit text-shadow-secondary-foreground text-shadow-sm relative inline-block rounded-sm bg-gradient-to-r from-background/50 to-primary/20 px-1 dark:from-background/50 dark:to-primary/20 border border-dashed border-[#6e6d6d]" sparklesCount={4}>this form</SparklesText>
+                    <SparklesText className="!text-background text-shadow-sm relative inline-block rounded-sm bg-gradient-to-r from-[#8FC47B] to-[#b56b36] px-1 dark:from-[#8FC47B] dark:to-[#b56b36] border border-dashed border-[#b56b36] dark:border-[#8FC47B]" sparklesCount={3}>this form</SparklesText>
                   </span>
                 </CollaborationForm>
+                {" "}
+                || Want to chat? Just shoot me a dm{" "}
+                <Link
+                  href="https://wa.me/919832668044"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#b56b36] dark:text-[#8FC47B] hover:underline"
+                >
+                  with your queries on WhatsApp
+                </Link>
                 . I&apos;ll get back to you ASAP.
               </div>
             </div>
           </BlurFade>
         </div>
       </section>
-    </main >
+    </main>
   );
 }
