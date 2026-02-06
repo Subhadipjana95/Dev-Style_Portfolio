@@ -3,7 +3,6 @@ import { DATA } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import {
@@ -83,15 +82,25 @@ export default async function Blog({
   }
 
   // Preprocess Hashnode markdown to fix image syntax
-  // Hashnode uses: ![alt](url align="left") which is non-standard
-  // Convert to: ![alt](url)
-  const cleanedMarkdown = post.source?.replace(
+  // Hashnode uses non-standard formats like:
+  // ![alt](url align="left") or ![alt](url align="center")
+  // Convert to standard: ![alt](url)
+  let cleanedMarkdown = post.source || "";
+
+  // Remove align attributes from image markdown
+  cleanedMarkdown = cleanedMarkdown.replace(
     /!\[([^\]]*)\]\(([^\s)]+)\s+align="[^"]*"\)/g,
     '![$1]($2)'
-  ) || "";
+  );
+
+  // Also handle any other attributes that might be in the URL
+  cleanedMarkdown = cleanedMarkdown.replace(
+    /!\[([^\]]*)\]\(([^\s)]+)\s+[^)]*\)/g,
+    '![$1]($2)'
+  );
 
   return (
-    <section id="blog" className="w-full max-w-4xl mx-auto px-4 sm:px-6 overflow-hidden">
+    <section id="blog" className="w-full max-w-3xl mx-auto px-4 sm:px-6 overflow-hidden">
       <Breadcrumb className="mb-8">
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -166,7 +175,8 @@ export default async function Blog({
             img({ src, alt, ...props }: any) {
               return (
                 <span className="block my-6 overflow-hidden rounded-lg">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={src}
                     alt={alt || "Blog image"}
                     className="w-full h-auto object-cover"
