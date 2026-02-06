@@ -58,7 +58,7 @@ export const CodeBlock = ({
       {/* Copy button - always visible in top-right corner */}
       <button
         onClick={copyToClipboard}
-        className="absolute top-3 right-3 z-10 flex items-center gap-1 rounded-md bg-slate-800 px-2 py-1.5 text-xs text-zinc-400 hover:bg-slate-700 hover:text-zinc-200 transition-colors font-sans"
+        className="absolute top-3 right-3 z-10 flex items-center gap-1 rounded-md bg-slate-700 px-2 py-1.5 text-xs text-zinc-400 hover:text-zinc-200 transition-colors font-sans"
         aria-label="Copy code"
       >
         {copied ? (
@@ -82,8 +82,8 @@ export const CodeBlock = ({
                 key={index}
                 onClick={() => setActiveTab(index)}
                 className={`px-3 !py-2 text-xs transition-colors font-sans ${activeTab === index
-                    ? "text-white"
-                    : "text-zinc-400 hover:text-zinc-200"
+                  ? "text-white"
+                  : "text-zinc-400 hover:text-zinc-200"
                   }`}
               >
                 {tab.name}
@@ -105,6 +105,7 @@ export const CodeBlock = ({
           padding: 0,
           background: "transparent",
           fontSize: "0.875rem", // text-sm equivalent
+          textDecoration: "none",
         }}
         wrapLines={true}
         showLineNumbers={true}

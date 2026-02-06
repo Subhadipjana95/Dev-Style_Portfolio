@@ -209,3 +209,21 @@ code[data-line-numbers-max-digits="2"]>[data-line]::before {
 code[data-line-numbers-max-digits="3"]>[data-line]::before {
   width: 3rem;
 }
+
+/* Remove underlines from code blocks */
+pre *,
+code *,
+.not-prose *,
+[class*="language-"] *,
+.token * {
+  text-decoration: none !important;
+}
+
+/* Ensure syntax highlighter elements don't get prose link styles */
+pre a,
+code a,
+.not-prose a,
+[class*="language-"] a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
