@@ -1,89 +1,126 @@
 "use client";
+import React from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { IconCheck, IconCopy } from "@tabler/icons-react";
 
-import * as React from "react";
-import { Check, Copy } from "lucide-react";
-import { cn } from "@/lib/utils";
-import hljs from "highlight.js";
-import { useTheme } from "next-themes";
-import "highlight.js/styles/atom-one-light.css";
-import "highlight.js/styles/atom-one-dark.css";
+type CodeBlockProps = {
+  language: string;
+  filename: string;
+  highlightLines?: number[];
+} & (
+    | {
+      code: string;
+      tabs?: never;
+    }
+    | {
+      code?: never;
+      tabs: Array<{
+        name: string;
+        code: string;
+        language?: string;
+        highlightLines?: number[];
+      }>;
+    }
+  );
 
-interface CodeBlockProps extends React.HTMLAttributes<HTMLDivElement> {
-    code: string;
-    language?: string;
-}
+export const CodeBlock = ({
+  language,
+  filename,
+  code,
+  highlightLines = [],
+  tabs = [],
+}: CodeBlockProps) => {
+  const [copied, setCopied] = React.useState(false);
+  const [activeTab, setActiveTab] = React.useState(0);
 
-export function CodeBlock({
-    code,
-    language = "text",
-    className,
-    ...props
-}: CodeBlockProps) {
-    const [hasCopied, setHasCopied] = React.useState(false);
-    const { theme, systemTheme } = useTheme();
-    const currentTheme = theme === "system" ? systemTheme : theme;
+  const tabsExist = tabs.length > 0;
 
-    const copyToClipboard = React.useCallback(() => {
-        navigator.clipboard.writeText(code);
-        setHasCopied(true);
-        setTimeout(() => setHasCopied(false), 2000);
-    }, [code]);
+  const copyToClipboard = async () => {
+    const textToCopy = tabsExist ? tabs[activeTab].code : code;
+    if (textToCopy) {
+      await navigator.clipboard.writeText(textToCopy);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
-    const highlightedCode = React.useMemo(() => {
-        try {
-            if (language && hljs.getLanguage(language)) {
-                return hljs.highlight(code, { language }).value;
-            }
-            return hljs.highlightAuto(code).value;
-        } catch (error) {
-            console.error("Highlighting error:", error);
-            return code;
-        }
-    }, [code, language]);
+  const activeCode = tabsExist ? tabs[activeTab].code : code;
+  const activeLanguage = tabsExist
+    ? tabs[activeTab].language || language
+    : language;
+  const activeHighlightLines = tabsExist
+    ? tabs[activeTab].highlightLines || []
+    : highlightLines;
 
-    return (
-        <div
-            className={cn(
-                "relative overflow-hidden border shadow-sm",
-                "border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950",
-                className
-            )}
-            {...props}
-        >
-            <div className="flex items-center justify-between border-b px-4 py-2.5 backdrop-blur-sm border-zinc-200 bg-zinc-100/80 dark:border-zinc-800 dark:bg-zinc-900/50">
-                <div className="flex items-center gap-2">
-                    <div className="flex gap-1.5">
-                        <div className="h-2.5 w-2.5 rounded-full bg-red-500/20 border border-red-500/50" />
-                        <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
-                        <div className="h-2.5 w-2.5 rounded-full bg-green-500/20 border border-green-500/50" />
-                    </div>
-                    <span className="ml-2 text-xs font-medium uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
-                        {language}
-                    </span>
-                </div>
-                <button
-                    onClick={copyToClipboard}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-md transition-all focus:outline-none focus:ring-1 text-zinc-600 hover:bg-zinc-200 hover:text-zinc-900 focus:ring-zinc-300 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 dark:focus:ring-zinc-700"
-                    aria-label="Copy code"
-                >
-                    {hasCopied ? (
-                        <Check className="h-3.5 w-3.5 text-green-500" />
-                    ) : (
-                        <Copy className="h-3.5 w-3.5 scale-100 transition-all" />
-                    )}
-                </button>
-            </div>
-            <div className="p-0">
-                <pre className="overflow-x-auto pl-6 pr-4 text-sm font-mono leading-relaxed bg-white dark:bg-transparent rounded-none">
-                    <code
-                        dangerouslySetInnerHTML={{ __html: highlightedCode }}
-                        className={cn(
-                            "hljs bg-transparent block",
-                            currentTheme === "dark" ? "dark" : "light"
-                        )}
-                    />
-                </pre>
-            </div>
-        </div>
-    );
-}
+  return (
+    <div className="relative w-full rounded-lg bg-gray-800 border border-gray-700 p-4 font-mono text-sm">
+      {/* Copy button - always visible in top-right corner */}
+      <button
+        onClick={copyToClipboard}
+        className="absolute top-3 right-3 z-10 flex items-center gap-1 rounded-md bg-slate-800 px-2 py-1.5 text-xs text-zinc-400 hover:bg-slate-700 hover:text-zinc-200 transition-colors font-sans"
+        aria-label="Copy code"
+      >
+        {copied ? (
+          <>
+            <IconCheck size={14} />
+            <span>Copied!</span>
+          </>
+        ) : (
+          <>
+            <IconCopy size={14} />
+            <span>Copy</span>
+          </>
+        )}
+      </button>
+
+      <div className="flex flex-col gap-2">
+        {tabsExist && (
+          <div className="flex overflow-x-auto">
+            {tabs.map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveTab(index)}
+                className={`px-3 !py-2 text-xs transition-colors font-sans ${activeTab === index
+                    ? "text-white"
+                    : "text-zinc-400 hover:text-zinc-200"
+                  }`}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </div>
+        )}
+        {!tabsExist && filename && (
+          <div className="flex justify-between items-center py-2 pr-20">
+            <div className="text-xs text-zinc-400">{filename}</div>
+          </div>
+        )}
+      </div>
+      <SyntaxHighlighter
+        language={activeLanguage}
+        style={atomDark}
+        customStyle={{
+          margin: 0,
+          padding: 0,
+          background: "transparent",
+          fontSize: "0.875rem", // text-sm equivalent
+        }}
+        wrapLines={true}
+        showLineNumbers={true}
+        lineProps={(lineNumber) => ({
+          style: {
+            backgroundColor: activeHighlightLines.includes(lineNumber)
+              ? "rgba(255,255,255,0.1)"
+              : "transparent",
+            display: "block",
+            width: "100%",
+          },
+        })}
+        PreTag="div"
+      >
+        {String(activeCode)}
+      </SyntaxHighlighter>
+    </div>
+  );
+};

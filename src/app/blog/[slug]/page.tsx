@@ -100,7 +100,7 @@ export default async function Blog({
   );
 
   return (
-    <section id="blog" className="w-full max-w-3xl mx-auto px-4 sm:px-6 overflow-hidden">
+    <section id="blog" className="w-full max-w-3xl mx-auto overflow-hidden">
       <Breadcrumb className="mb-8">
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -165,11 +165,13 @@ export default async function Blog({
               }
 
               return (
-                <CodeBlock
-                  code={String(children).replace(/\n$/, "")}
-                  language={match ? match[1] : "text"}
-                  className="not-prose"
-                />
+                <div className="not-prose my-6">
+                  <CodeBlock
+                    code={String(children).replace(/\n$/, "")}
+                    language={match ? match[1] : "text"}
+                    filename=""
+                  />
+                </div>
               );
             },
             img({ src, alt, ...props }: any) {
