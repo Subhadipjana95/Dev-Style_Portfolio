@@ -20,9 +20,11 @@ import { ThemedFlickeringGrid } from "@/components/themed-flickering-grid";
 
 const BLUR_FADE_DELAY = 0.04;
 import { CollaborationForm } from '@/components/collaboration-form';
+import { AnimatedHorizontalLine } from '@/components/animated-horizontal-line';
+import { FloatingIcons } from '@/components/floating-icons';
+
 
 export default function Page() {
-
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -73,7 +75,8 @@ export default function Page() {
             <h2 className="text-xl font-bold">Contributions</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <div className="flex justify-center items-center border rounded-md p-[6px] sm:p-2">
+            <div className="relative flex justify-center items-center border rounded-md p-[6px] sm:p-2">
+              <FloatingIcons />
               <Link href="https://github.com/Subhadipjana95" className="w-full rounded-sm overflow-hidden">
                 <GithubContributions />
               </Link>
@@ -147,7 +150,7 @@ export default function Page() {
         </div>
       </section>
       <section id="projects" className="relative">
-        <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
+        <AnimatedHorizontalLine />
         <div className="space-y-12 w-full py-6 sm:py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -199,7 +202,7 @@ export default function Page() {
         </div>
       </section>
       <section id="hackathons" className="relative">
-        <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
+        <AnimatedHorizontalLine />
         <div className="space-y-12 w-full py-6 sm:py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -251,7 +254,7 @@ export default function Page() {
         </div>
       </section>
       <section id="personalChoices" className="relative">
-        <div className="hidden lg:block absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
+        <AnimatedHorizontalLine />
         <div className="space-y-12 w-full py-6 sm:py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 15}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-4">
@@ -299,15 +302,7 @@ export default function Page() {
         </div>
       </section>
       <section id="contact" className="relative">
-        <div className="lines hidden lg:block">
-          <div className="absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/25 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]" />
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute -left-[88px] top-0 -translate-x-1/2 -translate-y-1/2 size-2 text-muted-foreground2">
-            <path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute -right-[88px] top-0 translate-x-1/2 -translate-y-1/2 size-2 text-muted-foreground2">
-            <path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path>
-          </svg>
-        </div>
+        <AnimatedHorizontalLine withCorners={true} />
         <div className="grid items-center justify-center gap-4 text-center w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 17}>
 
