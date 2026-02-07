@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "blogs.a063.xyz"
+        }
+      ],
+      "destination": "/blog"
+    }
+  ]
+}
