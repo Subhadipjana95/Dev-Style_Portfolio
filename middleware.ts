@@ -12,32 +12,38 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // Extract the base hostname without port (for local development)
+  const baseHostname = hostname.split(":")[0]
+
   /**
-   * BLOG SUBDOMAIN HANDLING
+   * ✅ BLOG SUBDOMAIN HANDLING (production + local)
    * blogs.a063.xyz → serve /blog
+   * blogs.localhost → serve /blog (local dev)
    */
-  if (hostname === "blogs.a063.xyz") {
-    // Prevent infinite loop
+  if (
+    baseHostname === "blogs.a063.xyz" ||
+    baseHostname === "blogs.localhost"
+  ) {
+    // Prevent infinite rewrite loop
     if (!pathname.startsWith("/blog")) {
       const url = request.nextUrl.clone()
-      url.pathname = "/blog"
+      url.pathname = `/blog${pathname}`
       return NextResponse.rewrite(url)
     }
   }
 
   /**
-   * OPTIONAL (SEO STRONG):
-   * Redirect main-domain /blog → blogs.a063.xyz
+   * ✅ OPTIONAL (SEO): Redirect main-domain /blog → subdomain
+   * a063.xyz/blog → blogs.a063.xyz
    */
   if (
-    hostname === "a063.xyz" &&
+    (baseHostname === "a063.xyz" || baseHostname === "www.a063.xyz") &&
     pathname.startsWith("/blog")
   ) {
-    const redirectUrl = new URL(
-      "https://blogs.a063.xyz",
-      request.url
+    return NextResponse.redirect(
+      new URL("https://blogs.a063.xyz", request.url),
+      301
     )
-    return NextResponse.redirect(redirectUrl, 301)
   }
 
   return NextResponse.next()
