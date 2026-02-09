@@ -21,23 +21,23 @@ const icons: FloatingIcon[] = [
         animationDelay: "0s"
     },
     {
-        src: "/3D-icons/color-bucket-icon.png",
+        src: "/3D-icons/headphone-icon.png",
         alt: "Color Bucket",
-        position: "-top-2 right-28 translate-x-1/2 -translate-y-1/2",
+        position: "-top-4 right-28 translate-x-1/2 -translate-y-1/2",
         size: 26,
         animationDelay: "0.5s"
     },
     {
-        src: "/3D-icons/headphone-icon.png",
+        src: "/3D-icons/tea-icon.png",
         alt: "Headphone",
-        position: "-bottom-2 left-10 -translate-x-1/2 translate-y-1/2",
+        position: "-bottom-4 left-10 -translate-x-1/2 translate-y-1/2",
         size: 25,
         animationDelay: "1s"
     },
     {
-        src: "/3D-icons/tea-icon.png",
+        src: "/3D-icons/color-bucket-icon.png",
         alt: "Tea Cup",
-        position: "hidden sm:block -bottom-2 -right-6 translate-x-1/2 translate-y-1/2",
+        position: "-bottom-4 sm:-bottom-2 -right-2 sm:-right-6 translate-x-1/2 translate-y-1/2",
         size: 24,
         animationDelay: "1.5s"
     }
@@ -83,7 +83,7 @@ export function FloatingIcons() {
                 return (
                     <motion.div
                         key={index}
-                        className={`absolute ${icon.position} floating-icon z-10 pointer-events-none bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 p-[2px] rounded-xl border border-neutral-300/50 dark:border-neutral-600/50`}
+                        className={`absolute ${icon.position} floating-icon z-10 pointer-events-none bg-gradient-to-br from-neutral-100 to-neutral-300 dark:from-neutral-500 dark:to-neutral-800 p-[2px] rounded-xl border border-neutral-400/50 dark:border-neutral-700/50`}
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{
