@@ -14,7 +14,9 @@ import { Highlight } from "@/components/ui/hero-highlight";
 import GithubContributions from "@/components/github-contributions";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
+import { MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import { WavingHand } from "@/components/waving-hand";
 import { ThemedFlickeringGrid } from "@/components/themed-flickering-grid";
 
@@ -27,7 +29,10 @@ import { MovieCardList } from '@/components/movie-card-list';
 
 
 
+
 export default function Page() {
+  const [showAllMovies, setShowAllMovies] = useState(false);
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -258,7 +263,7 @@ export default function Page() {
       </section>
       <section id="personalChoices" className="relative">
         <AnimatedHorizontalLine />
-        <div className="space-y-12 w-full py-6 sm:py-12">
+        <div className="space-y-12 w-full pt-6 pb-3 sm:pt-12 sm:pb-6">
           <BlurFade delay={BLUR_FADE_DELAY * 15}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-4">
               <div className="space-y-6">
@@ -285,7 +290,7 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className="flex min-h-0 flex-col gap-y-5">
+          <div className="flex min-h-0 flex-col gap-y-8">
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
               <Card className="border border-dashed border-[#6A2C12] dark:border-[#F0A57F] shadow-sm max-w-2xl mx-auto rounded-xl overflow-hidden">
                 <iframe
@@ -302,13 +307,49 @@ export default function Page() {
               </Card>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 17}>
+              {/* Animes */}
               <div className="max-w-2xl mx-auto">
                 <div className="mb-2">
                   <h2 className="text-xl font-bold">Animes</h2>
                 </div>
-                <MovieCardList />
+                <MovieCardList items={DATA.animes} />
+              </div>
+
+              {/* Collapsible Content */}
+              <div
+                className={`overflow-hidden transition-all duration-700 ease-in-out ${showAllMovies ? "max-h-[1000px] opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
+                  }`}
+              >
+                {/* Movies & Webseries */}
+                <div className="max-w-2xl mx-auto">
+                  <div className="mb-2">
+                    <h2 className="text-xl font-bold">Movies & Webseries</h2>
+                  </div>
+                  <MovieCardList items={DATA.movies} />
+                </div>
+                {/* Manhwas */}
+                <div className="max-w-2xl mx-auto mt-4">
+                  <div className="mb-2">
+                    <h2 className="text-xl font-bold">Manhwas</h2>
+                  </div>
+                  <MovieCardList items={DATA.manhwas} />
+                </div>
+              </div>
+
+              {/* Expand/Collapse Button */}
+              <div className="flex justify-center mt-4">
+                <Button
+                  variant="ghost"
+                  onClick={() => setShowAllMovies(!showAllMovies)}
+                  className="group hover:bg-transparent hover:text-primary transition-colors duration-300"
+                >
+                  <span className="text-sm font-medium underline hover:text-muted-foreground">
+                    {showAllMovies ? "Show Less" : "View All"}
+                  </span>
+                </Button>
               </div>
             </BlurFade>
+
           </div>
         </div>
       </section>

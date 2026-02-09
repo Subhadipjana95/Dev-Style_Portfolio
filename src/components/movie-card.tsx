@@ -15,7 +15,7 @@ interface MovieCardProps {
 
 export function MovieCard({ title, image, rating, watchlistLink }: MovieCardProps) {
     return (
-        <Card className="group relative border border-dashed shadow-sm rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg w-[140px] min-w-[130px] flex-shrink-0">
+        <Card className="group relative border shadow-sm rounded-xl overflow-hidden w-[140px] min-w-[130px] flex-shrink-0">
             {/* Image Container */}
             <div className="relative w-full h-[160px] overflow-hidden bg-muted">
                 <Image
@@ -25,13 +25,13 @@ export function MovieCard({ title, image, rating, watchlistLink }: MovieCardProp
                     className="object-cover w-full h-full transition-transform"
                 />
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 transition-opacity duration-300" />
             </div>
 
             {/* Content */}
             <div className="p-3 space-y-2 h-[80px] flex flex-col justify-between">
                 {/* Title */}
-                <h3 className="font-bold tracking-tight text-sm leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
+                <h3 className="font-semibold tracking-tight text-sm leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
                     {title}
                 </h3>
 
@@ -41,7 +41,7 @@ export function MovieCard({ title, image, rating, watchlistLink }: MovieCardProp
                         <Button
                             variant="outline"
                             size="sm"
-                            className="border border-dashed rounded-full hover:bg-[#6A2C12]/10 dark:hover:bg-[#F0A57F]/10 transition-colors text-xs px-2 py-1"
+                            className="border border-dashed rounded-full hover:bg-foreground/10 transition-colors text-xs px-2"
                         >
                             <Plus className="size-3" />
                         </Button>

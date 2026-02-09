@@ -34,9 +34,7 @@ export const DATA = {
       </Highlight>. I love to design and build products with stunning aesthetics.
     </div>
   ),
-  // summary:
-  //   "I am a B.Tech Computer Science & Engineering Student at Netaji Subhash Engineering College (2023-2027). Passionate about Frontend Development, UI/UX Design, and building scalable web applications. Currently, I am a Design Core Team Member at [GDG on Campus NSEC](https://gdg.community.dev/gdg-on-campus-netaji-subhash-engineering-college-kolkata-india/). I have successfully built and deployed multiple projects including [Zerith](https://github.com/Subhadipjana95) and [EnviroMat](https://github.com/Subhadipjana95/EnviroMat).",
-
+  
   avatarUrl: "https://github.com/Subhadipjana95.png",
   skills: [
     { name: "Next.js", icon: <Icons.nextjs className="size-3" /> },
@@ -342,57 +340,145 @@ export const DATA = {
       id: 1,
       title: "Attack on Titan",
       image: "https://i.pinimg.com/1200x/0c/25/be/0c25be614595a6066e18fc72fe1669ab.jpg",
-      rating: 9.3,
-      watchlistLink: "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch"
+      rating: 5.0,
+      watchlistLink: "https://myanimelist.net/anime/16498/Shingeki_no_Kyojin"
     },
     {
       id: 2,
-      title: "Cyberpunk",
-      image: "https://i.pinimg.com/736x/e1/1c/d3/e11cd3ad006632396f494cd3adc6df12.jpg",
-      rating: 9.1,
-      watchlistLink: "https://www.attackontitan.com/"
+      title: "Solo Leveling",
+      image: "https://i.pinimg.com/736x/95/04/2a/95042aaa5a9511bbecbc7f3177cbfd40.jpg",
+      rating: 4.2,
+      watchlistLink: "https://myanimelist.net/manga/121496/Solo_Leveling"
     },
     {
       id: 3,
       title: "Death Note",
       image: "https://i.pinimg.com/1200x/27/25/8e/27258e46c289795e40c8a191c1a02cf2.jpg",
-      rating: 9.0,
+      rating: 4.8,
       watchlistLink: "https://myanimelist.net/anime/1535/Death_Note"
     },
     {
       id: 4,
-      title: "Naruto",
-      image: "https://i.pinimg.com/1200x/ec/f2/ef/ecf2ef4c22c5affc73a3c1d2071c3818.jpg",
-      rating: 9.1,
-      watchlistLink: "https://myanimelist.net/anime/9253/Steins_Gate"
+      title: "Cyberpunk: Edgerunners",
+      image: "https://i.pinimg.com/736x/e1/1c/d3/e11cd3ad006632396f494cd3adc6df12.jpg",
+      rating: 4.5,
+      watchlistLink: "https://myanimelist.net/anime/42310/Cyberpunk__Edgerunners"
     },
     {
       id: 5,
-      title: "Code Geass",
-      image: "https://i.pinimg.com/1200x/de/97/e0/de97e0ffec6eced91f4a241429b7df6d.jpg",
-      rating: 9.2,
-      watchlistLink: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood"
+      title: "Naruto: Shippuden",
+      image: "https://i.pinimg.com/1200x/ec/f2/ef/ecf2ef4c22c5affc73a3c1d2071c3818.jpg",
+      rating: 4.4,
+      watchlistLink: "https://myanimelist.net/anime/1735/Naruto__Shippuuden"
     },
     {
       id: 6,
       title: "Demon Slayer",
       image: "https://i.pinimg.com/736x/13/80/49/138049fbe39583718456b937f0423c31.jpg",
-      rating: 8.7,
-      watchlistLink: "https://myanimelist.net/anime/30276/One_Punch_Man"
+      rating: 4.5,
+      watchlistLink: "https://myanimelist.net/anime/38000/Kimetsu_no_Yaiba"
     },
     {
       id: 7,
-      title: "Bleach",
-      image: "https://i.pinimg.com/1200x/0f/a1/52/0fa152fde9d25cdae634751c8c384aff.jpg",
-      rating: 8.7,
-      watchlistLink: "https://myanimelist.net/anime/30276/One_Punch_Man"
+      title: "Code Geass",
+      image: "https://i.pinimg.com/1200x/de/97/e0/de97e0ffec6eced91f4a241429b7df6d.jpg",
+      rating: 4.1,
+      watchlistLink: "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch"
     },
     {
       id: 8,
-      title: "Solo Leveling",
-      image: "https://i.pinimg.com/736x/95/04/2a/95042aaa5a9511bbecbc7f3177cbfd40.jpg",
-      rating: 8.7,
-      watchlistLink: "https://myanimelist.net/anime/30276/One_Punch_Man"
+      title: "Bleach",
+      image: "https://i.pinimg.com/1200x/0f/a1/52/0fa152fde9d25cdae634751c8c384aff.jpg",
+      rating: 4.0,
+      watchlistLink: "https://myanimelist.net/anime/269/Bleach"
+    },
+  ],
+  movies: [
+    {
+      id: 1,
+      title: "Drishyam 2",
+      image: "https://i.pinimg.com/1200x/4f/33/5f/4f335fd299f0de5f066a935379a6ff25.jpg",
+      rating: 5.0,
+      watchlistLink: "https://www.imdb.com/title/tt15501640"
+    },
+    {
+      id: 2,
+      title: "Interstellar",
+      image: "https://i.pinimg.com/1200x/0b/34/ce/0b34ce2145b475247577a5d438a199b0.jpg",
+      rating: 4.9,
+      watchlistLink: "https://www.imdb.com/title/tt0816692/"
+    },
+    {
+      id: 3,
+      title: "Shawshank Redemption",
+      image: "https://i.pinimg.com/1200x/73/8f/69/738f691aa50ba94850b9c2a279bdb06b.jpg",
+      rating: 4.8,
+      watchlistLink: "https://www.imdb.com/title/tt0111161/"
+    },
+    {
+      id: 4,
+      title: "Money Heist",
+      image: "https://i.pinimg.com/1200x/6e/42/0b/6e420b7bd2a65359258ee4c5ee1501dd.jpg",
+      rating: 4.9,
+      watchlistLink: "https://www.imdb.com/title/tt6468322/"
+    },
+    {
+      id: 5,
+      title: "Alice in Boderland",
+      image: "https://i.pinimg.com/1200x/fb/96/fe/fb96fe681792c162eedeaecfe55dd05d.jpg",
+      rating: 4.8,
+      watchlistLink: "https://www.imdb.com/title/tt10795658/"
+    },
+  ],
+  manhwas: [
+    {
+      id: 1,
+      title: "Nano Machine",
+      image: "https://i.pinimg.com/1200x/c2/e6/47/c2e64771fce495412e3e5856ed063705.jpg",
+      rating: 4.9,
+      watchlistLink: "https://w61.readnanomachine.com/"
+    },
+    {
+      id: 2,
+      title: "The Beginning After The End",
+      image: "https://i.pinimg.com/736x/69/c2/db/69c2db926d049090f7788cc1dbc0ed9b.jpg",
+      rating: 4.5,
+      watchlistLink: "https://w8.thebeginingaftertheend.com/"
+    },
+    {
+      id: 3,
+      title: "After Rebirth, I Used Mirror Reversal For Vengeance",
+      image: "https://i.pinimg.com/736x/50/17/95/501795e9474e17a3ebe210bfc862808e.jpg",
+      rating: 4.2,
+      watchlistLink: "https://www.mgeko.cc/manga/after-rebirth-i-used-mirror-reversal-for-vengeance/"
+    },
+    {
+      id: 4,
+      title: "Myst, Might, Mayhem",
+      image: "https://i.pinimg.com/736x/e6/88/e6/e688e674bf4cf3281361a158ccaffd85.jpg",
+      rating: 4.4,
+      watchlistLink: "https://manhwaclan.com/manga/myst-might-mayhem/"
+    },
+    {
+      id: 5,
+      title: "Bad Born Blood",
+      image: "https://i.pinimg.com/736x/57/f9/e5/57f9e5a80c46a3a346b62320efe6ebad.jpg",
+      rating: 4.4,
+      watchlistLink: "https://manhwaclan.com/manga/bad-born-blood/"
+    },
+    {
+      id: 6,
+      title: "Solo Leveling: Ragnarok",
+      image: "https://i.pinimg.com/1200x/2f/a8/ac/2fa8ac2e69f56a6dfcf5efad6f61f67d.jpg",
+      rating: 4.6,
+      watchlistLink: "https://manhwaclan.com/manga/Solo-Leveling-Ragnarok/"
+    },
+    {
+      id: 7,
+      title: "Demon God",
+      image: "https://i.pinimg.com/736x/8d/9e/b9/8d9eb9fcef9bf91dd31273cda3d1d63b.jpg",
+      rating: 4.1,
+      watchlistLink: "https://manhwaclan.com/manga/demon-god/"
     },
   ],
 } as const;
