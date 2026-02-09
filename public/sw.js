@@ -4,6 +4,8 @@ const RUNTIME_CACHE = `a063-runtime-${CACHE_VERSION}`;
 
 const PRECACHE_ASSETS = [
   '/',
+  '/blog',
+  '/og-image.png',
   '/offline.html',
   '/manifest.json',
   '/icons/icon-192.png',
