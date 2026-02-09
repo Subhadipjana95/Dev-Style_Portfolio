@@ -22,6 +22,9 @@ const BLUR_FADE_DELAY = 0.04;
 import { CollaborationForm } from '@/components/collaboration-form';
 import { AnimatedHorizontalLine } from '@/components/animated-horizontal-line';
 import { FloatingIcons } from '@/components/floating-icons';
+import Image from "next/image";
+import { MovieCardList } from '@/components/movie-card-list';
+
 
 
 export default function Page() {
@@ -282,7 +285,7 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className="flex min-h-0 flex-col gap-y-3">
+          <div className="flex min-h-0 flex-col gap-y-5">
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
               <Card className="border border-dashed border-[#6A2C12] dark:border-[#F0A57F] shadow-sm max-w-2xl mx-auto rounded-xl overflow-hidden">
                 <iframe
@@ -298,13 +301,21 @@ export default function Page() {
                 />
               </Card>
             </BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY * 17}>
+              <div className="max-w-2xl mx-auto">
+                <div className="mb-2">
+                  <h2 className="text-xl font-bold">Animes</h2>
+                </div>
+                <MovieCardList />
+              </div>
+            </BlurFade>
           </div>
         </div>
       </section>
       <section id="contact" className="relative">
         <AnimatedHorizontalLine withCorners={true} />
         <div className="grid items-center justify-center gap-4 text-center w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 17}>
+          <BlurFade delay={BLUR_FADE_DELAY * 18}>
 
             <div className="space-y-3 border border-muted-foreground/25 py-8 md:py-12 px-6 md:px-8 rounded-xl relative w-full">
               <div

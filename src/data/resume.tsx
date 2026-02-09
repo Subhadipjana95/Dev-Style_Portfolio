@@ -53,7 +53,7 @@ export const DATA = {
     { name: "Figma", icon: <Icons.figma className="size-3" /> },
     { name: "Canva", icon: <Icons.canva className="size-3" /> },
     { name: "Adobe Illustrator", icon: <Icons.AdobeIllustrator className="size-3" /> },
-    {name: "Graphic Design"},
+    { name: "Graphic Design" },
     { name: "Firebase", icon: <Icons.firebase className="size-3" /> },
     { name: "MongoDB", icon: <Icons.mongodb className="size-3" /> },
     { name: "Vite", icon: <Icons.vite className="size-3" /> },
@@ -335,6 +335,64 @@ export const DATA = {
       win: "Winner",
       mlh: "",
       links: [],
+    },
+  ],
+  animes: [
+    {
+      id: 1,
+      title: "Attack on Titan",
+      image: "https://i.pinimg.com/1200x/0c/25/be/0c25be614595a6066e18fc72fe1669ab.jpg",
+      rating: 9.3,
+      watchlistLink: "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch"
+    },
+    {
+      id: 2,
+      title: "Cyberpunk",
+      image: "https://i.pinimg.com/736x/e1/1c/d3/e11cd3ad006632396f494cd3adc6df12.jpg",
+      rating: 9.1,
+      watchlistLink: "https://www.attackontitan.com/"
+    },
+    {
+      id: 3,
+      title: "Death Note",
+      image: "https://i.pinimg.com/1200x/27/25/8e/27258e46c289795e40c8a191c1a02cf2.jpg",
+      rating: 9.0,
+      watchlistLink: "https://myanimelist.net/anime/1535/Death_Note"
+    },
+    {
+      id: 4,
+      title: "Naruto",
+      image: "https://i.pinimg.com/1200x/ec/f2/ef/ecf2ef4c22c5affc73a3c1d2071c3818.jpg",
+      rating: 9.1,
+      watchlistLink: "https://myanimelist.net/anime/9253/Steins_Gate"
+    },
+    {
+      id: 5,
+      title: "Code Geass",
+      image: "https://i.pinimg.com/1200x/de/97/e0/de97e0ffec6eced91f4a241429b7df6d.jpg",
+      rating: 9.2,
+      watchlistLink: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood"
+    },
+    {
+      id: 6,
+      title: "Demon Slayer",
+      image: "https://i.pinimg.com/736x/13/80/49/138049fbe39583718456b937f0423c31.jpg",
+      rating: 8.7,
+      watchlistLink: "https://myanimelist.net/anime/30276/One_Punch_Man"
+    },
+    {
+      id: 7,
+      title: "Bleach",
+      image: "https://i.pinimg.com/1200x/0f/a1/52/0fa152fde9d25cdae634751c8c384aff.jpg",
+      rating: 8.7,
+      watchlistLink: "https://myanimelist.net/anime/30276/One_Punch_Man"
+    },
+    {
+      id: 8,
+      title: "Solo Leveling",
+      image: "https://i.pinimg.com/736x/95/04/2a/95042aaa5a9511bbecbc7f3177cbfd40.jpg",
+      rating: 8.7,
+      watchlistLink: "https://myanimelist.net/anime/30276/One_Punch_Man"
     },
   ],
 } as const;
