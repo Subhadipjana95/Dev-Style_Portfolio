@@ -72,31 +72,34 @@ export interface DockIconProps {
   props?: PropsWithChildren;
 }
 
-const DockIcon = ({
-  size,
-  magnification = DEFAULT_MAGNIFICATION,
-  distance = DEFAULT_DISTANCE,
-  mousex,
-  className,
-  children,
-  ...props
-}: DockIconProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  return (
-    <motion.div
-      ref={ref}
-      style={{ width: magnification }}
-      className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-md",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </motion.div>
-  );
-};
+const DockIcon = React.forwardRef<HTMLDivElement, DockIconProps>(
+  (
+    {
+      size,
+      magnification = DEFAULT_MAGNIFICATION,
+      distance = DEFAULT_DISTANCE,
+      mousex,
+      className,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <motion.div
+        ref={ref}
+        style={{ width: magnification }}
+        className={cn(
+          "flex aspect-square cursor-pointer items-center justify-center rounded-md",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+);
 
 DockIcon.displayName = "DockIcon";
 

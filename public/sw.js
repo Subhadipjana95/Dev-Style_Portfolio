@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const CACHE_NAME = `a063-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `a063-runtime-${CACHE_VERSION}`;
 

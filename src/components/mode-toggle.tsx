@@ -2,12 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, forwardRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { SunMediumIcon } from "./animated-icons/sun-medium";
 import { MoonIcon } from "./animated-icons/moon";
 
-export function ModeToggle() {
+export const ModeToggle = forwardRef<HTMLButtonElement, any>((props, ref) => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const iconRef = useRef<any>(null);
@@ -19,6 +19,7 @@ export function ModeToggle() {
   if (!mounted) {
     return (
       <Button
+        ref={ref}
         variant="ghost"
         size="icon"
         className="px-4"
@@ -34,6 +35,7 @@ export function ModeToggle() {
 
   return (
     <Button
+      ref={ref}
       variant="ghost"
       type="button"
       size="icon"
@@ -67,4 +69,5 @@ export function ModeToggle() {
       </AnimatePresence>
     </Button>
   );
-}
+});
+ModeToggle.displayName = "ModeToggle";

@@ -1,6 +1,6 @@
 "use client";
 
-import { MovieCard } from "@/components/movie-card";
+import { MovieCard } from "@/components/personal-favs/movie-card";
 import { DATA } from "@/data/resume";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";

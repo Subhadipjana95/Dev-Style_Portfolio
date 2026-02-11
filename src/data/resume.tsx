@@ -170,7 +170,7 @@ export const DATA = {
     },
     {
       title: "Next.Ref_Alumni-Connect",
-      href: "https://github.com/Subhadipjana95",
+      href: "https://next-reff-alumni-connect.vercel.app",
       dates: "2024",
       active: true,
       description:
@@ -190,7 +190,7 @@ export const DATA = {
         },
         {
           type: "Live",
-          href: "https://next-reff-alumni-connect.vercel.app/",
+          href: "https://next-reff-alumni-connect.vercel.app",
           icon: <Icons.globe className="size-3" />,
         }
       ],
@@ -200,7 +200,7 @@ export const DATA = {
     },
     {
       title: "Kisan-Mitra",
-      href: "https://github.com/Subhadipjana95",
+      href: "https://github.com/Subhadipjana95/Kisan-Mitra",
       dates: "2024",
       active: true,
       description:
@@ -219,7 +219,7 @@ export const DATA = {
         },
         {
           type: "Live",
-          href: "https://kisan-mitra-app.vercel.app/",
+          href: "https://kisan-mitra-app.vercel.app",
           icon: <Icons.globe className="size-3" />,
         }
       ],
@@ -249,7 +249,7 @@ export const DATA = {
         },
         {
           type: "Live",
-          href: "https://enviro-mat.vercel.app/",
+          href: "https://enviro-mat.vercel.app",
           icon: <Icons.globe className="size-3" />,
         }
       ],

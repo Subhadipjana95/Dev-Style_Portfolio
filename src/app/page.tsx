@@ -1,6 +1,6 @@
 "use client";
 
-import { HackathonCard } from "@/components/hackathon-card";
+import { HackathonCard } from "@/components/hackathon/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { LineShadowText } from "@/components/magicui/line-shadow-text";
@@ -11,22 +11,20 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Highlight } from "@/components/ui/hero-highlight";
-import GithubContributions from "@/components/github-contributions";
+import GithubContributions from "@/components/contributions/github-contributions";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { WavingHand } from "@/components/waving-hand";
-import { ThemedFlickeringGrid } from "@/components/themed-flickering-grid";
 
 const BLUR_FADE_DELAY = 0.04;
-import { CollaborationForm } from '@/components/collaboration-form';
-import { AnimatedHorizontalLine } from '@/components/animated-horizontal-line';
-import { FloatingIcons } from '@/components/floating-icons';
-import Image from "next/image";
-import { MovieCardList } from '@/components/movie-card-list';
+import { AnimatedHorizontalLine } from '@/components/layout-styles/animated-horizontal-line';
+import { FloatingIcons } from '@/components/contributions/floating-icons';
+import { MovieCardList } from '@/components/personal-favs/movie-card-list';
 import { CliCommandBox } from "@/components/cli-command-box";
+import ContactCard from "@/components/contact/contact-card";
 
 
 
@@ -306,7 +304,7 @@ export default function Page() {
                   frameBorder="0"
                   allowFullScreen={false}
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
+                  loading="eager"
                 />
               </Card>
             </BlurFade>
@@ -359,45 +357,9 @@ export default function Page() {
       </section>
       <section id="contact" className="relative">
         <AnimatedHorizontalLine withCorners={true} />
-        <div className="grid items-center justify-center gap-4 text-center w-full py-12">
+        <div className="grid items-center justify-center text-center w-full py-12 mt-0 lg:mt-4">
           <BlurFade delay={BLUR_FADE_DELAY * 18}>
-
-            <div className="space-y-3 border border-muted-foreground/25 py-8 md:py-12 px-6 md:px-8 rounded-xl relative w-full">
-              <div
-                className="absolute inset-0 w-full h-28 z-0 overflow-hidden rounded-xl"
-                style={{
-                  maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.4) 40%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.4) 40%, transparent 100%)',
-                }}
-              >
-                <ThemedFlickeringGrid />
-              </div>
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Contact
-              </div>
-              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-                Get in Touch
-              </h2>
-              <div className="mx-auto max-w-[600px] text-muted-foreground leading-tight md:text-xl/tight lg:text-base/tight xl:text-xl/tight" suppressHydrationWarning>
-                Want to collaborate? Tell me your Requirments on{" "}
-                <CollaborationForm>
-                  <span className="cursor-pointer hover:opacity-80 transition-opacity">
-                    <SparklesText className="!text-background text-shadow-sm relative inline-block rounded-sm bg-gradient-to-r from-[#8FC47B] to-[#b56b36] px-1 dark:from-[#8FC47B] dark:to-[#b56b36] border border-dashed border-[#b56b36] dark:border-[#8FC47B]" sparklesCount={3}>this form</SparklesText>
-                  </span>
-                </CollaborationForm>
-                {" "}
-                || Want to chat? Just shoot me a dm{" "}
-                <Link
-                  href="https://wa.me/919832668044"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#b56b36] dark:text-[#8FC47B] hover:underline"
-                >
-                  with your queries on WhatsApp
-                </Link>
-                . I&apos;ll get back to you ASAP.
-              </div>
-            </div>
+            <ContactCard />
           </BlurFade>
         </div>
       </section>

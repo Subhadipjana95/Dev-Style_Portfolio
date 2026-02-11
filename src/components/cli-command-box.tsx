@@ -28,7 +28,7 @@ export function CliCommandBox({ command }: CliCommandBoxProps) {
                             <div className="min-w-0">
                                 <code className="font-mono text-sm font-medium text-foreground truncate px-1 py-0.5 rounded-sm selection:bg-primary/20 flex items-center gap-2">
                                     <span className="text-muted-foreground/60 select-none user-select-none shrink-0">$</span>
-                                    <span className="truncate text-[#88410d] dark:text-[#8FC47B]">{command}</span>
+                                    <span className="truncate text-[#8f410a] dark:text-[#87d56a]">{command}</span>
                                 </code>
                             </div>
 

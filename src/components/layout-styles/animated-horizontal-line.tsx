@@ -24,9 +24,9 @@ export function AnimatedHorizontalLine({ withCorners = false }: AnimatedHorizont
         <div className="lines hidden lg:block">
             {/* Horizontal line */}
             <motion.div
-                className="absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/35 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]"
-                initial={isFirstLoad ? { clipPath: "inset(0 100% 0 0)" } : { clipPath: "inset(0 0% 0 0)" }}
-                animate={{ clipPath: "inset(0 0% 0 0)" }}
+                className="absolute left-1/2 top-0 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]"
+                initial={isFirstLoad ? { clipPath: "inset(0 100% 0 0)", opacity: 0.95 } : { clipPath: "inset(0 0% 0 0)", opacity: 0.35 }}
+                animate={{ clipPath: "inset(0 0% 0 0)", opacity: 0.35 }}
                 transition={{
                     duration: isFirstLoad ? lineDuration : 0,
                     delay: isFirstLoad ? lineDelay : 0,

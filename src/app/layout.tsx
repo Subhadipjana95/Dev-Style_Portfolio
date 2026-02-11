@@ -10,7 +10,7 @@ import "./globals.css";
 import { ClientGuard } from "@/components/guards/ClientGuard";
 import { ThemedFlickeringGridBright } from "@/components/themed-flickering-grid";
 import { InstallPWA } from "@/components/install-pwa";
-import { AnimatedVerticalLines } from "@/components/animated-vertical-lines";
+import { AnimatedVerticalLines } from "@/components/layout-styles/animated-vertical-lines";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -157,7 +157,7 @@ export default function RootLayout({
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#08090A" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="a063" />
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />

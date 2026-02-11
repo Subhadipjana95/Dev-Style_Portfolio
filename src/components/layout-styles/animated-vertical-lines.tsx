@@ -22,9 +22,9 @@ export function AnimatedVerticalLines() {
         <div className="lines hidden lg:block">
             {/* Left vertical line */}
             <motion.div
-                className="absolute -left-16 top-0 w-[1px] border-l border-dashed border-muted-foreground/35 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)] origin-top"
-                initial={isFirstLoad ? { height: 0 } : { height: "100%" }}
-                animate={{ height: "100%" }}
+                className="absolute -left-16 top-0 w-[1px] border-l border-dashed border-muted-foreground [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)] origin-top"
+                initial={isFirstLoad ? { height: 0, opacity: 0.95 } : { height: "100%", opacity: 0.35 }}
+                animate={{ height: "100%", opacity: 0.35 }}
                 transition={{
                     duration: isFirstLoad ? lineDuration : 0,
                     delay: isFirstLoad ? lineDelay : 0,
@@ -34,9 +34,9 @@ export function AnimatedVerticalLines() {
 
             {/* Right vertical line */}
             <motion.div
-                className="absolute -right-16 top-0 w-[1px] border-r border-dashed border-muted-foreground/35 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)] origin-top"
-                initial={isFirstLoad ? { height: 0 } : { height: "100%" }}
-                animate={{ height: "100%" }}
+                className="absolute -right-16 top-0 w-[1px] border-r border-dashed border-muted-foreground [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)] origin-top"
+                initial={isFirstLoad ? { height: 0, opacity: 0.95 } : { height: "100%", opacity: 0.35 }}
+                animate={{ height: "100%", opacity: 0.35 }}
                 transition={{
                     duration: isFirstLoad ? lineDuration : 0,
                     delay: isFirstLoad ? lineDelay : 0,
@@ -46,9 +46,9 @@ export function AnimatedVerticalLines() {
 
             {/* Horizontal line at top */}
             <motion.div
-                className="absolute left-1/2 top-16 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground/35 [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]"
-                initial={isFirstLoad ? { clipPath: "inset(0 100% 0 0)" } : { clipPath: "inset(0 0% 0 0)" }}
-                animate={{ clipPath: "inset(0 0% 0 0)" }}
+                className="absolute left-1/2 top-16 h-[1px] w-screen -translate-x-1/2 border-t border-dashed border-muted-foreground [mask-image:linear-gradient(to_right,transparent,black_6%,black_90%,transparent)]"
+                initial={isFirstLoad ? { clipPath: "inset(0 100% 0 0)", opacity: 0.95 } : { clipPath: "inset(0 0% 0 0)", opacity: 0.35 }}
+                animate={{ clipPath: "inset(0 0% 0 0)", opacity: 0.35 }}
                 transition={{
                     duration: isFirstLoad ? hLineDuration : 0,
                     delay: isFirstLoad ? lineDelay : 0,
