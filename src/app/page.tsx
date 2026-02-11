@@ -26,6 +26,7 @@ import { AnimatedHorizontalLine } from '@/components/animated-horizontal-line';
 import { FloatingIcons } from '@/components/floating-icons';
 import Image from "next/image";
 import { MovieCardList } from '@/components/movie-card-list';
+import { CliCommandBox } from "@/components/cli-command-box";
 
 
 
@@ -36,7 +37,7 @@ export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
-        <div className="mx-auto w-full max-w-3xl space-y-8">
+        <div className="mx-auto w-full max-w-3xl space-y-4">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-6">
               <div className="flex-col flex flex-1">
@@ -75,6 +76,9 @@ export default function Page() {
               </div>
             </BlurFade>
           </div>
+          <BlurFade delay={BLUR_FADE_DELAY * 2} className="hidden lg:block">
+            <CliCommandBox command="npx subhadip-a063" />
+          </BlurFade>
         </div>
       </section>
       <section id="contributions">
@@ -296,7 +300,7 @@ export default function Page() {
                 <iframe
                   data-testid="embed-iframe"
                   className="w-full block"
-                  src="https://open.spotify.com/embed/album/61nvyXELOalbsxDgSDeKPR?utm_source=generator"
+                  src="https://open.spotify.com/embed/playlist/37i9dQZF1E4oJSdHZrVjxD?utm_source=generator"
                   width=""
                   height="352"
                   frameBorder="0"

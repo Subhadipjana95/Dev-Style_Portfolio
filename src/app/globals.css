@@ -87,6 +87,24 @@
     padding-bottom: 0.1em;
   }
 
+  .text-gradient-light2 {
+    background: linear-gradient(180deg, #93d37c 40%, #d09663, #ce7d43);
+    -webkit-text-stroke: 0.3px #2a5b18;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 0.1em;
+  }
+
+  .text-gradient-dark2 {
+    background: linear-gradient(180deg, #8FC47B 40%, #6C5F54, #9D6136);
+    -webkit-text-stroke: 0.3px #6ece4b;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 0.1em;
+  }
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
