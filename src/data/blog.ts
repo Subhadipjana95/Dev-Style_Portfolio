@@ -69,15 +69,19 @@ export async function getBlogPosts() {
       }));
       return posts;
     } else {
-      // Browser: use API route
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-      const response = await fetch(`${baseUrl}/api/blog`, { 
-        cache: 'force-cache',
-        next: { revalidate: 60 }
+      // Browser: use API route with relative URL
+      const response = await fetch('/api/blog', { 
+        cache: 'no-store' // Don't cache in browser to get fresh data
       });
-      if (!response.ok) throw new Error(`API returned ${response.status}`);
+      
+      if (!response.ok) {
+        console.error(`API returned ${response.status}`);
+        throw new Error(`API returned ${response.status}`);
+      }
+      
       const data = await response.json();
-      return data.posts;
+      console.log('Fetched posts from API:', data.posts?.length || 0, 'posts');
+      return data.posts || [];
     }
   } catch (error) {
     console.error('Error fetching blog posts:', error);
