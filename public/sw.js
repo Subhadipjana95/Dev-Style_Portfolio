@@ -1,4 +1,6 @@
-const CACHE_VERSION = 'v4';
+// Auto-versioning: This timestamp updates when you deploy/build
+// Each deployment gets a unique cache version, forcing PWA updates
+const CACHE_VERSION = 'v' + Date.now();
 const CACHE_NAME = `a063-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `a063-runtime-${CACHE_VERSION}`;
 
@@ -7,6 +9,7 @@ const PRECACHE_ASSETS = [
   '/blog',
   '/og-image.png',
   '/offline.html',
+  '/dino-game.js',
   '/manifest.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png'
@@ -22,20 +25,22 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME && key !== RUNTIME_CACHE) {
-            return caches.delete(key);
-          }
-        })
+    caches.keys()
+      .then((keys) =>
+        Promise.all(
+          keys.map((key) => {
+            // Delete old caches that don't match current version
+            if (key !== CACHE_NAME && key !== RUNTIME_CACHE) {
+              console.log('[SW] Deleting old cache:', key);
+              return caches.delete(key);
+            }
+          })
+        )
       )
-    ).then(() => self.clients.claim())
-     .then(() =>
-       self.clients.matchAll({ type: 'window' }).then((clients) =>
-         clients.forEach((client) => client.navigate(client.url))
-       )
-     )
+      .then(() => {
+        console.log('[SW] Claiming clients for version:', CACHE_VERSION);
+        return self.clients.claim();
+      })
   );
 });
 
