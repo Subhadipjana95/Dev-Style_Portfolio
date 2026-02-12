@@ -16,10 +16,11 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { useFirstLoad } from "@/hooks/useFirstLoad";
 import { Button } from "@/components/ui/button";
 import { WavingHand } from "@/components/waving-hand";
 
-const BLUR_FADE_DELAY = 0.04;
+
 import { AnimatedHorizontalLine } from '@/components/layout-styles/animated-horizontal-line';
 import { FloatingIcons } from '@/components/contributions/floating-icons';
 import { MovieCardList } from '@/components/personal-favs/movie-card-list';
@@ -31,6 +32,10 @@ import ContactCard from "@/components/contact/contact-card";
 
 export default function Page() {
   const [showAllMovies, setShowAllMovies] = useState(false);
+  const isFirstLoad = useFirstLoad();
+
+  // Skip animation delays during client-side navigation for snappy transitions
+  const BLUR_FADE_DELAY = isFirstLoad ? 0.04 : 0;
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">

@@ -1,23 +1,23 @@
+"use client";
+
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
-
-// Use ISR (Incremental Static Regeneration) instead of force-dynamic
-// Revalidate every 60 seconds - fresh content with better performance
-export const revalidate = 60;
-
 import { BlogList } from "@/components/blogs/blog-list";
 import { Highlight } from "@/components/ui/hero-highlight";
 import { SparklesText } from "@/components/magicui/sparkles-text";
+import { useFirstLoad } from "@/hooks/useFirstLoad";
+import { useEffect, useState } from "react";
 
-export const metadata = {
-  title: "Blogs by Subhadip Jana(a063)",
-  description: "My thoughts on Designing and Software Development, life, and more.",
-};
+export default function BlogPage() {
+  const [posts, setPosts] = useState([]);
+  const isFirstLoad = useFirstLoad();
 
-const BLUR_FADE_DELAY = 0.04;
+  // Skip animation delays during client-side navigation
+  const BLUR_FADE_DELAY = isFirstLoad ? 0.04 : 0;
 
-export default async function BlogPage() {
-  const posts = await getBlogPosts();
+  useEffect(() => {
+    getBlogPosts().then(setPosts);
+  }, []);
 
   return (
     <section>
