@@ -46,7 +46,7 @@ export function MovieCard({ title, image, rating, watchlistLink }: MovieCardProp
                             <Plus className="size-3" />
                         </Button>
                     </Link>
-                    <div className="flex items-center gap-1 text-xs font-semibold text-[#b56b36] dark:text-[#F0A57F]">
+                    <div className="flex items-center gap-1 text-xs font-semibold text-[#a463e0] dark:text-[#D0A5F9]">
                         <Star className="size-3 fill-current" />
                         <span>{rating}</span>
                     </div>

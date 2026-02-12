@@ -294,17 +294,17 @@ export default function Page() {
           </BlurFade>
           <div className="flex min-h-0 flex-col gap-y-8">
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
-              <Card className="border border-dashed border-[#6A2C12] dark:border-[#F0A57F] shadow-sm max-w-2xl mx-auto rounded-xl overflow-hidden">
+              <Card className="border border-dashed border-[#a463e0] dark:border-[#D0A5F9] shadow-sm max-w-2xl mx-auto rounded-xl overflow-hidden">
                 <iframe
                   data-testid="embed-iframe"
                   className="w-full block"
-                  src="https://open.spotify.com/embed/playlist/37i9dQZF1E4oJSdHZrVjxD?utm_source=generator"
+                  src="https://open.spotify.com/embed/playlist/37i9dQZF1E4v5LYfaL6hOA"
                   width=""
                   height="352"
                   frameBorder="0"
                   allowFullScreen={false}
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="eager"
+                  loading="lazy"
                 />
               </Card>
             </BlurFade>
