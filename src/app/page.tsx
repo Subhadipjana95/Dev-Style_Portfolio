@@ -299,7 +299,7 @@ export default function Page() {
           </BlurFade>
           <div className="flex min-h-0 flex-col gap-y-8">
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
-              <Card className="border border-dashed border-[#a463e0] dark:border-[#D0A5F9] shadow-sm max-w-2xl mx-auto rounded-xl overflow-hidden">
+              <Card className=" bg-[#921C11] border border-dashed border-[#921C11] dark:border-[#e13526] shadow-sm max-w-2xl mx-auto rounded-xl overflow-hidden">
                 <iframe
                   data-testid="embed-iframe"
                   className="w-full block"
@@ -356,7 +356,6 @@ export default function Page() {
                 </Button>
               </div>
             </BlurFade>
-
           </div>
         </div>
       </section>
