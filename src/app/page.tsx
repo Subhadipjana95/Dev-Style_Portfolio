@@ -303,7 +303,7 @@ export default function Page() {
                 <iframe
                   data-testid="embed-iframe"
                   className="w-full block"
-                  src="https://open.spotify.com/embed/playlist/37i9dQZF1E4v5LYfaL6hOA"
+                  src="https://open.spotify.com/embed/playlist/52ThapGlNXQZ7CRfOIbkj4?utm_source=generator"
                   width=""
                   height="352"
                   frameBorder="0"
