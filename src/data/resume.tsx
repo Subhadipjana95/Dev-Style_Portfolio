@@ -144,6 +144,36 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Brain.2 - AI that listens, understands and acts",
+      href: "https://second-brain-nixgn.vercel.app",
+      dates: "2026",
+      active: true,
+      description:
+        "Brain.2 is an ambient AI assistant that converts your everyday conversations into scheduled tasks, automated workflows and intelligent decisions.",
+      technologies: [
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Gemini 3.1"
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Subhadipjana95/Brain.2",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Live",
+          href: "https://second-brain-nixgn.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        }
+      ],
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1774298556/Screenshot_2026-03-24_005017_1_cduz1a.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1774298556/Screenshot_2026-03-24_005017_1_cduz1a.webp",
+      video: "",
+    },
+    {
       title: "NIXGn - Next-Gen Intelligence Execution Group",
       href: "https://nixgn.com",
       dates: "2026",
@@ -261,6 +291,17 @@ export const DATA = {
   ],
   hackathons: [
     {
+      title: "Binary V2",
+      dates: "2026",
+      location: "KGEC, Kalyani, West Bengal, India",
+      description:
+        "Developed a ambient AI assistant that converts your everyday conversations into scheduled tasks, automated workflows and intelligent decisions.",
+      image: "https://binaryvtwo.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2Fd1a4a37a62854e17afa6f685740478fc%2Fassets%2Ffavicon%2F449.png&w=1440&q=75",
+      win: ["Requestly Track Winner"],
+      mlh: "",
+      links: [],
+    },
+    {
       title: "CosmoHacks1",
       dates: "2025",
       location: "Techno City, Garia, Kolkata, India",
@@ -274,7 +315,7 @@ export const DATA = {
     {
       title: "CalcuttaHacks",
       dates: "2025",
-      location: "Techno University, Saltlake, Kolkata, India",
+      location: "Techno India University, Saltlake, Kolkata, India",
       description:
         "Developed NextRef: A website that bridges the gap between students, universities and alumni networks.",
       image: "https://calcutta-lesshacksgreater.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F9c2b708879194b4cab9fe5fc9ebe169b%2Fassets%2Ffavicon%2F732.jpeg&w=1440&q=75",
