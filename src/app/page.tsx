@@ -32,6 +32,7 @@ import ContactCard from "@/components/contact/contact-card";
 
 export default function Page() {
   const [showAllMovies, setShowAllMovies] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const isFirstLoad = useFirstLoad();
 
   // Skip animation delays during client-side navigation for snappy transitions
@@ -166,7 +167,7 @@ export default function Page() {
       </section>
       <section id="projects" className="relative">
         <AnimatedHorizontalLine />
-        <div className="space-y-12 w-full py-6 sm:py-12">
+        <div className="space-y-12 w-full pt-6 pb-3 sm:pt-12 sm:pb-6">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-4">
@@ -193,26 +194,74 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-            {DATA.projects.map((project, id) => (
-              <BlurFade
-                key={project.title}
-                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-              >
-                <ProjectCard
-                  href={project.href}
+          {/* Projects grid — first 4 always visible, rest collapsible */}
+          <div className="max-w-[800px] mx-auto">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {DATA.projects.slice(0, 4).map((project, id) => (
+                <BlurFade
                   key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  imageDark={project.imageDark}
-                  video={project.video}
-                  links={project.links}
-                />
-              </BlurFade>
-            ))}
+                  delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                >
+                  <ProjectCard
+                    href={project.href}
+                    key={project.title}
+                    title={project.title}
+                    description={project.description}
+                    dates={project.dates}
+                    tags={project.technologies}
+                    image={project.image}
+                    imageDark={project.imageDark}
+                    video={project.video}
+                    links={project.links}
+                  />
+                </BlurFade>
+              ))}
+            </div>
+            {DATA.projects.length > 4 && (
+              <>
+                {/* Collapsible remaining projects */}
+                <div
+                  className={`overflow-hidden transition-all duration-700 ease-in-out ${
+                    showAllProjects ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mt-3">
+                    {DATA.projects.slice(4).map((project, id) => (
+                      <BlurFade
+                        key={project.title}
+                        delay={BLUR_FADE_DELAY * 12 + (id + 4) * 0.05}
+                      >
+                        <ProjectCard
+                          href={project.href}
+                          key={project.title}
+                          title={project.title}
+                          description={project.description}
+                          dates={project.dates}
+                          tags={project.technologies}
+                          image={project.image}
+                          imageDark={project.imageDark}
+                          video={project.video}
+                          links={project.links}
+                        />
+                      </BlurFade>
+                    ))}
+                  </div>
+                </div>
+                <BlurFade delay={BLUR_FADE_DELAY * 12 + 4 * 0.05}>
+                  <div className="flex justify-center mt-4">
+                    <Button
+                      variant="ghost"
+                      onClick={() => setShowAllProjects(!showAllProjects)}
+                      className="group hover:bg-transparent hover:text-primary transition-colors duration-300"
+                    >
+                      <span className="text-sm font-medium underline hover:text-muted-foreground">
+                        {showAllProjects ? "Show Less" : "View All"}
+                      </span>
+                    </Button>
+                  </div>
+                </BlurFade>
+              </>
+            )}
           </div>
         </div>
       </section>
