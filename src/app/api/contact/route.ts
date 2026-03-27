@@ -116,6 +116,7 @@ export async function POST(req: Request) {
       from: `Subhadip Jana (a063) <${SENDER_EMAIL}>`,
       to: [email],
       subject: "Thanks for reaching out! 🚀",
+      text: `Hi ${name},\n\nThank you for your interest in working together! I've received your project inquiry and I'm excited to learn more about it.\n\nYour Request Summary:\nService: ${service}\nBudget: ${budget || "Not specified"}\nDescription: ${description.substring(0, 100)}${description.length > 100 ? "..." : ""}\n\nI'll review your request and get back to you within 24-48 hours.\n\nBest regards,\nSubhadip Jana (a063)\nUI/UX Designer & Frontend Developer\nhttps://a063.xyz`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -158,7 +159,7 @@ export async function POST(req: Request) {
 
               <div class="footer">
                 <p>🌐 <a href="https://a063.xyz">a063.xyz</a> | 💼 <a href="https://linkedin.com/in/subhadipjana095">LinkedIn</a> | 💻 <a href="https://github.com/Subhadipjana95">GitHub</a></p>
-                <p style="margin-top: 10px; color: #999;">This is an automated response. Please do not reply to this email.</p>
+                <p style="margin-top: 10px; color: #999;">You received this because you submitted a contact form on a063.xyz</p>
               </div>
             </div>
           </div>
