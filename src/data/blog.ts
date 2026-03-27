@@ -93,6 +93,7 @@ export async function getBlogPosts() {
    Get single blog post
 =========================== */
 export async function getPost(slug: string) {
+  if (!slug) return null; // guard against SSG probe renders with no slug
   try {
     const response = await fetch(HASHNODE_API, {
       method: "POST",

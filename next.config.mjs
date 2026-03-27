@@ -4,7 +4,6 @@ const nextConfig = {
 
   // 🔐 Security & production hardening
   productionBrowserSourceMaps: false,
-  swcMinify: true,
   compress: true,
   poweredByHeader: false,
 

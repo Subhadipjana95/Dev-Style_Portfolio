@@ -89,7 +89,7 @@ export function CollaborationForm({ children }: { children: React.ReactNode }) {
             toast({
                 variant: "destructive",
                 title: "❌ Something went wrong",
-                description: "Please try again or contact me directly on LinkedIn.",
+                description: "Please try again or contact me directly on WhatsApp.",
             })
         } finally {
             setLoading(false)
