@@ -1,5 +1,4 @@
 import { Icons } from "@/components/icons";
-// import { HomeIcon, NotebookIcon } from "lucide-react";
 import { Highlight } from "@/components/ui/hero-highlight";
 import { SparklesText } from "@/components/magicui/sparkles-text";
 import { HomeIcon } from "@/components/animated-icons/home";
@@ -9,7 +8,6 @@ import { TwitterIcon } from "@/components/animated-icons/twitter";
 import LinkedinIcon from "@/components/animated-icons/linkedin";
 import { GithubIcon } from "@/components/animated-icons/github";
 import { HeartIcon } from "@/components/animated-icons/heart";
-import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark";
 
 type Skill = {
   name: string;
