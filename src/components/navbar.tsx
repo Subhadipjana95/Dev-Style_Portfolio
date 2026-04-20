@@ -19,15 +19,17 @@ function NavbarItem({
   href,
   icon,
   label,
+  className,
 }: {
   href: string;
   icon: React.ReactNode;
   label: string;
+  className?: string;
 }) {
   const iconRef = useRef<any>(null);
 
   return (
-    <DockIcon>
+    <DockIcon className={className}>
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
@@ -68,6 +70,7 @@ export default function Navbar() {
                 href={social.url}
                 icon={social.icon}
                 label={name}
+                className={name === "GitHub" ? "hidden md:flex" : ""}
               />
             ))}
           <Separator orientation="vertical" className="h-full mr-2 sm:mr-0" />

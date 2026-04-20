@@ -8,6 +8,8 @@ import { MailCheckIcon } from "@/components/animated-icons/mail-check";
 import { TwitterIcon } from "@/components/animated-icons/twitter";
 import LinkedinIcon from "@/components/animated-icons/linkedin";
 import { GithubIcon } from "@/components/animated-icons/github";
+import { HeartIcon } from "@/components/animated-icons/heart";
+import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark";
 
 type Skill = {
   name: string;
@@ -74,6 +76,11 @@ export const DATA = {
       href: "/blog",
       icon: (<BookTextIcon size={20} />),
       label: "Blog"
+    },
+    {
+      href: "/support",
+      icon: (<HeartIcon size={20} />),
+      label: "Support"
     },
   ],
   contact: {
