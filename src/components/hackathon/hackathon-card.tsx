@@ -14,6 +14,8 @@ interface Props {
     href: string;
   }[];
   win?: string | readonly string[];
+  isFirst?: boolean;
+  isLast?: boolean;
 }
 
 export function HackathonCard({
@@ -24,9 +26,17 @@ export function HackathonCard({
   image,
   links,
   win,
+  isFirst,
+  isLast,
 }: Props) {
   return (
     <li className="relative ml-10 py-4">
+      {!isFirst && (
+        <div className="absolute -left-[42px] top-0 h-[30px] w-px border-l border-muted-foreground/30 -z-10" />
+      )}
+      {!isLast && (
+        <div className="absolute -left-[42px] top-[30px] bottom-0 w-px border-l border-muted-foreground/30 -z-10" />
+      )}
       <div className="absolute -left-16 top-2 flex items-center justify-center rounded-full">
         <div className="border-[0.5px] border-muted-foreground2 p-[2px] rounded-full bg-gradient-to-br from-transparent to-primary/30">
           <Avatar className="border border-muted-foreground2 size-11 m-auto bg-foreground dark:bg-background">
