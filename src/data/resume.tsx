@@ -120,7 +120,7 @@ export const DATA = {
       badges: ["Founder"],
       location: "Kolkata, India",
       title: "Design Engineer",
-      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776716701/Groot-UI_ol1jfv.webp",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776719149/Groot_Logo_ala1pg.webp",
       start: "Apr 2026",
       end: "Present",
       description:
@@ -204,7 +204,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "NIXGn - Next-Gen Intelligence Execution Group",
+      title: "NIXGN - Next-Gen Intelligence Execution Group",
       href: "https://nixgn.com",
       dates: "2026",
       active: true,
