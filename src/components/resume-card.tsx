@@ -45,6 +45,7 @@ export const ResumeCard = ({
       onClick={handleClick}
     >
       <Card className="flex">
+        {/* Logo */}
         <div className="flex-none">
           <div className="border-[0.5px] border-muted-foreground2 p-[3px] rounded-full bg-gradient-to-br from-transparent to-primary/30">
             <Avatar className="border border-muted-foreground2 size-11 m-auto bg-muted-background dark:bg-foreground">
@@ -57,6 +58,7 @@ export const ResumeCard = ({
             </Avatar>
           </div>
         </div>
+        {/* Content */}
         <div className="flex-grow ml-4 items-center flex-col group">
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
@@ -67,7 +69,7 @@ export const ResumeCard = ({
                     {badges.map((badge, index) => (
                       <Badge
                         variant="secondary"
-                        className="align-middle text-xs"
+                        className="align-middle text-black text-[10px] leading-[12px] ml-1 sm:ml-2 py-[1px] px-1 bg-gradient-to-r from-[#8FC47B] to-[#b56b36] dark:from-[#8FC47B] dark:to-[#b56b36] border border-dashed border-[#b56b36] dark:border-[#8FC47B]"
                         key={index}
                       >
                         {badge}

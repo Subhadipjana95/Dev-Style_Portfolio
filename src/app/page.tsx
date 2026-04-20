@@ -15,8 +15,9 @@ import GithubContributions from "@/components/contributions/github-contributions
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { MapPin, ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFirstLoad } from "@/hooks/useFirstLoad";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { WavingHand } from "@/components/waving-hand";
 
@@ -31,12 +32,90 @@ import ContactCard from "@/components/contact/contact-card";
 
 
 export default function Page() {
+  const [loading, setLoading] = useState(true);
   const [showAllMovies, setShowAllMovies] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const isFirstLoad = useFirstLoad();
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Skip animation delays during client-side navigation for snappy transitions
   const BLUR_FADE_DELAY = isFirstLoad ? 0.04 : 0;
+
+  // Skeleton Loader
+  if (loading) {
+    return (
+      <main className="flex flex-col min-h-[100dvh] space-y-10">
+        <section id="hero">
+          <div className="mx-auto w-full max-w-3xl space-y-8 mt-4">
+            <div className="flex justify-between items-start gap-4">
+              <div className="space-y-4 flex-1">
+                <Skeleton className="h-12 w-[60%] sm:h-16" />
+                <Skeleton className="h-6 w-[40%]" />
+                <div className="space-y-2 pt-4">
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-[90%]" />
+                  <Skeleton className="h-4 w-[85%]" />
+                </div>
+              </div>
+              <Skeleton className="size-20 sm:size-28 rounded-full flex-shrink-0" />
+            </div>
+            <Skeleton className="h-14 w-full hidden lg:block rounded-xl" />
+          </div>
+        </section>
+
+        <section id="contributions">
+          <div className="space-y-4">
+            <Skeleton className="h-6 w-32" />
+            <Skeleton className="h-32 w-full rounded-md" />
+          </div>
+        </section>
+
+        <section id="work">
+          <div className="space-y-4">
+            <Skeleton className="h-6 w-40" />
+            <div className="space-y-3">
+              <Skeleton className="h-20 w-full rounded-lg" />
+              <Skeleton className="h-20 w-full rounded-lg" />
+              <Skeleton className="h-20 w-full rounded-lg" />
+            </div>
+          </div>
+        </section>
+
+        <section id="skills">
+          <div className="space-y-4">
+            <Skeleton className="h-6 w-24" />
+            <div className="flex flex-wrap gap-2">
+              {[...Array(12)].map((_, i) => (
+                <Skeleton key={i} className="h-6 w-20 rounded-md" />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="projects">
+          <div className="space-y-12">
+            <div className="flex flex-col items-center space-y-4">
+              <Skeleton className="h-6 w-24 rounded-lg" />
+              <Skeleton className="h-10 w-64" />
+              <Skeleton className="h-12 w-full max-w-[500px]" />
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <Skeleton className="aspect-video w-full rounded-xl" />
+              <Skeleton className="aspect-video w-full rounded-xl" />
+              <Skeleton className="aspect-video w-full rounded-xl" />
+              <Skeleton className="aspect-video w-full rounded-xl" />
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">

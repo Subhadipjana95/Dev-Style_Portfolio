@@ -115,29 +115,53 @@ export const DATA = {
   },
   work: [
     {
+      company: "Groot UI",
+      href: "https://groot-ui.vercel.app",
+      badges: ["Founder"],
+      location: "Kolkata, India",
+      title: "Design Engineer",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776716701/Groot-UI_ol1jfv.webp",
+      start: "Apr 2026",
+      end: "Present",
+      description:
+        "Designing and developing Next.js blocks and templates for web applications to improve developer experience.",
+    },
+    {
       company: "NIXGN",
       href: "https://nixgn.vercel.app",
-      badges: [],
+      badges: ["Co-Founder"],
       location: "Kolkata, India",
-      title: "Co-Founder || Design Engineer",
+      title: "Design Engineer",
       logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768668239/Nixgn_Logo_Dark_s8nbtu.svg",
       start: "Jan 2026",
       end: "Present",
       description:
-        "Designing and developing user interfaces for web applications to improve user experience.",
+        "Developing user interfaces for web applications to improve user experience.",
     },
     {
       company: "GDG on Campus NSEC",
       href: "https://gdg.community.dev/gdg-on-campus-netaji-subhash-engineering-college-kolkata-india/",
       badges: [],
       location: "Kolkata, India",
-      title: "Design Core Team Member",
+      title: "Design Co-Lead",
       logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768681855/GDG_Logo_jgzns9.webp",
       start: "Sep 2025",
       end: "Present",
       description:
         "Contributing to the design and event management of the Google Developer Groups chapter at NSEC.",
-    }
+    },
+    {
+      company: "Heva AI",
+      href: "https://www.heva.ai",
+      badges: [],
+      location: "Kolkata, India",
+      title: "UI/UX Developer",
+      logoUrl: "https://media.licdn.com/dms/image/v2/D560BAQEBoC6f35Ykow/company-logo_200_200/B56Z2RHtegKMAI-/0/1776256211642/heva_ai_logo?e=1778112000&v=beta&t=rDS7q4Qrrzrhbu9I82lzEmq_kyeJBevmVAQYTV0m-Z4",
+      start: "Apr 2026",
+      end: "May 2026",
+      description:
+        "Redesigned the Landing page for Heva AI to improve user engagement and conversion rates.",
+    },
   ],
   education: [
     {
@@ -150,6 +174,88 @@ export const DATA = {
     },
   ],
   projects: [
+    {
+      title: "Groot UI - Design System",
+      href: "https://groot-ui.vercel.app",
+      dates: "2026",
+      active: true,
+      description: "Groot UI is a design system that provides a set of pre-designed components and patterns for building web applications.",
+      technologies: [
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "Framer Motion",
+        "shadcn/ui"
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Subhadipjana95/Groot-UI",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Live",
+          href: "https://groot-ui.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286826/Groot-UI_Preview_ojjktb.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286912/Groot_UI_Preview_Dark_in5qww.webp",
+      video: "",
+    },
+    {
+      title: "NIXGn - Next-Gen Intelligence Execution Group",
+      href: "https://nixgn.com",
+      dates: "2026",
+      active: true,
+      description:
+        "Premium Software Agency & Product Studio Crafting aesthetic, high-performance web applications with cutting-edge technologies",
+      technologies: [
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "Framer Motion",
+        "GSAP"
+      ],
+      links: [
+        {
+          type: "Live",
+          href: "https://nixgn.com",
+          icon: <Icons.globe className="size-3" />,
+        }
+      ],
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768660890/w8_cx0svq.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768660876/w9_e0zxys.webp",
+      video: "",
+    },
+    {
+      title: "PrintSyte - Passport Photo Genarator",
+      href: "https://print-syte.vercel.app/",
+      dates: "2026",
+      active: true,
+      description: "PrintSyte is a passport photo generator that helps you create & print passport photos in a single click.",
+      technologies: [
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "remove.bg"
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Subhadipjana95/print-mate",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Live",
+          href: "https://print-syte.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776287225/printsyte_horizontal_wogkir.webp",
+      imageDark: "",
+      video: "",
+    },
     {
       title: "Brain.2 - AI that listens, understands and acts",
       href: "https://second-brain-nixgn.vercel.app",
@@ -178,31 +284,6 @@ export const DATA = {
       ],
       image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1774298556/Screenshot_2026-03-24_005017_1_cduz1a.webp",
       imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1774298556/Screenshot_2026-03-24_005017_1_cduz1a.webp",
-      video: "",
-    },
-    {
-      title: "NIXGn - Next-Gen Intelligence Execution Group",
-      href: "https://nixgn.com",
-      dates: "2026",
-      active: true,
-      description:
-        "Premium Software Agency & Product Studio Crafting aesthetic, high-performance web applications with cutting-edge technologies",
-      technologies: [
-        "TypeScript",
-        "Next.js",
-        "Tailwind CSS",
-        "Framer Motion",
-        "GSAP"
-      ],
-      links: [
-        {
-          type: "Live",
-          href: "https://nixgn.com",
-          icon: <Icons.globe className="size-3" />,
-        }
-      ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768660890/w8_cx0svq.webp",
-      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768660876/w9_e0zxys.webp",
       video: "",
     },
     {

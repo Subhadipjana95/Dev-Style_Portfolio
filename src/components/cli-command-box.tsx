@@ -63,7 +63,7 @@ export function CliCommandBox({ command }: CliCommandBoxProps) {
                 arrowClassName="border border-muted-foreground2 bg-black/5 dark:bg-white/5 backdrop-blur-md"
             >
                 <Terminal className="size-3.5" />
-                <p>Copy to view &apos;Me&apos; in your CLI</p>
+                <p>Copy & run to view &apos;Me&apos; in your CLI</p>
             </TooltipContent>
         </Tooltip>
     );
