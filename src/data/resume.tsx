@@ -97,16 +97,16 @@ export const DATA = {
         icon: <LinkedinIcon size={20} />,
         navbar: true,
       },
-      email: {
-        name: "Send Email",
-        url: "mailto:codesubhadip95@gmail.com",
-        icon: <MailCheckIcon size={20} />,
-        navbar: true,
-      },
       X: {
         name: "X",
         url: "https://x.com/Subhadip53874",
         icon: <TwitterIcon size={20} />,
+        navbar: true,
+      },
+      email: {
+        name: "Send Email",
+        url: "mailto:codesubhadip95@gmail.com",
+        icon: <MailCheckIcon size={20} />,
         navbar: true,
       },
     },
