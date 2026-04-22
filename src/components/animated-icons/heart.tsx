@@ -71,20 +71,14 @@ const HeartIcon = forwardRef<HeartIconHandle, HeartIconProps>(
             scale: {
               duration: 0.45,
               repeat: 2,
-            },
-            fill: { duration: 0.1 },
-            stroke: { duration: 0.3 },
+            }
           }}
           variants={{
             normal: { 
-              scale: 1,
-              fill: "none",
-              stroke: "currentColor"
+              scale: 1
             },
             animate: { 
-              scale: [1, 1.08, 1],
-              fill: "#f43f5e",
-              stroke: "#f43f5e"
+              scale: [1, 1.08, 1]
             },
           }}
           viewBox="0 0 24 24"

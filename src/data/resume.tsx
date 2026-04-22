@@ -78,7 +78,7 @@ export const DATA = {
     {
       href: "/support",
       icon: (<HeartIcon size={20} />),
-      label: "Support"
+      label: "Donate"
     },
   ],
   contact: {
