@@ -55,12 +55,12 @@ export function HackathonCard({
             <span className="inline-flex gap-1 ml-2 align-middle">
               {Array.isArray(win) ? (
                 win.map((item, index) => (
-                  <Badge variant="secondary" key={index} className="text-xs">
+                  <Badge variant="secondary" key={index} className="text-background text-[10px] leading-[12px] ml-[2px] py-[2px] px-1 bg-gradient-to-r from-[#8FC47B] to-[#b56b36] dark:from-[#8FC47B] dark:to-[#b56b36] border border-dashed border-[#b56b36] dark:border-[#8FC47B]">
                     {item}
                   </Badge>
                 ))
               ) : (
-                <Badge variant="secondary" className="text-xs">
+                <Badge variant="secondary" className="text-background text-[10px] leading-[12px] ml-[2px] py-[2px] px-1 bg-gradient-to-r from-[#8FC47B] to-[#b56b36] dark:from-[#8FC47B] dark:to-[#b56b36] border border-dashed border-[#b56b36] dark:border-[#8FC47B]">
                   {win}
                 </Badge>
               )}
