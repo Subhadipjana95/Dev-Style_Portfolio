@@ -31,7 +31,7 @@ export const ResumeCard = ({
 }: ResumeCardProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (description) {
       e.preventDefault();
       setIsExpanded(!isExpanded);
@@ -39,27 +39,28 @@ export const ResumeCard = ({
   };
 
   return (
-    <Link
-      href={href || "#"}
-      className="block cursor-pointer"
-      onClick={handleClick}
-    >
+    <div className="block cursor-pointer">
       <Card className="flex">
         {/* Logo */}
-        <div className="flex-none">
-          <div className="border-[0.5px] border-muted-foreground2 p-[3px] rounded-full bg-gradient-to-br from-transparent to-primary/30">
-            <Avatar className="border border-muted-foreground2 size-11 m-auto bg-muted-background dark:bg-foreground">
-              <AvatarImage
-                src={logoUrl}
-                alt={altText}
-                className="object-contain bg-background"
-              />
-              <AvatarFallback>{altText[0]}</AvatarFallback>
-            </Avatar>
+        <Link href={href || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="flex-none">
+            <div className="border-[0.5px] border-muted-foreground2 p-[3px] rounded-full bg-gradient-to-br from-transparent to-primary/30">
+              <Avatar className="border border-muted-foreground2 size-11 m-auto bg-muted-background dark:bg-foreground">
+                <AvatarImage
+                  src={logoUrl}
+                  alt={altText}
+                  className="object-contain bg-background"
+                />
+                <AvatarFallback>{altText[0]}</AvatarFallback>
+              </Avatar>
+            </div>
           </div>
-        </div>
+        </Link>
         {/* Content */}
-        <div className="flex-grow ml-4 items-center flex-col group">
+        <div className="flex-grow ml-4 items-center flex-col group" onClick={handleClick}>
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
               <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
@@ -109,6 +110,6 @@ export const ResumeCard = ({
           )}
         </div>
       </Card>
-    </Link>
+    </div>
   );
 };
