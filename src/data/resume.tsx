@@ -114,7 +114,7 @@ export const DATA = {
   work: [
     {
       company: "Groot UI",
-      href: "https://groot-ui.vercel.app",
+      href: "https://grootui.vercel.app",
       badges: ["Founder"],
       location: "Kolkata, India",
       title: "Design Engineer",
@@ -174,7 +174,7 @@ export const DATA = {
   projects: [
     {
       title: "Groot UI - Design System",
-      href: "https://groot-ui.vercel.app",
+      href: "https://grootui.vercel.app",
       dates: "2026",
       active: true,
       description: "Groot UI is a design system that provides a set of pre-designed components and patterns for building web applications.",
@@ -193,7 +193,7 @@ export const DATA = {
         },
         {
           type: "Live",
-          href: "https://groot-ui.vercel.app",
+          href: "https://grootui.vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
       ],
