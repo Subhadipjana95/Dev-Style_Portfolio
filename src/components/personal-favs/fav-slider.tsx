@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useId } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -19,13 +19,18 @@ export function FavSlider() {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
+  const instanceId = useId().replace(/:/g, "");
+  const prevClass = `fav-prev-${instanceId}`;
+  const nextClass = `fav-next-${instanceId}`;
+  const paginationClass = `fav-pagination-${instanceId}`;
+
   return (
     <div className="w-full max-w-2xl mx-auto relative group/carousel">
-      {/* Navigation Buttons - Always present, visible on hover, matching MovieCardList style */}
+      {/* Navigation Buttons - Visible on mobile */}
       <Button
         variant="outline"
         size="icon"
-        className="h-8 w-8 absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 hidden md:flex opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 rounded-full bg-background/80 backdrop-blur-sm border-muted-foreground/25 hover:bg-background prev-btn"
+        className={`h-8 w-8 absolute -left-4 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-4 z-20 flex opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity duration-300 rounded-full bg-background/80 backdrop-blur-sm border-muted-foreground/25 hover:bg-background ${prevClass}`}
       >
         <ChevronLeft className="size-4" />
       </Button>
@@ -33,7 +38,7 @@ export function FavSlider() {
       <Button
         variant="outline"
         size="icon"
-        className="h-8 w-8 absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 hidden md:flex opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 rounded-full bg-background/80 backdrop-blur-sm border-muted-foreground/25 hover:bg-background next-btn"
+        className={`h-8 w-8 absolute -right-4 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-4 z-20 flex opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity duration-300 rounded-full bg-background/80 backdrop-blur-sm border-muted-foreground/25 hover:bg-background ${nextClass}`}
       >
         <ChevronRight className="size-4" />
       </Button>
@@ -42,13 +47,16 @@ export function FavSlider() {
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
+          roundLengths={true}
+          watchSlidesProgress={true}
+          touchStartPreventDefault={false}
           pagination={{
-            el: '.fav-swiper-pagination',
+            el: `.${paginationClass}`,
             clickable: true,
           }}
           navigation={{
-            prevEl: '.prev-btn',
-            nextEl: '.next-btn',
+            prevEl: `.${prevClass}`,
+            nextEl: `.${nextClass}`,
           }}
           onInit={(swiper) => {
             setIsBeginning(swiper.isBeginning);
@@ -59,7 +67,7 @@ export function FavSlider() {
             setIsEnd(swiper.isEnd);
           }}
           modules={[Pagination, Navigation]}
-          className="mySwiper"
+          className="fav-swiper"
         >
           {DATA.playlists.spotify.map((item, index) => (
             <SwiperSlide key={`spotify-${index}`}>
@@ -75,7 +83,7 @@ export function FavSlider() {
       </div>
 
       {/* Pagination Container */}
-      <div className="fav-swiper-pagination flex justify-center items-center gap-2 mt-6"></div>
+      <div className={`${paginationClass} fav-swiper-pagination flex justify-center items-center gap-2 mt-6`}></div>
 
       {/* Custom Pagination Styling */}
       <style jsx global>{`
@@ -86,7 +94,7 @@ export function FavSlider() {
           background-color: hsl(var(--muted-foreground) / 0.3) !important;
           opacity: 1 !important;
           margin: 0 !important;
-          transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out !important;
+          transition: all 0.3s ease-in-out !important;
           cursor: pointer;
         }
         .fav-swiper-pagination .swiper-pagination-bullet-active {
@@ -96,21 +104,16 @@ export function FavSlider() {
         .fav-swiper-pagination .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
           background-color: hsl(var(--muted-foreground) / 0.5) !important;
         }
-        /* Override swiper's default disabled behavior to keep buttons interactive as requested */
+        /* Override swiper's default disabled behavior */
         .swiper-button-disabled {
           opacity: 0 !important;
           pointer-events: auto !important;
           cursor: pointer !important;
         }
-        /* Ensure buttons show on hover even if swiper thinks they are disabled at ends */
-        .group\/carousel:hover .prev-btn,
-        .group\/carousel:hover .next-btn {
-          opacity: 1 !important;
+        /* Improve swiper smoothness */
+        .fav-swiper .swiper-wrapper {
+          transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
         }
-        /* Except if we want to hide them at ends while still being interactive? 
-           The user said "no need for making the buttons disable when they can't be performing any actions".
-           I will just keep the opacity-0 logic from the className.
-        */
       `}</style>
     </div>
   );

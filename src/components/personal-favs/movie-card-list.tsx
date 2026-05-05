@@ -60,7 +60,11 @@ export function MovieCardList({ items }: MovieCardListProps) {
                 <div className="relative overflow-hidden">
                     <Swiper
                         spaceBetween={16}
-                        slidesPerView={2}
+                        slidesPerView={2.25}
+                        grabCursor={true}
+                        roundLengths={true}
+                        watchSlidesProgress={true}
+                        touchStartPreventDefault={false}
                         breakpoints={{
                             480: {
                                 slidesPerView: 3,
@@ -102,12 +106,12 @@ export function MovieCardList({ items }: MovieCardListProps) {
                         ))}
                     </Swiper>
 
-                    {/* Gradient Masks - Restored to original behavior logic */}
+                    {/* Gradient Masks - Added transitions for smoothness */}
                     <div
-                        className={`pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent z-[5] ${!isBeginning ? "opacity-100" : "opacity-0"}`}
+                        className={`pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent z-[5] transition-opacity duration-300 ${!isBeginning ? "opacity-100" : "opacity-0"}`}
                     />
                     <div
-                        className={`pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent z-[5] ${!isEnd ? "opacity-100" : "opacity-0"}`}
+                        className={`pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent z-[5] transition-opacity duration-300 ${!isEnd ? "opacity-100" : "opacity-0"}`}
                     />
                 </div>
             </div>
@@ -124,7 +128,7 @@ export function MovieCardList({ items }: MovieCardListProps) {
                     background-color: hsl(var(--muted-foreground) / 0.3) !important;
                     opacity: 1 !important;
                     margin: 0 !important;
-                    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out !important;
+                    transition: all 0.3s ease-in-out !important;
                     cursor: pointer;
                 }
                 .movie-swiper-pagination .swiper-pagination-bullet-active {
@@ -140,6 +144,11 @@ export function MovieCardList({ items }: MovieCardListProps) {
                     opacity: 0 !important;
                     pointer-events: auto !important;
                     cursor: pointer !important;
+                }
+                
+                /* Improve swiper smoothness */
+                .movie-swiper .swiper-wrapper {
+                    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
                 }
             `}</style>
         </div>
