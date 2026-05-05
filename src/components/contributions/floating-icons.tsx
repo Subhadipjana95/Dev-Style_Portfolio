@@ -23,14 +23,14 @@ const icons: FloatingIcon[] = [
     {
         src: "/3D-icons/headphone-icon.png",
         alt: "Color Bucket",
-        position: "-top-4 right-28 translate-x-1/2 -translate-y-1/2",
+        position: "-top-5 right-28 translate-x-1/2 -translate-y-1/2",
         size: 26,
         animationDelay: "0.5s"
     },
     {
         src: "/3D-icons/tea-icon.png",
         alt: "Headphone",
-        position: "-bottom-4 left-10 -translate-x-1/2 translate-y-1/2",
+        position: "-bottom-5 left-10 -translate-x-1/2 translate-y-1/2",
         size: 25,
         animationDelay: "1s"
     },

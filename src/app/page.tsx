@@ -10,7 +10,7 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Highlight } from "@/components/ui/hero-highlight";
-import GithubContributions from "@/components/contributions/github-contributions";
+import { GithubCalendar } from "@/components/contributions/github-calendar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { MapPin, ChevronDown, ChevronUp } from "lucide-react";
@@ -172,9 +172,15 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="relative flex justify-center items-center border rounded-md p-[6px] sm:p-2">
               <FloatingIcons />
-              <Link href="https://github.com/Subhadipjana95" className="w-full rounded-sm overflow-hidden">
-                <GithubContributions />
-              </Link>
+              <GithubCalendar username="Subhadipjana95"
+                theme="github"
+                showMonthLabels={false}
+                showStats={false}
+                showLegend={false}
+                cellGap={3.5}
+                cellSize={12.5}
+                className="border-none"
+              />
             </div>
           </BlurFade>
         </div>
