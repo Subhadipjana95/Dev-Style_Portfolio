@@ -3,8 +3,15 @@
 import { MovieCard } from "@/components/personal-favs/movie-card";
 import { DATA } from "@/data/resume";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+import { useState, useRef, useId } from "react";
 import { Button } from "@/components/ui/button";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 interface MovieItem {
     readonly id: number;
@@ -20,92 +27,23 @@ interface MovieCardListProps {
 
 export function MovieCardList({ items }: MovieCardListProps) {
     const data: readonly MovieItem[] = items || DATA.animes;
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const [currentPage, setCurrentPage] = useState(0);
-    const [totalPages, setTotalPages] = useState(0);
-    const [showLeftMask, setShowLeftMask] = useState(false);
-    const [showRightMask, setShowRightMask] = useState(true); // Initially true if content overflows, or false until mount check
-
-    useEffect(() => {
-        const container = scrollContainerRef.current;
-        if (!container) return;
-
-        const updatePagination = () => {
-            const scrollLeft = container.scrollLeft;
-            const clientWidth = container.clientWidth;
-            const scrollWidth = container.scrollWidth;
-            const cardWidth = 156; // Card width (140px) + gap (16px)
-
-            // Update Mask Visibility
-            setShowLeftMask(scrollLeft > 0);
-            setShowRightMask(scrollLeft < scrollWidth - clientWidth - 2); // buffer of 10px
-
-            // Calculate total pages based on visible cards
-            const visibleCards = Math.floor(clientWidth / cardWidth);
-            // If visibleCards is 0 (very small screen), default to 1 to avoid division by zero
-            const effectiveVisibleCards = visibleCards > 0 ? visibleCards : 1;
-            const pages = Math.ceil(data.length / effectiveVisibleCards);
-            setTotalPages(pages);
-
-            // Calculate current page
-            const page = Math.round(scrollLeft / (cardWidth * effectiveVisibleCards));
-            setCurrentPage(page);
-        };
-
-        // Initial calculation
-        updatePagination();
-
-        // Update on scroll
-        container.addEventListener("scroll", updatePagination);
-        window.addEventListener("resize", updatePagination);
-
-        return () => {
-            container.removeEventListener("scroll", updatePagination);
-            window.removeEventListener("resize", updatePagination);
-        };
-    }, [data]);
-
-    const scroll = (direction: "left" | "right") => {
-        if (scrollContainerRef.current) {
-            const scrollAmount = 156 * 2; // Scroll 2 cards at a time for better UX
-            const newScrollLeft =
-                scrollContainerRef.current.scrollLeft +
-                (direction === "left" ? -scrollAmount : scrollAmount);
-
-            scrollContainerRef.current.scrollTo({
-                left: newScrollLeft,
-                behavior: "smooth",
-            });
-        }
-    };
-
-    const scrollToPage = (pageIndex: number) => {
-        if (scrollContainerRef.current) {
-            const container = scrollContainerRef.current;
-            const clientWidth = container.clientWidth;
-            const cardWidth = 156;
-            const visibleCards = Math.floor(clientWidth / cardWidth);
-            const effectiveVisibleCards = visibleCards > 0 ? visibleCards : 1;
-
-            const scrollLeft = pageIndex * cardWidth * effectiveVisibleCards;
-            container.scrollTo({
-                left: scrollLeft,
-                behavior: "smooth",
-            });
-        }
-    };
+    const [isBeginning, setIsBeginning] = useState(true);
+    const [isEnd, setIsEnd] = useState(false);
+    
+    // Unique ID for this specific instance to avoid cross-slider navigation
+    const instanceId = useId().replace(/:/g, "");
+    const prevClass = `prev-btn-${instanceId}`;
+    const nextClass = `next-btn-${instanceId}`;
+    const paginationClass = `pagination-${instanceId}`;
 
     return (
-        <div
-            className="relative group/carousel space-y-4"
-        >
+        <div className="relative group/carousel space-y-4">
             <div className="relative">
-                {/* Navigation Button Container - Hidden on mobile, visible on desktop */}
+                {/* Navigation Buttons */}
                 <Button
                     variant="outline"
                     size="icon"
-                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 hidden md:flex opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 rounded-full bg-background/80 backdrop-blur-sm border-muted-foreground/25 hover:bg-background"
-                    onClick={() => scroll("left")}
+                    className={`w-8 h-8 absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 hidden md:flex opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 rounded-full bg-background/80 backdrop-blur-sm border-muted-foreground/25 hover:bg-background ${prevClass}`}
                 >
                     <ChevronLeft className="size-4" />
                 </Button>
@@ -113,77 +51,97 @@ export function MovieCardList({ items }: MovieCardListProps) {
                 <Button
                     variant="outline"
                     size="icon"
-                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 hidden md:flex opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 rounded-full bg-background/80 backdrop-blur-sm border-muted-foreground/25 hover:bg-background"
-                    onClick={() => scroll("right")}
+                    className={`w-8 h-8 absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 hidden md:flex opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 rounded-full bg-background/80 backdrop-blur-sm border-muted-foreground/25 hover:bg-background ${nextClass}`}
                 >
                     <ChevronRight className="size-4" />
                 </Button>
 
-                {/* Scrollable Container */}
-                <div
-                    ref={scrollContainerRef}
-                    className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2"
-                    style={{
-                        scrollbarWidth: "none",
-                        msOverflowStyle: "none",
-                        WebkitOverflowScrolling: "touch",
-                    }}
-                >
-                    {data.map((item) => (
-                        <div key={item.id} className="snap-start">
-                            <MovieCard
-                                title={item.title}
-                                image={item.image}
-                                rating={item.rating}
-                                watchlistLink={item.watchlistLink}
-                            />
-                        </div>
-                    ))}
+                {/* Swiper Container */}
+                <div className="relative overflow-hidden">
+                    <Swiper
+                        spaceBetween={16}
+                        slidesPerView={2}
+                        breakpoints={{
+                            480: {
+                                slidesPerView: 3,
+                                spaceBetween: 16,
+                            },
+                            640: {
+                                slidesPerView: 4,
+                                spaceBetween: 16,
+                            }
+                        }}
+                        pagination={{
+                            el: `.${paginationClass}`,
+                            clickable: true,
+                        }}
+                        navigation={{
+                            prevEl: `.${prevClass}`,
+                            nextEl: `.${nextClass}`,
+                        }}
+                        onInit={(swiper) => {
+                            setIsBeginning(swiper.isBeginning);
+                            setIsEnd(swiper.isEnd);
+                        }}
+                        onSlideChange={(swiper) => {
+                            setIsBeginning(swiper.isBeginning);
+                            setIsEnd(swiper.isEnd);
+                        }}
+                        modules={[Pagination, Navigation]}
+                        className="movie-swiper"
+                    >
+                        {data.map((item) => (
+                            <SwiperSlide key={item.id} className="w-fit">
+                                <MovieCard
+                                    title={item.title}
+                                    image={item.image}
+                                    rating={item.rating}
+                                    watchlistLink={item.watchlistLink}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
+                    {/* Gradient Masks - Restored to original behavior logic */}
+                    <div
+                        className={`pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent z-[5] ${!isBeginning ? "opacity-100" : "opacity-0"}`}
+                    />
+                    <div
+                        className={`pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent z-[5] ${!isEnd ? "opacity-100" : "opacity-0"}`}
+                    />
                 </div>
-                {/* Gradient Masks */} 
-                <div
-                    className={`pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent z-[5] ${showLeftMask ? "opacity-100" : "opacity-0"
-                        }`}
-                />
-                <div
-                    className={`pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent z-[5] ${showRightMask ? "opacity-100" : "opacity-0"
-                        }`}
-                />
             </div>
 
-            {/* Pagination Dots */}
-            {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-2 pt-2">
-                    {Array.from({ length: totalPages }).map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => scrollToPage(index)}
-                            className={`h-2 rounded-full transition-[width,background-color] duration-500 ease-in-out ${index === currentPage
-                                ? "w-8 bg-foreground"
-                                : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                                }`}
-                            aria-label={`Go to page ${index + 1}`}
-                        />
-                    ))}
-                </div>
-            )}
+            {/* Pagination Container */}
+            <div className={`${paginationClass} movie-swiper-pagination flex justify-center items-center gap-2 pt-2`}></div>
 
-            {/* Custom CSS for hiding scrollbar */}
+            {/* Custom Pagination Styling */}
             <style jsx global>{`
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .overflow-x-auto::-webkit-scrollbar {
-          display: none !important;
-          width: 0 !important;
-          height: 0 !important;
-          background: transparent !important;
-        }
-        
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .overflow-x-auto {
-          -ms-overflow-style: none !important;
-          scrollbar-width: none !important;
-        }
-      `}</style>
+                .movie-swiper-pagination .swiper-pagination-bullet {
+                    height: 8px !important;
+                    width: 8px !important;
+                    border-radius: 9999px !important;
+                    background-color: hsl(var(--muted-foreground) / 0.3) !important;
+                    opacity: 1 !important;
+                    margin: 0 !important;
+                    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out !important;
+                    cursor: pointer;
+                }
+                .movie-swiper-pagination .swiper-pagination-bullet-active {
+                    width: 32px !important;
+                    background-color: hsl(var(--foreground)) !important;
+                }
+                .movie-swiper-pagination .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
+                    background-color: hsl(var(--muted-foreground) / 0.5) !important;
+                }
+                
+                /* Override swiper's default disabled behavior */
+                .swiper-button-disabled {
+                    opacity: 0 !important;
+                    pointer-events: auto !important;
+                    cursor: pointer !important;
+                }
+            `}</style>
         </div>
     );
 }
