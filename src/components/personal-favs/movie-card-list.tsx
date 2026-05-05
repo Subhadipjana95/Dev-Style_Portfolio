@@ -140,7 +140,7 @@ export function MovieCardList({ items }: MovieCardListProps) {
                         </div>
                     ))}
                 </div>
-                {/* Gradient Masks */}
+                {/* Gradient Masks */} 
                 <div
                     className={`pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent z-[5] ${showLeftMask ? "opacity-100" : "opacity-0"
                         }`}

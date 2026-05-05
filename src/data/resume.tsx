@@ -608,4 +608,13 @@ export const DATA = {
       watchlistLink: "https://manhwaclan.com/manga/demon-god/"
     },
   ],
+  playlists: {
+    spotify: [
+      { src: "https://open.spotify.com/embed/playlist/52ThapGlNXQZ7CRfOIbkj4" }
+    ],
+    youtube: [
+      { src: "https://www.youtube.com/embed/PI_v2QITwns?si=FaCVKry2aOYuG2hL" },
+      { src: "https://www.youtube.com/embed/z4nmwL3w0oc?si=4uG7QP5W_BQCK2Go" }
+    ]
+  },
 } as const;

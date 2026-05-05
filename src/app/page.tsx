@@ -9,7 +9,6 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { Highlight } from "@/components/ui/hero-highlight";
 import GithubContributions from "@/components/contributions/github-contributions";
 import { DATA } from "@/data/resume";
@@ -25,6 +24,7 @@ import { WavingHand } from "@/components/waving-hand";
 import { AnimatedHorizontalLine } from '@/components/layout-styles/animated-horizontal-line';
 import { FloatingIcons } from '@/components/contributions/floating-icons';
 import { MovieCardList } from '@/components/personal-favs/movie-card-list';
+import { FavSlider } from '@/components/personal-favs/fav-slider';
 import { CliCommandBox } from "@/components/cli-command-box";
 import ContactCard from "@/components/contact/contact-card";
 
@@ -429,19 +429,7 @@ export default function Page() {
           </BlurFade>
           <div className="flex min-h-0 flex-col gap-y-8">
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
-              <Card className=" bg-[#970063] border border-dashed border-foreground shadow-sm max-w-2xl mx-auto rounded-xl overflow-hidden">
-                <iframe
-                  data-testid="embed-iframe"
-                  className="w-full block"
-                  src="https://open.spotify.com/embed/playlist/52ThapGlNXQZ7CRfOIbkj4?utm_source=generator"
-                  width=""
-                  height="352"
-                  frameBorder="0"
-                  allowFullScreen={false}
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                />
-              </Card>
+              <FavSlider />
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 17}>
               {/* Animes */}
