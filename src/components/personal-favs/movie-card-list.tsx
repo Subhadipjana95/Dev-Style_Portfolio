@@ -3,7 +3,7 @@
 import { MovieCard } from "@/components/personal-favs/movie-card";
 import { DATA } from "@/data/resume";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useRef, useId } from "react";
+import { useState, useId } from "react";
 import { Button } from "@/components/ui/button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";

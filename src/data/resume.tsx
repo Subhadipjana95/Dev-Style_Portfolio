@@ -227,31 +227,33 @@ export const DATA = {
       video: "",
     },
     {
-      title: "PrintSyte - Passport Photo Genarator",
-      href: "https://print-syte.vercel.app/",
-      dates: "2026",
+      title: "Next.Ref_Alumni-Connect",
+      href: "https://next-reff-alumni-connect.vercel.app",
+      dates: "2024",
       active: true,
-      description: "PrintSyte is a passport photo generator that helps you create & print passport photos in a single click.",
+      description:
+        "College-Verified Alumni Referral Platform built with TypeScript.",
       technologies: [
         "TypeScript",
         "Next.js",
         "Tailwind CSS",
-        "remove.bg"
+        "Framer Motion",
+        "GSAP"
       ],
       links: [
         {
           type: "Source",
-          href: "https://github.com/Subhadipjana95/print-mate",
+          href: "https://github.com/Subhadipjana95/Next.Ref_Alumni-Connect",
           icon: <Icons.github className="size-3" />,
         },
         {
           type: "Live",
-          href: "https://print-syte.vercel.app",
+          href: "https://next-reff-alumni-connect.vercel.app",
           icon: <Icons.globe className="size-3" />,
-        },
+        }
       ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776287225/printsyte_horizontal_wogkir.webp",
-      imageDark: "",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w4_uzxlxp.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w4_uzxlxp.webp",
       video: "",
     },
     {
@@ -285,33 +287,31 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Next.Ref_Alumni-Connect",
-      href: "https://next-reff-alumni-connect.vercel.app",
-      dates: "2024",
+      title: "PrintSyte - Passport Photo Genarator",
+      href: "https://print-syte.vercel.app/",
+      dates: "2026",
       active: true,
-      description:
-        "College-Verified Alumni Referral Platform built with TypeScript.",
+      description: "PrintSyte is a passport photo generator that helps you create & print passport photos in a single click.",
       technologies: [
         "TypeScript",
         "Next.js",
         "Tailwind CSS",
-        "Framer Motion",
-        "GSAP"
+        "remove.bg"
       ],
       links: [
         {
           type: "Source",
-          href: "https://github.com/Subhadipjana95/Next.Ref_Alumni-Connect",
+          href: "https://github.com/Subhadipjana95/print-mate",
           icon: <Icons.github className="size-3" />,
         },
         {
           type: "Live",
-          href: "https://next-reff-alumni-connect.vercel.app",
+          href: "https://print-syte.vercel.app",
           icon: <Icons.globe className="size-3" />,
-        }
+        },
       ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w4_uzxlxp.webp",
-      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w4_uzxlxp.webp",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776287225/printsyte_horizontal_wogkir.webp",
+      imageDark: "",
       video: "",
     },
     {
@@ -372,8 +372,7 @@ export const DATA = {
       image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w6_rqdjc7.webp",
       imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768645965/w7_o78qvl.webp",
       video: "",
-    },
-
+    }
   ],
   hackathons: [
     {
