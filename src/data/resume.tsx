@@ -20,49 +20,52 @@ export const DATA = {
   url: "https://github.com/Subhadipjana95",
   location: "Kolkata, India",
   locationLink: "https://www.google.com/maps/place/kolkata",
-  descriptionValue: "UI/UX Designer, Design Engineer, Frontend Web Dev. I love to design and build products with stunning aesthetic.",
+  descriptionValue: "Design Engineer, Full Stack Dev. I love to design and build products with stunning aesthetic.",
   description: (
     <div className="">
-      <Highlight>
-        <SparklesText className="text-inherit  text-sm sm:text-lg font-semibold" sparklesCount={3}>UI/UX Designer</SparklesText>
-      </Highlight>,{" "}
+      
       <Highlight>
         <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Design Engineer</SparklesText>
-      </Highlight>,{" "}
+      </Highlight>{" & "}
       <Highlight>
-        <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Frontend Dev</SparklesText>
-      </Highlight>. I love to design and build products with stunning aesthetics.
+        <SparklesText className="text-inherit text-sm sm:text-lg font-semibold" sparklesCount={3}>Full Stack Dev</SparklesText>
+      </Highlight>, I love to design and build products with stunning aesthetics.
     </div>
   ),
   
   avatarUrl: "https://github.com/Subhadipjana95.png",
   skills: [
-    { name: "Next.js", icon: <Icons.nextjs className="size-3" /> },
-    { name: "React.js", icon: <Icons.react className="size-3" /> },
-    { name: "TypeScript", icon: <Icons.typescript className="size-3" /> },
-    { name: "JavaScript", icon: <Icons.javascript className="size-3" /> },
-    { name: "Tailwind CSS", icon: <Icons.tailwind className="size-3" /> },
-    { name: "Framer Motion", icon: <Icons.framermotion className="size-3" /> },
-    { name: "GSAP", icon: <Icons.gsap className="size-3" /> },
-    { name: "Three.js", icon: <Icons.threejs className="size-3" /> },
-    { name: "WebGL", icon: <Icons.webgl className="size-3" /> },
-    { name: "HTML", icon: <Icons.html5 className="size-3" /> },
-    { name: "CSS", icon: <Icons.css3 className="size-3" /> },
-    { name: "Figma", icon: <Icons.figma className="size-3" /> },
-    { name: "Canva", icon: <Icons.canva className="size-3" /> },
-    { name: "Adobe Illustrator", icon: <Icons.AdobeIllustrator className="size-3" /> },
-    { name: "Graphic Design" },
+    { name: "Next.js", icon: <Icons.nextjs className="size-4" /> },
+    { name: "Astro", icon: <Icons.astro className="size-4" /> },
+    { name: "React.js", icon: <Icons.react className="size-4" /> },
+    { name: "React Router", icon: <Icons.reactRouter className="size-4" /> },
+    { name: "TypeScript", icon: <Icons.typescript className="size-4" /> },
+    { name: "JavaScript", icon: <Icons.javascript className="size-4" /> },
+    { name: "Tailwind CSS", icon: <Icons.tailwind className="size-4" /> },
+    { name: "Motion", icon: <Icons.motion className="size-4" /> },
+    { name: "Shadcn UI", icon: <Icons.shadcnui className="size-4" /> },
+    { name: "GSAP", icon: <Icons.gsap className="size-4" /> },
+    // { name: "Three.js", icon: <Icons.threejs className="size-3" /> },
+    { name: "Node.js", icon: <Icons.nodejs className="size-4" /> },
+    { name: "Express.js", icon: <Icons.expressjs className="size-4" /> },
+    { name: "MongoDB", icon: <Icons.mongodb className="size-4" /> },
+    { name: "HTML", icon: <Icons.html5 className="size-4" /> },
+    { name: "CSS", icon: <Icons.css3 className="size-4" /> },
+    { name: "Figma", icon: <Icons.figma className="size-4" /> },
+    { name: "Graphic Design", icon: <Icons.design className="size-4" /> },
+    { name: "Resend", icon: <Icons.resend className="size-4" /> },
     { name: "Firebase", icon: <Icons.firebase className="size-3" /> },
-    { name: "MongoDB", icon: <Icons.mongodb className="size-3" /> },
-    { name: "Vite", icon: <Icons.vite className="size-3" /> },
-    { name: "Git", icon: <Icons.git className="size-3" /> },
-    { name: "GitHub", icon: <Icons.github className="size-3" /> },
+    { name: "Vite", icon: <Icons.vite className="size-4" /> },
+    { name: "Git", icon: <Icons.git className="size-4" /> },
+    { name: "GitHub", icon: <Icons.github className="size-4" /> },
+    { name: "Turborepo", icon: <Icons.turborepo className="size-4" /> },
     { name: "Vercel", icon: <Icons.vercel className="size-3" /> },
-    { name: "Netlify", icon: <Icons.netlify className="size-3" /> },
+    { name: "Netlify", icon: <Icons.netlify className="size-4" /> },
+    { name: "Render", icon: <Icons.render className="size-4" /> },
     { name: "SEO", icon: <Icons.seo className="size-3" /> },
-    { name: "C", icon: <Icons.cLang className="size-3" /> },
-    { name: "Java", icon: <Icons.javaLang className="size-3" /> },
-    { name: "Python", icon: <Icons.python className="size-3" /> },
+    { name: "C", icon: <Icons.cLang className="size-4" /> },
+    { name: "Java", icon: <Icons.javaLang className="size-4" /> },
+    // { name: "Python", icon: <Icons.python className="size-4" /> },
   ] satisfies Skill[],
   navbar: [
     {
@@ -70,11 +73,11 @@ export const DATA = {
       icon: (<HomeIcon size={20} />),
       label: "Home"
     },
-    {
-      href: "/blog",
-      icon: (<BookTextIcon size={20} />),
-      label: "Blog"
-    },
+    // {
+    //   href: "/blog",
+    //   icon: (<BookTextIcon size={20} />),
+    //   label: "Blog"
+    // },
     {
       href: "/support",
       icon: (<HeartIcon size={20} />),
@@ -113,12 +116,12 @@ export const DATA = {
   },
   work: [
     {
-      company: "Groot UI",
-      href: "https://grootui.vercel.app",
+      company: "Groot Studio",
+      href: "https://grootstudio.vercel.app",
       badges: ["Founder"],
       location: "Kolkata, India",
       title: "Design Engineer",
-      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776719149/Groot_Logo_ala1pg.webp",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1779053481/Groot_icon1_rwihjq.webp",
       start: "Apr 2026",
       end: "Present",
       description:
@@ -154,7 +157,7 @@ export const DATA = {
       badges: [],
       location: "Kolkata, India",
       title: "UI/UX Developer",
-      logoUrl: "https://media.licdn.com/dms/image/v2/D560BAQEBoC6f35Ykow/company-logo_200_200/B56Z2RHtegKMAI-/0/1776256211642/heva_ai_logo?e=1778112000&v=beta&t=rDS7q4Qrrzrhbu9I82lzEmq_kyeJBevmVAQYTV0m-Z4",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1779058349/heva_ai_logo_k5lmnb.jpg",
       start: "Apr 2026",
       end: "May 2026",
       description:
@@ -169,15 +172,16 @@ export const DATA = {
       logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/f_auto,q_auto,c_fill/v1768681855/Screenshot_2026-01-15_040402_r9wd4a.webp",
       start: "2023",
       end: "2027",
+      description: "CGPA: 8.96"
     },
   ],
   projects: [
     {
-      title: "Groot UI - Design System",
-      href: "https://grootui.vercel.app",
+      title: "Groot Studio - Design System",
+      href: "https://grootstudio.vercel.app",
       dates: "2026",
       active: true,
-      description: "Groot UI is a design system that provides a set of pre-designed components and patterns for building web applications.",
+      description: "Groot Studio is a design system that provides a set of pre-designed components and patterns for building web applications.",
       technologies: [
         "TypeScript",
         "Next.js",
@@ -188,17 +192,17 @@ export const DATA = {
       links: [
         {
           type: "Source",
-          href: "https://github.com/Subhadipjana95/Groot-UI",
+          href: "https://github.com/Subhadipjana95/Groot-Studio",
           icon: <Icons.github className="size-3" />,
         },
         {
           type: "Live",
-          href: "https://grootui.vercel.app",
+          href: "https://grootstudio.vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286826/Groot-UI_Preview_ojjktb.webp",
-      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286912/Groot_UI_Preview_Dark_in5qww.webp",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1779054394/Groot_Preview_Banner2_light_hw0wjn.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1779054393/Groot_Preview_Banner2_u94ycz.webp",
       video: "",
     },
     {
@@ -609,11 +613,12 @@ export const DATA = {
   ],
   playlists: {
     spotify: [
-      { src: "https://open.spotify.com/embed/playlist/52ThapGlNXQZ7CRfOIbkj4" }
+      // { src: "https://open.spotify.com/embed/playlist/52ThapGlNXQZ7CRfOIbkj4" }
     ],
     youtube: [
-      { src: "https://www.youtube.com/embed/PI_v2QITwns?si=FaCVKry2aOYuG2hL" },
-      { src: "https://www.youtube.com/embed/z4nmwL3w0oc?si=4uG7QP5W_BQCK2Go" }
+      { src: "https://www.youtube.com/embed/E_-0fikXK5U?si=vFG0MVk5bHejrdZw" },
+      { src: "https://www.youtube.com/embed/CztzeOSvPyQ?si=ydUH2sodH0kpfA2J" },
+      { src: "https://www.youtube.com/embed/PI_v2QITwns?si=FaCVKry2aOYuG2hL" }
     ]
   },
 } as const;
