@@ -69,11 +69,11 @@ export function FavSlider() {
           modules={[Pagination, Navigation]}
           className="fav-swiper"
         >
-          {DATA.playlists.spotify.map((item, index) => (
+          {/* {DATA.playlists.spotify.map((item, index) => (
             <SwiperSlide key={`spotify-${index}`}>
               <SpotifyPlaylist src={item.src} />
             </SwiperSlide>
-          ))}
+          ))} */}
           {DATA.playlists.youtube.map((item, index) => (
             <SwiperSlide key={`youtube-${index}`}>
               <YoutubePlaylist src={item.src} />
