@@ -117,11 +117,11 @@ export const DATA = {
   work: [
     {
       company: "Groot Studio",
-      href: "https://grootstudio.vercel.app",
+      href: "https://grootstudio.dev",
       badges: ["Founder"],
       location: "Kolkata, India",
       title: "Design Engineer",
-      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1779053481/Groot_icon1_rwihjq.webp",
+      logoUrl: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1782587391/GrootStudio_Favicon_96x96_wzmosx.webp",
       start: "Apr 2026",
       end: "Present",
       description:
@@ -178,7 +178,7 @@ export const DATA = {
   projects: [
     {
       title: "Groot Studio - Design System",
-      href: "https://grootstudio.vercel.app",
+      href: "https://grootstudio.dev",
       dates: "2026",
       active: true,
       description: "Groot Studio is a design system that provides a set of pre-designed components and patterns for building web applications.",
@@ -197,12 +197,12 @@ export const DATA = {
         },
         {
           type: "Live",
-          href: "https://grootstudio.vercel.app",
+          href: "https://grootstudio.dev",
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1779054394/Groot_Preview_Banner2_light_hw0wjn.webp",
-      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1779054393/Groot_Preview_Banner2_u94ycz.webp",
+      image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1782588146/Groot_Banner_Light_he2og2.webp",
+      imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1782588146/Groot_Studio_Banner_Dark_kxnwf5.webp",
       video: "",
     },
     {
