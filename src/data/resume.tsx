@@ -102,7 +102,7 @@ export const DATA = {
       },
       X: {
         name: "X",
-        url: "https://x.com/Subhadip53874",
+        url: "https://x.com/soulsofsavi",
         icon: <TwitterIcon size={20} />,
         navbar: true,
       },
